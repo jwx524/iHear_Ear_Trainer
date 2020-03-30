@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 登录</button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="functionlist">
+    <view class="divLine"></view>
+    <view class="func">
+      <text class="functitle">对题率：100%</text>
+    </view>
+    <navigator class="func" url="/pages/shoucang/shoucang" open-type="navigate">
+      <text class="functitle">收藏夹</text>
+      <view class='arrow'></view>
+    </navigator>
+    <navigator class="func" url="/pages/cuoti/cuoti" open-type="navigate">
+      <text class="functitle">错题本</text>
+      <view class='arrow'></view>
+    </navigator>
+    <navigator class="func" url="/pages/daka/daka" open-type="navigate">
+      <text class="functitle">每日打卡</text>
+      <view class='arrow'></view>
+    </navigator>
+    <navigator class="func" url="/pages/settings/settings" open-type="navigate">
+      <text class="functitle">设置</text>
+      <view class='arrow'></view>
+    </navigator>
+    
+  </view>
+</view>
