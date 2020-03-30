@@ -1,0 +1,24 @@
+#contain{
+  padding: 50rpx;
+}
+.testcol{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  margin: 5rpx;
+}
+.testobj{
+  height: 290rpx;
+  width: 290rpx;
+  background-color: #5ca;
+  margin: 20rpx;
+}
+text{
+  width: 290rpx;
+  height: 290rpx;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  color: #fff;
+  font-size: 70rpx;
+}

@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/mine/mine",
+    "pages/shoucang/shoucang",
+    "pages/cuoti/cuoti",
+    "pages/daka/daka",
+    "pages/settings/settings",
+    "pages/index2/index2",
+    "pages/test/test"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#0ca",
+    "navigationBarTitleText": "乐理2020",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页面",
+        "iconPath": "images/tab_account2.png",
+        "selectedIconPath": "images/tab_account2.png"
+      },
+      {
+        "pagePath": "pages/test/test",
+        "text": "测验",
+        "iconPath": "images/tab_course1.png",
+        "selectedIconPath": "images/tab_course2.png"
+      },{
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/tab_account1.png",
+        "selectedIconPath": "images/tab_account1.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,105 @@
+<view class="ct">
+	<!--pics文件夹下的background.jpg文件-->
+	<!-- <image class='bj' src="cloud://minipro-qycj0.6d69-minipro-qycj0-1300419391/bz1.gif" mode="aspectFill"></image> -->
+	<!--页面其它部分-->
+<view class="search">
+    <SearchBar id="SearchBar" addflag="{{addflag}}" addimg="{{addimg}}" bind:addhandle="addhandle" searchstr="{{searchstr}}" bind:searchList="searchList" bind:endsearchList="endsearchList" bind:cancelsearch="cancelsearch" bind:activity_clear="activity_clear">
+    </SearchBar>
+</view>
+
+<view class="content">
+      <scroll-view class='left' scroll-y="true" style="height:{scrollheight}}px">
+        <view class="{{flag==0?'select':'normal'}}" id='0' bindtap='switchNav' >鲁菜</view>
+        <view class="{{flag==1?'select':'normal'}}" id='1' bindtap='switchNav'>川菜</view>
+        <view class="{{flag==2?'select':'normal'}}" id='2' bindtap='switchNav'>粤菜</view>
+        <view class="{{flag==3?'select':'normal'}}" id='3' bindtap='switchNav'>苏菜</view>
+        <view class="{{flag==4?'select':'normal'}}" id='4' bindtap='switchNav'>闽菜</view>
+        <view class="{{flag==5?'select':'normal'}}" id='5' bindtap='switchNav'>浙菜</view>
+        <view class="{{flag==6?'select':'normal'}}" id='6' bindtap='switchNav'>湘菜</view>        
+        <view class="{{flag==7?'select':'normal'}}" id='7' bindtap='switchNav'>徽菜</view>
+      </scroll-view>
+      <view class='right'>
+        <view class='category'>
+          <swiper current='{{currentTab}}' style="height:{{scrollheight}}px" vertical="true">
+            <swiper-item id='0' class="obj" catchtouchmove="stopTouchMove">
+            <scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px">
+              <view class="content2" style="opacity:{{10}}">
+              <view class='text'>
+              鲁菜口味咸鲜为主。讲究原料质地优良，以盐提鲜，以汤壮鲜，调味讲求咸鲜纯正，突出本味。咸鲜为主火候精湛，精于制汤，善烹海味。特点是清香、鲜嫩、味醇而著名，十分讲究清汤和奶汤的调制，清汤色清而鲜，奶汤色白而醇。烟台福山为胶东菜发源地。以烹制各种海鲜而驰名，口味清淡。济南历城为济南菜发源地。
+              </view>
+              </view>
+              <view class="content2" style="opacity:{{10}}">
+              <view class='text'>
+              鲁菜口味咸鲜为主。讲究原料质地优良，以盐提鲜，以汤壮鲜，调味讲求咸鲜纯正，突出本味。咸鲜为主火候精湛，精于制汤，善烹海味。特点是清香、鲜嫩、味醇而著名，十分讲究清汤和奶汤的调制，清汤色清而鲜，奶汤色白而醇。烟台福山为胶东菜发源地。以烹制各种海鲜而驰名，口味清淡。济南历城为济南菜发源地。
+              </view>
+              </view>
+              </scroll-view>               
+            </swiper-item>
+            <swiper-item id='1' catchtouchmove="stopTouchMove">
+            <scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px">           -->
+              <view class="content2">
+              <view class='text'>
+             川菜口味麻辣为主，菜式多样，口味清鲜醇浓并重，以善用麻辣调味（鱼香、麻辣、辣子、陈皮、椒麻、怪味、酸辣诸味）。点在于味型多样。辣椒、胡椒、花椒、豆瓣酱等是主要调味品，不同的配比，无不厚实醇浓，具有“一菜一格”、“百菜百味”的特殊风味，各式菜点无不脍炙人口。
+              </view>
+              </view>
+              </scroll-view>              
+            </swiper-item>
+            <swiper-item id='2' catchtouchmove="stopTouchMove">
+            <scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px">
+              <view class="content2">
+              <view class='text'>
+             粤菜烹调技艺多样善变，用料奇异广博。在烹调上以炒、爆为主，兼有烩、煎、烤，讲究清而不淡，鲜而不俗，嫩而不生，油而不腻，有“五滋”(香、松、软、肥、浓)、“六味”(酸、甜、苦、辣、咸、鲜)之说。时令性强，夏秋尚清淡，冬春求浓郁。
+              </view>
+              </view> 
+              </scroll-view> 
+            </swiper-item>
+            <swiper-item id='3' catchtouchmove="stopTouchMove">
+            <scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px">            -->
+              <view class="content2">
+              <view class='text'>
+              江苏菜系选料讲究，刀工精细，口味偏甜，造型讲究，特色鲜明。由于江浙地区气候潮湿，又靠近沿海，所以往往会在菜中增加糖分，来去除湿气。江苏菜很少放辣椒，因为吃辣椒虽然能够去除湿气，但是容易上火。因此，江浙菜系是以偏甜为主。
+              </view>
+              </view> 
+              </scroll-view> 
+            </swiper-item>
+            <swiper-item id='4' catchtouchmove="stopTouchMove">
+            <scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px">
+              <view class="content2">
+              <view class='text'>
+             闽菜有“福州菜飘香四海，食文化千古流传”之称，有以下鲜明特征：一为刀工巧妙，寓趣于味；二为汤菜众多，变化无穷；三为调味奇特，别是一方。闽菜最突出的烹调方法有醉、扣、糟等，其中最具特色的是糟，有炝糟、醉糟等。
+              </view>
+              </view> 
+              </scroll-view> 
+            </swiper-item>
+            <swiper-item id='5' catchtouchmove="stopTouchMove">
+            <scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px">
+              <view class="content2">
+              <view class='text'>
+             浙菜是以杭州、宁波、绍兴和温州四种风味为代表的地方菜系。浙菜采用原料十分广泛，注重原料的新鲜、合理搭配，以求味道的互补，充分发掘出普通原料的美味与营养。特别是杭菜中的湖上帮和山里帮两大风味技术体系，都强调原料鲜嫩，现取现做。
+              </view>
+              </view> 
+              </scroll-view> 
+            </swiper-item>
+            <swiper-item id='6' catchtouchmove="stopTouchMove">
+            <scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px">
+              <view class="content2">
+              <view class='text'>
+              湘菜是中国历史悠久的一个地方风味菜。湘菜特别讲究调味，尤重酸辣、咸香、清香、浓鲜。夏天炎热，其味重清淡、香鲜。冬天湿冷，味重热辣、浓鲜。湘菜调味，特色是“酸辣”，以辣为主，酸寓其中。“酸”是酸泡菜之酸，比醋更为醇厚柔和。
+              </view>
+              </view> 
+              </scroll-view> 
+            </swiper-item>
+            <swiper-item id='7' catchtouchmove="stopTouchMove">
+            <scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px">
+              <view class="content2">
+              <view class='text'>
+              徽菜来自徽州。离不开徽州这个特殊的地理环境提供的客观条件，其主要特点是喜用火腿佐味，以冰糖提鲜，善于保持原料的本味、真味，口感以咸、鲜、香为主，放糖不觉其甜。徽菜菜肴常用木炭风炉单炖单煮，原锅上桌，浓香四溢，体现了徽味古朴典雅的风貌。
+              </view>
+              </view> 
+              </scroll-view> 
+            </swiper-item>
+          </swiper>
+        </view>
+        </view>
+  </view>
+  </view>

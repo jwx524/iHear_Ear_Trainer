@@ -1,0 +1,26 @@
+<view class="container" id="contain">
+  <view class="testcol">
+    <view class="testobj">
+    <text>音程</text>
+    </view>
+    <view class="testobj">
+    <text>音阶</text>
+    </view>
+  </view>
+  <view class="testcol">
+    <view class="testobj">
+    <text>和弦</text>
+    </view>
+    <view class="testobj">
+    <text>和弦走向</text>
+    </view>
+  </view>
+  <view class="testcol">
+    <view class="testobj">
+    <text>旋律</text>
+    </view>
+    <view class="testobj">
+    <text>节奏</text>
+    </view>
+  </view>
+</view>
