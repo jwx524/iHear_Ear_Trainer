@@ -11,23 +11,31 @@ page{
   background-size:100% 100%;
   z-index: -1;
 }
- .content {
+  .content {
   display: flex;
   font-family: "Microsoft YaHei";
   width: 100%;
   height: 100%;
   overflow:hidden;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .left {
-  width: 20%;
-  font-size: 20px;
+  height: 20%;
+  font-size: 40rpx;
   /* height: 1330rpx; */
-  height:100%;
+  width:100%;
   /* background-color: rgba(39, 173, 235, 0); */
-  background-color: #fff
+  background-color: #fff;
+  overflow-y: scroll;
+  white-space: nowrap; 
+  justify-content: center;
+  align-items: center;
 }
 .left view {
+  width: 195rpx;
+  display: inline-flex;
   text-align: center;
   justify-content: center;
   /* height: 170rpx; */
@@ -36,7 +44,8 @@ page{
 }
 .select {
   background-color: #ffffff;
-  border-left: 2px solid #36AE66;
+  border-bottom: 2px solid #36AE66;
+  border-right: 2px solid #f2f2f2;
   font-weight: bold;
   display: flex;
   text-align: center;
@@ -45,7 +54,7 @@ page{
 }
 .normal {
   background-color: rgba(39, 173, 235, 0);
-  border-bottom: 2px solid #f2f2f2;
+  border-right: 2px solid #f2f2f2;
 }
 .right {
   width: 100%;
@@ -75,9 +84,11 @@ page{
 .text{
   margin-left: 5rpx;
   margin-right: 5rpx;
+  padding-left: 15rpx;
   color:#000;
   align-items: center;
   justify-content: center;
+  display: inline-flex;
 }
 .ct{
   background-color: #eee;
@@ -87,11 +98,50 @@ page{
 } */
 .content2{
   background-color: #fff;
-  padding: 50rpx;
+  padding: 25rpx 50rpx 50rpx 50rpx;
   margin-top: 25rpx;
   margin-bottom: 25rpx;
   margin-left: 25rpx;
   margin-right: 25rpx;
-  border-radius: 10%;
+  border-radius: 40rpx;
   box-shadow: 4rpx 4rpx 6rpx 8rpx #ccc;
+}
+.btn{
+  display: inline-flex;
+  width: 40rpx;
+  height: 40rpx;
+  padding:0 20rpx;
+  right: -420rpx; 
+   /*position: absolute;
+  top: 0;
+  bottom: 0; */
+  background-size: 40rpx 40rpx;
+  background-repeat:no-repeat;
+  border:none;
+}
+.music{
+  height: 100rpx;
+  width: 100rpx;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 25rpx;
+  margin-left: 50rpx;
+}
+text{
+  display: inline-flex;
+  align-items:center;
+  justify-content: center;
+  position: relative;
+  right: -175rpx;
+  top: -35rpx;
+  color: #aaa;
+}
+switch{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  right: -175rpx;
+  top: -15rpx;
 }

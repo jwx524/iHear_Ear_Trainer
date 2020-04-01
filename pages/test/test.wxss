@@ -12,6 +12,8 @@
   width: 290rpx;
   background-color: #5ca;
   margin: 20rpx;
+  border-radius: 10%;
+  box-shadow: 3rpx 3rpx 5rpx 5rpx #ccc;
 }
 text{
   width: 290rpx;

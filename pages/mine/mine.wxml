@@ -9,7 +9,7 @@
   <view class="functionlist">
     <view class="divLine"></view>
     <view class="func">
-      <text class="functitle">对题率：100%</text>
+      <text class="functitle">对题率：{{grade}}%</text>
     </view>
     <navigator class="func" url="/pages/shoucang/shoucang" open-type="navigate">
       <text class="functitle">收藏夹</text>

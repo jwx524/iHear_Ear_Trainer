@@ -1,0 +1,5 @@
+<view>
+
+  <image src="/images/start.png" class='pic' catchtap='playMusic'></image>
+
+</view>
