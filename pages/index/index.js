@@ -10,48 +10,40 @@ Page({
   
     flag: 0,
     currentTab: 0,
-    content:[
-      {
-        ifShoucang:false,
-        text:"纯一度",
-        music:{
-          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/1.m4a?sign=91646a8f501a80dde184e95865c14c83&t=1585659932',
-          ifplay: false,
-          innerAudioContext: null
-        }
-      },
+    // play: [],
+    content:[[
       {
         ifShoucang: false,
         text: "小二度",
         music: {
-          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/-2.m4a?sign=477dc11aa3d78d0449374e5906bd860f&t=1585672302',
+          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/-2.m4a?sign=234001d1bffa4599f4a8515eeed9f0a9&t=1585793399',
           ifplay: false,
           innerAudioContext: null
-        }
+        },
       },
       {
         ifShoucang: false,
         text: "大二度",
         music: {
-          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2B2.m4a?sign=acec365c85cd6e800077c3a74e345ab8&t=1585702545',
+          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2B2.m4a?sign=6cae8400e0b66fbded22118f4b719ac2&t=1585793550',
           ifplay: false,
           innerAudioContext: null
-        }
+        },
       },
       {
         ifShoucang: false,
         text: "小三度",
         music: {
-          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/-3.m4a?sign=3fa850fef1010f27d275f23c11f2282e&t=1585703387',
+          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/-3.m4a?sign=6982ffae29509d4f2f693427af16c12e&t=1585793738',
           ifplay: false,
           innerAudioContext: null
-        }
+        },
       },
       {
         ifShoucang: false,
         text: "大三度",
         music: {
-          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2B3.m4a?sign=0c887323b7dda608c9df1d460baa13e0&t=1585704012',
+          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2B3.m4a?sign=ba2ed04e24d4e8b4738db6d9ee36b6bf&t=1585793916',
           ifplay: false,
           innerAudioContext: null
         }
@@ -60,7 +52,7 @@ Page({
         ifShoucang: false,
         text: "纯四度",
         music: {
-          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/4.m4a?sign=0a92c2b6effd0beef69654747d28c548&t=1585704981',
+          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/4.m4a?sign=09930d351bfb06edf38c1f1992c1c6b7&t=1585794044',
           ifplay: false,
           innerAudioContext: null
         }
@@ -69,7 +61,7 @@ Page({
         ifShoucang: false,
         text: "增四度",
         music: {
-          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2B4.m4a?sign=64a2ae65116100020a3fc3e4f7aab0c8&t=1585705373',
+          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2B4.m4a?sign=ac8ba42ce4636787837c7305c7220346&t=1585794127',
           ifplay: false,
           innerAudioContext: null
         }
@@ -78,7 +70,7 @@ Page({
         ifShoucang: false,
         text: "纯五度",
         music: {
-          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/5.m4a?sign=f12ebc53c99e0ded0a86d1a3ae8b8cba&t=1585706094',
+          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/5.m4a?sign=9ad66cc94b5d44cc8ddc37d37c5de4af&t=1585794266',
           ifplay: false,
           innerAudioContext: null
         }
@@ -87,7 +79,7 @@ Page({
         ifShoucang: false,
         text: "小六度",
         music: {
-          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/-6.m4a?sign=c68b0a636bc49789a78e6907b86a301a&t=1585708152',
+          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/-6.m4a?sign=52d75d71f176e3bb0ec01ec2365aa2e1&t=1585794391',
           ifplay: false,
           innerAudioContext: null
         }
@@ -96,7 +88,7 @@ Page({
         ifShoucang: false,
         text: "大六度",
         music: {
-          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2B6.m4a?sign=3be8462cad73e478c6e5248a434c0e41&t=1585709258',
+          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2B6.m4a?sign=177cb1a8d72171f6c344a698aba5bd11&t=1585794503',
           ifplay: false,
           innerAudioContext: null
         }
@@ -105,7 +97,7 @@ Page({
         ifShoucang: false,
         text: "小七度",
         music: {
-          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/-7.m4a?sign=da2ae12988f8ad6a64e36e6b0f763006&t=1585709742',
+          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/-7.m4a?sign=69dc1f3dfa74217723d74ce778db3202&t=1585794581',
           ifplay: false,
           innerAudioContext: null
         }
@@ -114,7 +106,7 @@ Page({
         ifShoucang: false,
         text: "大七度",
         music: {
-          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2B7.m4a?sign=5da18a974f9423d668521a9467bc705c&t=1585710629',
+          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2B7.m4a?sign=03ff8acbad3799de5f3153ce67059939&t=1585795058',
           ifplay: false,
           innerAudioContext: null
         }
@@ -123,15 +115,30 @@ Page({
         ifShoucang: false,
         text: "纯八度",
         music: {
-          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/8.m4a?sign=ea3c50c120592a9ed105892d8acd7f27&t=1585710643',
+          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/8.m4a?sign=33fdb0d696ba009dd380f37f46846d8d&t=1585795077',
           ifplay: false,
           innerAudioContext: null
         }
       },
     ],
-    
+    [
+      {
+        ifShoucang: false,
+        text: "大调音阶",
+        music: {
+          src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%A4%A7%E8%B0%83.m4a?sign=5f1f237904605800134297dbf0e31454&t=1585822339',
+          ifplay: false,
+          innerAudioContext: null
+        }
+      },
+    ]]
   },
-
+  onShareAppMessage: function () {
+    return {
+      title: '帮你练就绝对音准！',
+      imageUrl: ''
+    }
+  },
   onLoad: function (options) {
     let searchShow = JSON.parse(options.data);
     let that = this
@@ -159,7 +166,6 @@ Page({
   catchTouchMove: function (res) {
     return false
   },
-
   onLoad: function () {
     console.log('onLoad test');
     let that = this;
@@ -172,27 +178,28 @@ Page({
       }
     })
     console.log(this.data.scrollheight)
-    let innerAudioContext = wx.createInnerAudioContext();
-    let i = 0;
-    // for (i = 0; i < 5; i++) {
+    var innerAudioContext = wx.createInnerAudioContext();
+    var i = 0;
+    // for (i = 0; i < 12; i++) {
+      
     //   this.setData({
-    //     'content[i].music.innerAudioContext': innerAudioContext,
+    //     ['content[{{i}}].music.innerAudioContext'] : innerAudioContext
     //   })
     // }
     this.setData({
-      'content[0].music.innerAudioContext': innerAudioContext,
-      'content[1].music.innerAudioContext': innerAudioContext,
-      'content[2].music.innerAudioContext': innerAudioContext,
-      'content[3].music.innerAudioContext': innerAudioContext,
-      'content[4].music.innerAudioContext': innerAudioContext,
-      'content[5].music.innerAudioContext': innerAudioContext,
-      'content[6].music.innerAudioContext': innerAudioContext,
-      'content[7].music.innerAudioContext': innerAudioContext,
-      'content[8].music.innerAudioContext': innerAudioContext,
-      'content[9].music.innerAudioContext': innerAudioContext,
-      'content[10].music.innerAudioContext': innerAudioContext,
-      'content[11].music.innerAudioContext': innerAudioContext,
-      'content[12].music.innerAudioContext': innerAudioContext,
+      'content[0][0].music.innerAudioContext': innerAudioContext,
+      'content[0][1].music.innerAudioContext': innerAudioContext,
+      'content[0][2].music.innerAudioContext': innerAudioContext,
+      'content[0][3].music.innerAudioContext': innerAudioContext,
+      'content[0][4].music.innerAudioContext': innerAudioContext,
+      'content[0][5].music.innerAudioContext': innerAudioContext,
+      'content[0][6].music.innerAudioContext': innerAudioContext,
+      'content[0][7].music.innerAudioContext': innerAudioContext,
+      'content[0][8].music.innerAudioContext': innerAudioContext,
+      'content[0][9].music.innerAudioContext': innerAudioContext,
+      'content[0][10].music.innerAudioContext': innerAudioContext,
+      'content[0][11].music.innerAudioContext': innerAudioContext,
+      'content[1][0].music.innerAudioContext': innerAudioContext,
     })
     innerAudioContext.loop = false
     innerAudioContext.onPlay(() => {//监听播放事件
@@ -204,20 +211,50 @@ Page({
     innerAudioContext.onPause(() => {//监听暂停事件
       console.log('stopped')
     })
+    
+    
   },
-  playMusic0:function(){
-    var ifplay = this.data.content[0].music.ifplay;
-    var innerAudioContext = this.data.content[0].music.innerAudioContext;
-    if(!ifplay){
-      innerAudioContext.src = this.data.content[0].music.src;
+  playMusic: function (e) {
+    console.log(e.currentTarget)
+    var pid = parseInt(e.currentTarget.dataset.pid)
+    var ifplay = this.data.content[pid].music.ifplay;
+    var innerAudioContext = this.data.content[pid].music.innerAudioContext;
+    if (!ifplay) {
+      innerAudioContext.src = this.data.content[pid].music.src;
       innerAudioContext.play();
       this.setData({
-        'content[0].music.ifplay': true,
+        'content[pid].music.ifplay': true,
       })
       innerAudioContext.onEnded((res) => {
         console.log('播放结束!');
         this.setData({
-          'content[0].music.ifplay':false,
+          'content[pid].music.ifplay': false,
+        })
+      })
+    }
+    else {
+      console.log('播放结束!');
+      innerAudioContext.pause();
+      this.setData({
+        'content[pid].music.ifplay': false
+      })
+    }
+  },
+  playMusic00:function(e){
+    console.log(e.currentTarget)
+    var pid = parseInt(e.currentTarget.dataset.pid)
+    var ifplay = this.data.content[0][0].music.ifplay;
+    var innerAudioContext = this.data.content[0][0].music.innerAudioContext;
+    if(!ifplay){
+      innerAudioContext.src = this.data.content[0][0].music.src;
+      innerAudioContext.play();
+      this.setData({
+        'content[0][0].music.ifplay': true,
+      })
+      innerAudioContext.onEnded((res) => {
+        console.log('播放结束!');
+        this.setData({
+          'content[0][0].music.ifplay':false,
         })
       })
     }
@@ -225,13 +262,13 @@ Page({
       console.log('播放结束!');
       innerAudioContext.pause();
       this.setData({
-        'content[0].music.ifplay': false
+        'content[0][0].music.ifplay': false
       })
     }
 },
-  switch0Change: function (e) {
+  switch00Change: function (e) {
     console.log('switch0 发生 change 事件，携带值为', e.detail.value);
-    var innerAudioContext = this.data.content[0].music.innerAudioContext;
+    var innerAudioContext = this.data.content[0][0].music.innerAudioContext;
     if (!innerAudioContext.loop) {
       innerAudioContext.loop = true;
       this.setData({
@@ -245,19 +282,19 @@ Page({
       })
     }
   },
-  playMusic1: function () {
-    var ifplay = this.data.content[1].music.ifplay;
-    var innerAudioContext = this.data.content[1].music.innerAudioContext;
+  playMusic01: function () {
+    var ifplay = this.data.content[0][1].music.ifplay;
+    var innerAudioContext = this.data.content[0][1].music.innerAudioContext;
     if (!ifplay) {
-      innerAudioContext.src = this.data.content[1].music.src;
+      innerAudioContext.src = this.data.content[0][1].music.src;
       innerAudioContext.play();
       this.setData({
-        'content[1].music.ifplay': true,
+        'content[0][1].music.ifplay': true,
       })
       innerAudioContext.onEnded((res) => {
         console.log('播放结束!');
         this.setData({
-          'content[1].music.ifplay': false,
+          'content[0][1].music.ifplay': false,
         })
       })
     }
@@ -265,13 +302,13 @@ Page({
       console.log('播放结束!');
       innerAudioContext.pause();
       this.setData({
-        'content[1].music.ifplay': false
+        'content[0][1].music.ifplay': false
       })
     }
   },
-  switch1Change: function (e) {
+  switch01Change: function (e) {
     console.log('switch1 发生 change 事件，携带值为', e.detail.value);
-    var innerAudioContext = this.data.content[1].music.innerAudioContext;
+    var innerAudioContext = this.data.content[0][1].music.innerAudioContext;
     if (!innerAudioContext.loop) {
       innerAudioContext.loop = true;
       this.setData({
@@ -285,19 +322,19 @@ Page({
       })
     }
   },
-  playMusic2: function () {
-    var ifplay = this.data.content[2].music.ifplay;
-    var innerAudioContext = this.data.content[2].music.innerAudioContext;
+  playMusic02: function () {
+    var ifplay = this.data.content[0][2].music.ifplay;
+    var innerAudioContext = this.data.content[0][2].music.innerAudioContext;
     if (!ifplay) {
-      innerAudioContext.src = this.data.content[2].music.src;
+      innerAudioContext.src = this.data.content[0][2].music.src;
       innerAudioContext.play();
       this.setData({
-        'content[2].music.ifplay': true,
+        'content[0][2].music.ifplay': true,
       })
       innerAudioContext.onEnded((res) => {
         console.log('播放结束!');
         this.setData({
-          'content[2].music.ifplay': false,
+          'content[0][2].music.ifplay': false,
         })
       })
     }
@@ -305,13 +342,13 @@ Page({
       console.log('播放结束!');
       innerAudioContext.pause();
       this.setData({
-        'content[2].music.ifplay': false
+        'content[0][2].music.ifplay': false
       })
     }
   },
-  switch2Change: function (e) {
+  switch02Change: function (e) {
     console.log('switch2 发生 change 事件，携带值为', e.detail.value);
-    var innerAudioContext = this.data.content[2].music.innerAudioContext;
+    var innerAudioContext = this.data.content[0][2].music.innerAudioContext;
     if (!innerAudioContext.loop) {
       innerAudioContext.loop = true;
       this.setData({
@@ -325,19 +362,19 @@ Page({
       })
     }
   },
-  playMusic3: function () {
-    var ifplay = this.data.content[3].music.ifplay;
-    var innerAudioContext = this.data.content[3].music.innerAudioContext;
+  playMusic03: function () {
+    var ifplay = this.data.content[0][3].music.ifplay;
+    var innerAudioContext = this.data.content[0][3].music.innerAudioContext;
     if (!ifplay) {
-      innerAudioContext.src = this.data.content[3].music.src;
+      innerAudioContext.src = this.data.content[0][3].music.src;
       innerAudioContext.play();
       this.setData({
-        'content[3].music.ifplay': true,
+        'content[0][3].music.ifplay': true,
       })
       innerAudioContext.onEnded((res) => {
         console.log('播放结束!');
         this.setData({
-          'content[3].music.ifplay': false,
+          'content[0][3].music.ifplay': false,
         })
       })
     }
@@ -345,13 +382,13 @@ Page({
       console.log('播放结束!');
       innerAudioContext.pause();
       this.setData({
-        'content[3].music.ifplay': false
+        'content[0][3].music.ifplay': false
       })
     }
   },
-  switch3Change: function (e) {
+  switch03Change: function (e) {
     console.log('switch3 发生 change 事件，携带值为', e.detail.value);
-    var innerAudioContext = this.data.content[3].music.innerAudioContext;
+    var innerAudioContext = this.data.content[0][3].music.innerAudioContext;
     if (!innerAudioContext.loop) {
       innerAudioContext.loop = true;
       this.setData({
@@ -365,19 +402,19 @@ Page({
       })
     }
   },
-  playMusic4: function () {
-    var ifplay = this.data.content[4].music.ifplay;
-    var innerAudioContext = this.data.content[4].music.innerAudioContext;
+  playMusic04: function () {
+    var ifplay = this.data.content[0][4].music.ifplay;
+    var innerAudioContext = this.data.content[0][4].music.innerAudioContext;
     if (!ifplay) {
-      innerAudioContext.src = this.data.content[4].music.src;
+      innerAudioContext.src = this.data.content[0][4].music.src;
       innerAudioContext.play();
       this.setData({
-        'content[4].music.ifplay': true,
+        'content[0][4].music.ifplay': true,
       })
       innerAudioContext.onEnded((res) => {
         console.log('播放结束!');
         this.setData({
-          'content[4].music.ifplay': false,
+          'content[0][4].music.ifplay': false,
         })
       })
     }
@@ -385,13 +422,13 @@ Page({
       console.log('播放结束!');
       innerAudioContext.pause();
       this.setData({
-        'content[4].music.ifplay': false
+        'content[0][4].music.ifplay': false
       })
     }
   },
-  switch4Change: function (e) {
+  switch04Change: function (e) {
     console.log('switch4 发生 change 事件，携带值为', e.detail.value);
-    var innerAudioContext = this.data.content[4].music.innerAudioContext;
+    var innerAudioContext = this.data.content[0][4].music.innerAudioContext;
     if (!innerAudioContext.loop) {
       innerAudioContext.loop = true;
       this.setData({
@@ -405,19 +442,19 @@ Page({
       })
     }
   },
-  playMusic5: function () {
-    var ifplay = this.data.content[5].music.ifplay;
-    var innerAudioContext = this.data.content[5].music.innerAudioContext;
+  playMusic05: function () {
+    var ifplay = this.data.content[0][5].music.ifplay;
+    var innerAudioContext = this.data.content[0][5].music.innerAudioContext;
     if (!ifplay) {
-      innerAudioContext.src = this.data.content[5].music.src;
+      innerAudioContext.src = this.data.content[0][5].music.src;
       innerAudioContext.play();
       this.setData({
-        'content[5].music.ifplay': true,
+        'content[0][5].music.ifplay': true,
       })
       innerAudioContext.onEnded((res) => {
         console.log('播放结束!');
         this.setData({
-          'content[5].music.ifplay': false,
+          'content[0][5].music.ifplay': false,
         })
       })
     }
@@ -425,13 +462,13 @@ Page({
       console.log('播放结束!');
       innerAudioContext.pause();
       this.setData({
-        'content[5].music.ifplay': false
+        'content[0][5].music.ifplay': false
       })
     }
   },
-  switch5Change: function (e) {
+  switch05Change: function (e) {
     console.log('switch5 发生 change 事件，携带值为', e.detail.value);
-    var innerAudioContext = this.data.content[5].music.innerAudioContext;
+    var innerAudioContext = this.data.content[0][5].music.innerAudioContext;
     if (!innerAudioContext.loop) {
       innerAudioContext.loop = true;
       this.setData({
@@ -445,19 +482,19 @@ Page({
       })
     }
   },
-  playMusic6: function () {
-    var ifplay = this.data.content[6].music.ifplay;
-    var innerAudioContext = this.data.content[6].music.innerAudioContext;
+  playMusic06: function () {
+    var ifplay = this.data.content[0][6].music.ifplay;
+    var innerAudioContext = this.data.content[0][6].music.innerAudioContext;
     if (!ifplay) {
-      innerAudioContext.src = this.data.content[6].music.src;
+      innerAudioContext.src = this.data.content[0][6].music.src;
       innerAudioContext.play();
       this.setData({
-        'content[6].music.ifplay': true,
+        'content[0][6].music.ifplay': true,
       })
       innerAudioContext.onEnded((res) => {
         console.log('播放结束!');
         this.setData({
-          'content[6].music.ifplay': false,
+          'content[0][6].music.ifplay': false,
         })
       })
     }
@@ -465,13 +502,13 @@ Page({
       console.log('播放结束!');
       innerAudioContext.pause();
       this.setData({
-        'content[6].music.ifplay': false
+        'content[0][6].music.ifplay': false
       })
     }
   },
-  switch6Change: function (e) {
+  switch06Change: function (e) {
     console.log('switch6 发生 change 事件，携带值为', e.detail.value);
-    var innerAudioContext = this.data.content[6].music.innerAudioContext;
+    var innerAudioContext = this.data.content[0][6].music.innerAudioContext;
     if (!innerAudioContext.loop) {
       innerAudioContext.loop = true;
       this.setData({
@@ -485,19 +522,19 @@ Page({
       })
     }
   },
-  playMusic7: function () {
-    var ifplay = this.data.content[7].music.ifplay;
-    var innerAudioContext = this.data.content[7].music.innerAudioContext;
+  playMusic07: function () {
+    var ifplay = this.data.content[0][7].music.ifplay;
+    var innerAudioContext = this.data.content[0][7].music.innerAudioContext;
     if (!ifplay) {
-      innerAudioContext.src = this.data.content[7].music.src;
+      innerAudioContext.src = this.data.content[0][7].music.src;
       innerAudioContext.play();
       this.setData({
-        'content[7].music.ifplay': true,
+        'content[0][7].music.ifplay': true,
       })
       innerAudioContext.onEnded((res) => {
         console.log('播放结束!');
         this.setData({
-          'content[7].music.ifplay': false,
+          'content[0][7].music.ifplay': false,
         })
       })
     }
@@ -505,13 +542,13 @@ Page({
       console.log('播放结束!');
       innerAudioContext.pause();
       this.setData({
-        'content[7].music.ifplay': false
+        'content[0][7].music.ifplay': false
       })
     }
   },
-  switch7Change: function (e) {
+  switch07Change: function (e) {
     console.log('switch7 发生 change 事件，携带值为', e.detail.value);
-    var innerAudioContext = this.data.content[7].music.innerAudioContext;
+    var innerAudioContext = this.data.content[0][7].music.innerAudioContext;
     if (!innerAudioContext.loop) {
       innerAudioContext.loop = true;
       this.setData({
@@ -525,19 +562,19 @@ Page({
       })
     }
   },
-  playMusic7: function () {
-    var ifplay = this.data.content[7].music.ifplay;
-    var innerAudioContext = this.data.content[7].music.innerAudioContext;
+  playMusic08: function () {
+    var ifplay = this.data.content[0][8].music.ifplay;
+    var innerAudioContext = this.data.content[0][8].music.innerAudioContext;
     if (!ifplay) {
-      innerAudioContext.src = this.data.content[7].music.src;
+      innerAudioContext.src = this.data.content[0][8].music.src;
       innerAudioContext.play();
       this.setData({
-        'content[7].music.ifplay': true,
+        'content[0][8].music.ifplay': true,
       })
       innerAudioContext.onEnded((res) => {
         console.log('播放结束!');
         this.setData({
-          'content[7].music.ifplay': false,
+          'content[0][8].music.ifplay': false,
         })
       })
     }
@@ -545,53 +582,13 @@ Page({
       console.log('播放结束!');
       innerAudioContext.pause();
       this.setData({
-        'content[7].music.ifplay': false
+        'content[0][8].music.ifplay': false
       })
     }
   },
-  switch7Change: function (e) {
-    console.log('switch7 发生 change 事件，携带值为', e.detail.value);
-    var innerAudioContext = this.data.content[7].music.innerAudioContext;
-    if (!innerAudioContext.loop) {
-      innerAudioContext.loop = true;
-      this.setData({
-        innerAudioContext: innerAudioContext
-      })
-    }
-    else {
-      innerAudioContext.loop = false;
-      this.setData({
-        innerAudioContext: innerAudioContext
-      })
-    }
-  },
-  playMusic8: function () {
-    var ifplay = this.data.content[8].music.ifplay;
-    var innerAudioContext = this.data.content[8].music.innerAudioContext;
-    if (!ifplay) {
-      innerAudioContext.src = this.data.content[8].music.src;
-      innerAudioContext.play();
-      this.setData({
-        'content[8].music.ifplay': true,
-      })
-      innerAudioContext.onEnded((res) => {
-        console.log('播放结束!');
-        this.setData({
-          'content[8].music.ifplay': false,
-        })
-      })
-    }
-    else {
-      console.log('播放结束!');
-      innerAudioContext.pause();
-      this.setData({
-        'content[8].music.ifplay': false
-      })
-    }
-  },
-  switch8Change: function (e) {
+  switch08Change: function (e) {
     console.log('switch8 发生 change 事件，携带值为', e.detail.value);
-    var innerAudioContext = this.data.content[8].music.innerAudioContext;
+    var innerAudioContext = this.data.content[0][8].music.innerAudioContext;
     if (!innerAudioContext.loop) {
       innerAudioContext.loop = true;
       this.setData({
@@ -605,19 +602,19 @@ Page({
       })
     }
   },
-  playMusic9: function () {
-    var ifplay = this.data.content[9].music.ifplay;
-    var innerAudioContext = this.data.content[9].music.innerAudioContext;
+  playMusic09: function () {
+    var ifplay = this.data.content[0][9].music.ifplay;
+    var innerAudioContext = this.data.content[0][9].music.innerAudioContext;
     if (!ifplay) {
-      innerAudioContext.src = this.data.content[9].music.src;
+      innerAudioContext.src = this.data.content[0][9].music.src;
       innerAudioContext.play();
       this.setData({
-        'content[9].music.ifplay': true,
+        'content[0][9].music.ifplay': true,
       })
       innerAudioContext.onEnded((res) => {
         console.log('播放结束!');
         this.setData({
-          'content[9].music.ifplay': false,
+          'content[0][9].music.ifplay': false,
         })
       })
     }
@@ -625,13 +622,93 @@ Page({
       console.log('播放结束!');
       innerAudioContext.pause();
       this.setData({
-        'content[9].music.ifplay': false
+        'content[0][9].music.ifplay': false
       })
     }
   },
-  switch9Change: function (e) {
+  switch09Change: function (e) {
     console.log('switch9 发生 change 事件，携带值为', e.detail.value);
-    var innerAudioContext = this.data.content[9].music.innerAudioContext;
+    var innerAudioContext = this.data.content[0][9].music.innerAudioContext;
+    if (!innerAudioContext.loop) {
+      innerAudioContext.loop = true;
+      this.setData({
+        innerAudioContext: innerAudioContext
+      })
+    }
+    else {
+      innerAudioContext.loop = false;
+      this.setData({
+        innerAudioContext: innerAudioContext
+      })
+    }
+  },
+  playMusic010: function () {
+    var ifplay = this.data.content[0][10].music.ifplay;
+    var innerAudioContext = this.data.content[0][10].music.innerAudioContext;
+    if (!ifplay) {
+      innerAudioContext.src = this.data.content[0][10].music.src;
+      innerAudioContext.play();
+      this.setData({
+        'content[0][10].music.ifplay': true,
+      })
+      innerAudioContext.onEnded((res) => {
+        console.log('播放结束!');
+        this.setData({
+          'content[0][10].music.ifplay': false,
+        })
+      })
+    }
+    else {
+      console.log('播放结束!');
+      innerAudioContext.pause();
+      this.setData({
+        'content[0][10].music.ifplay': false
+      })
+    }
+  },
+  switch010Change: function (e) {
+    console.log('switch10 发生 change 事件，携带值为', e.detail.value);
+    var innerAudioContext = this.data.content[0][10].music.innerAudioContext;
+    if (!innerAudioContext.loop) {
+      innerAudioContext.loop = true;
+      this.setData({
+        innerAudioContext: innerAudioContext
+      })
+    }
+    else {
+      innerAudioContext.loop = false;
+      this.setData({
+        innerAudioContext: innerAudioContext
+      })
+    }
+  },
+  playMusic011: function () {
+    var ifplay = this.data.content[0][11].music.ifplay;
+    var innerAudioContext = this.data.content[0][11].music.innerAudioContext;
+    if (!ifplay) {
+      innerAudioContext.src = this.data.content[0][11].music.src;
+      innerAudioContext.play();
+      this.setData({
+        'content[0][11].music.ifplay': true,
+      })
+      innerAudioContext.onEnded((res) => {
+        console.log('播放结束!');
+        this.setData({
+          'content[0][11].music.ifplay': false,
+        })
+      })
+    }
+    else {
+      console.log('播放结束!');
+      innerAudioContext.pause();
+      this.setData({
+        'content[0][11].music.ifplay': false
+      })
+    }
+  },
+  switch011Change: function (e) {
+    console.log('switch11 发生 change 事件，携带值为', e.detail.value);
+    var innerAudioContext = this.data.content[0][11].music.innerAudioContext;
     if (!innerAudioContext.loop) {
       innerAudioContext.loop = true;
       this.setData({
@@ -646,18 +723,18 @@ Page({
     }
   },
   playMusic10: function () {
-    var ifplay = this.data.content[10].music.ifplay;
-    var innerAudioContext = this.data.content[10].music.innerAudioContext;
+    var ifplay = this.data.content[1][0].music.ifplay;
+    var innerAudioContext = this.data.content[1][0].music.innerAudioContext;
     if (!ifplay) {
-      innerAudioContext.src = this.data.content[10].music.src;
+      innerAudioContext.src = this.data.content[1][0].music.src;
       innerAudioContext.play();
       this.setData({
-        'content[10].music.ifplay': true,
+        'content[1][0].music.ifplay': true,
       })
       innerAudioContext.onEnded((res) => {
         console.log('播放结束!');
         this.setData({
-          'content[10].music.ifplay': false,
+          'content[1][0].music.ifplay': false,
         })
       })
     }
@@ -665,53 +742,13 @@ Page({
       console.log('播放结束!');
       innerAudioContext.pause();
       this.setData({
-        'content[10].music.ifplay': false
+        'content[1][0].music.ifplay': false
       })
     }
   },
   switch10Change: function (e) {
-    console.log('switch10 发生 change 事件，携带值为', e.detail.value);
-    var innerAudioContext = this.data.content[10].music.innerAudioContext;
-    if (!innerAudioContext.loop) {
-      innerAudioContext.loop = true;
-      this.setData({
-        innerAudioContext: innerAudioContext
-      })
-    }
-    else {
-      innerAudioContext.loop = false;
-      this.setData({
-        innerAudioContext: innerAudioContext
-      })
-    }
-  },
-  playMusic11: function () {
-    var ifplay = this.data.content[11].music.ifplay;
-    var innerAudioContext = this.data.content[11].music.innerAudioContext;
-    if (!ifplay) {
-      innerAudioContext.src = this.data.content[11].music.src;
-      innerAudioContext.play();
-      this.setData({
-        'content[11].music.ifplay': true,
-      })
-      innerAudioContext.onEnded((res) => {
-        console.log('播放结束!');
-        this.setData({
-          'content[11].music.ifplay': false,
-        })
-      })
-    }
-    else {
-      console.log('播放结束!');
-      innerAudioContext.pause();
-      this.setData({
-        'content[11].music.ifplay': false
-      })
-    }
-  },
-  switch11Change: function (e) {
     console.log('switch11 发生 change 事件，携带值为', e.detail.value);
-    var innerAudioContext = this.data.content[11].music.innerAudioContext;
+    var innerAudioContext = this.data.content[1][0].music.innerAudioContext;
     if (!innerAudioContext.loop) {
       innerAudioContext.loop = true;
       this.setData({
@@ -725,53 +762,14 @@ Page({
       })
     }
   },
-  playMusic12: function () {
-    var ifplay = this.data.content[12].music.ifplay;
-    var innerAudioContext = this.data.content[12].music.innerAudioContext;
-    if (!ifplay) {
-      innerAudioContext.src = this.data.content[12].music.src;
-      innerAudioContext.play();
-      this.setData({
-        'content[12].music.ifplay': true,
-      })
-      innerAudioContext.onEnded((res) => {
-        console.log('播放结束!');
-        this.setData({
-          'content[12].music.ifplay': false,
-        })
-      })
-    }
-    else {
-      console.log('播放结束!');
-      innerAudioContext.pause();
-      this.setData({
-        'content[12].music.ifplay': false
-      })
-    }
-  },
-  switch12Change: function (e) {
-    console.log('switch12 发生 change 事件，携带值为', e.detail.value);
-    var innerAudioContext = this.data.content[12].music.innerAudioContext;
-    if (!innerAudioContext.loop) {
-      innerAudioContext.loop = true;
-      this.setData({
-        innerAudioContext: innerAudioContext
-      })
-    }
-    else {
-      innerAudioContext.loop = false;
-      this.setData({
-        innerAudioContext: innerAudioContext
-      })
-    }
-  },
+  
 
-  btnShoucang0:function(){
-    console.log(this.data.content[0].ifShoucang);
+  btnShoucang00:function(){
+    console.log(this.data.content[0][0].ifShoucang);
     let that = this;
-    if (this.data.content[0].ifShoucang){
+    if (this.data.content[0][0].ifShoucang){
       that.setData({
-        'content[0].ifShoucang':false
+        'content[0][0].ifShoucang':false
       })
       wx.showToast({
         title: '已取消收藏',
@@ -780,7 +778,7 @@ Page({
     }
     else{
       that.setData({
-        'content[0].ifShoucang': true
+        'content[0][0].ifShoucang': true
       })
       wx.showToast({
         title: '收藏成功',
@@ -788,12 +786,12 @@ Page({
       })
     }
   },
-  btnShoucang1: function () {
-    console.log(this.data.content[1].ifShoucang);
+  btnShoucang01: function () {
+    console.log(this.data.content[0][1].ifShoucang);
     let that = this;
-    if (this.data.content[1].ifShoucang) {
+    if (this.data.content[0][1].ifShoucang) {
       that.setData({
-        'content[1].ifShoucang': false
+        'content[0][1].ifShoucang': false
       })
       wx.showToast({
         title: '已取消收藏',
@@ -802,7 +800,7 @@ Page({
     }
     else {
       that.setData({
-        'content[1].ifShoucang': true
+        'content[0][1].ifShoucang': true
       })
       wx.showToast({
         title: '收藏成功',
@@ -810,12 +808,12 @@ Page({
       })
     }
   },
-  btnShoucang2: function () {
-    console.log(this.data.content[2].ifShoucang);
+  btnShoucang02: function () {
+    console.log(this.data.content[0][2].ifShoucang);
     let that = this;
-    if (this.data.content[2].ifShoucang) {
+    if (this.data.content[0][2].ifShoucang) {
       that.setData({
-        'content[2].ifShoucang': false
+        'content[0][2].ifShoucang': false
       })
       wx.showToast({
         title: '已取消收藏',
@@ -824,7 +822,7 @@ Page({
     }
     else {
       that.setData({
-        'content[2].ifShoucang': true
+        'content[0][2].ifShoucang': true
       })
       wx.showToast({
         title: '收藏成功',
@@ -832,12 +830,12 @@ Page({
       })
     }
   }, 
-  btnShoucang3: function () {
-    console.log(this.data.content[3].ifShoucang);
+  btnShoucang03: function () {
+    console.log(this.data.content[0][3].ifShoucang);
     let that = this;
-    if (this.data.content[3].ifShoucang) {
+    if (this.data.content[0][3].ifShoucang) {
       that.setData({
-        'content[3].ifShoucang': false
+        'content[0][3].ifShoucang': false
       })
       wx.showToast({
         title: '已取消收藏',
@@ -846,7 +844,7 @@ Page({
     }
     else {
       that.setData({
-        'content[3].ifShoucang': true
+        'content[0][3].ifShoucang': true
       })
       wx.showToast({
         title: '收藏成功',
@@ -854,12 +852,12 @@ Page({
       })
     }
   },
-  btnShoucang4: function () {
-    console.log(this.data.content[4].ifShoucang);
+  btnShoucang04: function () {
+    console.log(this.data.content[0][4].ifShoucang);
     let that = this;
-    if (this.data.content[4].ifShoucang) {
+    if (this.data.content[0][4].ifShoucang) {
       that.setData({
-        'content[4].ifShoucang': false
+        'content[0][4].ifShoucang': false
       })
       wx.showToast({
         title: '已取消收藏',
@@ -868,7 +866,7 @@ Page({
     }
     else {
       that.setData({
-        'content[4].ifShoucang': true
+        'content[0][4].ifShoucang': true
       })
       wx.showToast({
         title: '收藏成功',
@@ -876,12 +874,12 @@ Page({
       })
     }
   },
-  btnShoucang5: function () {
-    console.log(this.data.content[5].ifShoucang);
+  btnShoucang05: function () {
+    console.log(this.data.content[0][5].ifShoucang);
     let that = this;
-    if (this.data.content[5].ifShoucang) {
+    if (this.data.content[0][5].ifShoucang) {
       that.setData({
-        'content[5].ifShoucang': false
+        'content[0][5].ifShoucang': false
       })
       wx.showToast({
         title: '已取消收藏',
@@ -890,7 +888,7 @@ Page({
     }
     else {
       that.setData({
-        'content[5].ifShoucang': true
+        'content[0][5].ifShoucang': true
       })
       wx.showToast({
         title: '收藏成功',
@@ -898,12 +896,12 @@ Page({
       })
     }
   },
-  btnShoucang6: function () {
-    console.log(this.data.content[6].ifShoucang);
+  btnShoucang06: function () {
+    console.log(this.data.content[0][6].ifShoucang);
     let that = this;
-    if (this.data.content[6].ifShoucang) {
+    if (this.data.content[0][6].ifShoucang) {
       that.setData({
-        'content[6].ifShoucang': false
+        'content[0][6].ifShoucang': false
       })
       wx.showToast({
         title: '已取消收藏',
@@ -912,7 +910,7 @@ Page({
     }
     else {
       that.setData({
-        'content[6].ifShoucang': true
+        'content[0][6].ifShoucang': true
       })
       wx.showToast({
         title: '收藏成功',
@@ -920,12 +918,12 @@ Page({
       })
     }
   },
-  btnShoucang7: function () {
-    console.log(this.data.content[7].ifShoucang);
+  btnShoucang07: function () {
+    console.log(this.data.content[0][7].ifShoucang);
     let that = this;
-    if (this.data.content[7].ifShoucang) {
+    if (this.data.content[0][7].ifShoucang) {
       that.setData({
-        'content[7].ifShoucang': false
+        'content[0][7].ifShoucang': false
       })
       wx.showToast({
         title: '已取消收藏',
@@ -934,7 +932,7 @@ Page({
     }
     else {
       that.setData({
-        'content[7].ifShoucang': true
+        'content[0][7].ifShoucang': true
       })
       wx.showToast({
         title: '收藏成功',
@@ -942,12 +940,12 @@ Page({
       })
     }
   },
-  btnShoucang8: function () {
-    console.log(this.data.content[8].ifShoucang);
+  btnShoucang08: function () {
+    console.log(this.data.content[0][8].ifShoucang);
     let that = this;
-    if (this.data.content[8].ifShoucang) {
+    if (this.data.content[0][8].ifShoucang) {
       that.setData({
-        'content[8].ifShoucang': false
+        'content[0][8].ifShoucang': false
       })
       wx.showToast({
         title: '已取消收藏',
@@ -956,7 +954,7 @@ Page({
     }
     else {
       that.setData({
-        'content[8].ifShoucang': true
+        'content[0][8].ifShoucang': true
       })
       wx.showToast({
         title: '收藏成功',
@@ -964,12 +962,12 @@ Page({
       })
     }
   },
-  btnShoucang9: function () {
-    console.log(this.data.content[9].ifShoucang);
+  btnShoucang09: function () {
+    console.log(this.data.content[0][9].ifShoucang);
     let that = this;
-    if (this.data.content[9].ifShoucang) {
+    if (this.data.content[0][9].ifShoucang) {
       that.setData({
-        'content[9].ifShoucang': false
+        'content[0][9].ifShoucang': false
       })
       wx.showToast({
         title: '已取消收藏',
@@ -978,7 +976,51 @@ Page({
     }
     else {
       that.setData({
-        'content[9].ifShoucang': true
+        'content[0][9].ifShoucang': true
+      })
+      wx.showToast({
+        title: '收藏成功',
+        icon: 'sucess'
+      })
+    }
+  },
+  btnShoucang010: function () {
+    console.log(this.data.content[0][10].ifShoucang);
+    let that = this;
+    if (this.data.content[0][10].ifShoucang) {
+      that.setData({
+        'content[0][10].ifShoucang': false
+      })
+      wx.showToast({
+        title: '已取消收藏',
+        icon: 'none'
+      })
+    }
+    else {
+      that.setData({
+        'content[0][10].ifShoucang': true
+      })
+      wx.showToast({
+        title: '收藏成功',
+        icon: 'sucess'
+      })
+    }
+  },
+  btnShoucang011: function () {
+    console.log(this.data.content[0][11].ifShoucang);
+    let that = this;
+    if (this.data.content[0][11].ifShoucang) {
+      that.setData({
+        'content[0][11].ifShoucang': false
+      })
+      wx.showToast({
+        title: '已取消收藏',
+        icon: 'none'
+      })
+    }
+    else {
+      that.setData({
+        'content[0][11].ifShoucang': true
       })
       wx.showToast({
         title: '收藏成功',
@@ -987,11 +1029,11 @@ Page({
     }
   },
   btnShoucang10: function () {
-    console.log(this.data.content[10].ifShoucang);
+    console.log(this.data.content[1][0].ifShoucang);
     let that = this;
-    if (this.data.content[10].ifShoucang) {
+    if (this.data.content[1][0].ifShoucang) {
       that.setData({
-        'content[10].ifShoucang': false
+        'content[1][0].ifShoucang': false
       })
       wx.showToast({
         title: '已取消收藏',
@@ -1000,51 +1042,7 @@ Page({
     }
     else {
       that.setData({
-        'content[10].ifShoucang': true
-      })
-      wx.showToast({
-        title: '收藏成功',
-        icon: 'sucess'
-      })
-    }
-  },
-  btnShoucang11: function () {
-    console.log(this.data.content[11].ifShoucang);
-    let that = this;
-    if (this.data.content[11].ifShoucang) {
-      that.setData({
-        'content[11].ifShoucang': false
-      })
-      wx.showToast({
-        title: '已取消收藏',
-        icon: 'none'
-      })
-    }
-    else {
-      that.setData({
-        'content[11].ifShoucang': true
-      })
-      wx.showToast({
-        title: '收藏成功',
-        icon: 'sucess'
-      })
-    }
-  },
-  btnShoucang12: function () {
-    console.log(this.data.content[12].ifShoucang);
-    let that = this;
-    if (this.data.content[12].ifShoucang) {
-      that.setData({
-        'content[12].ifShoucang': false
-      })
-      wx.showToast({
-        title: '已取消收藏',
-        icon: 'none'
-      })
-    }
-    else {
-      that.setData({
-        'content[12].ifShoucang': true
+        'content[1][0].ifShoucang': true
       })
       wx.showToast({
         title: '收藏成功',

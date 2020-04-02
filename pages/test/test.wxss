@@ -8,11 +8,14 @@
   margin: 5rpx;
 }
 .testobj{
+  display: flex;
+  align-items:center;
+  justify-content: center;
   height: 290rpx;
   width: 290rpx;
-  background-color: #5ca;
+  background-color:#aeaed3;
   margin: 20rpx;
-  border-radius: 10%;
+  border-radius: 40rpx;
   box-shadow: 3rpx 3rpx 5rpx 5rpx #ccc;
 }
 text{
@@ -23,4 +26,7 @@ text{
   justify-content: center;
   color: #fff;
   font-size: 70rpx;
+}
+.single{
+  width: 600rpx;
 }

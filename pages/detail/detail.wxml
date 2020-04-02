@@ -1,0 +1,6 @@
+<view class = "container bg" style="height:{{scrollheight}}px;width:{{scrollwidth}}px">
+<text>detail id: {{id}}</text>
+<view wx:if="id==0" id="0">
+
+</view>
+</view>

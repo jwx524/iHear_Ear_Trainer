@@ -1,26 +1,24 @@
-<view class="container" id="contain">
+<view class="container" id="contain" style="height:{{scrollheight}}px;width:{{scrollwidth}}px">
   <view class="testcol">
-    <view class="testobj">
-    <text>音程</text>
-    </view>
-    <view class="testobj">
-    <text>音阶</text>
+    <view class="testobj single" catchtap="jump" data-jid="{{div[0].id}}">
+    <text>{{div[0].text}}</text>
     </view>
   </view>
   <view class="testcol">
-    <view class="testobj">
-    <text>和弦</text>
+    <view class="testobj" catchtap="jump" data-jid="{{div[1].id}}">
+    <text>{{div[1].text}}</text>
     </view>
-    <view class="testobj">
-    <text>和弦走向</text>
+    <view class="testobj" catchtap="jump" data-jid="{{div[2].id}}">
+    <text>{{div[2].text}}</text>
     </view>
   </view>
   <view class="testcol">
-    <view class="testobj">
-    <text>旋律</text>
+    <view class="testobj" catchtap="jump" data-jid="{{div[3].id}}">
+    <text>{{div[3].text}}</text>
     </view>
-    <view class="testobj">
-    <text>节奏</text>
+    <view class="testobj" catchtap="jump" data-jid="{{div[4].id}}">
+    <text>{{div[4].text}}</text>
     </view>
   </view>
+  
 </view>

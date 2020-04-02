@@ -1,0 +1,5 @@
+.bg{
+  background-color: #abacdb;
+  width: 100%;
+  height: 100%
+}

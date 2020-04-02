@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/test/test",
     "pages/index/index",
     "pages/logs/logs",
     "pages/mine/mine",
@@ -8,27 +9,28 @@
     "pages/daka/daka",
     "pages/settings/settings",
     "pages/index2/index2",
-    "pages/test/test",
-    "pages/play/play"
+    "pages/play/play",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#0ca",
-    "navigationBarTitleText": "乐理2020",
+    "navigationBarBackgroundColor": "#abacdb",
+    "navigationBarTitleText": "视唱练耳Pro",
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
+    "selectedColor": "#9784c2",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "学习",
+        "pagePath": "pages/test/test",
+        "text": "主页面",
         "iconPath": "images/tab_account2.png",
         "selectedIconPath": "images/tab_account2.png"
       },
       {
-        "pagePath": "pages/test/test",
-        "text": "测验",
+        "pagePath": "pages/index/index",
+        "text": "资料库",
         "iconPath": "images/tab_course1.png",
         "selectedIconPath": "images/tab_course2.png"
       },{

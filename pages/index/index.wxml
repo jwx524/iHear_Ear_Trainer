@@ -4,203 +4,31 @@
 	<!--页面其它部分-->
 <view class="content">
       <scroll-view class='left' scroll-x="true" style="width:{{scrollwidth}}px">
-        <view class="{{flag==0?'select':'normal'}}" id='0' bindtap='switchNav' >音程</view>
+        <view class="{{flag==0?'select':'normal'}}" id='0' bindtap='switchNav'>音程</view>
         <view class="{{flag==1?'select':'normal'}}" id='1' bindtap='switchNav'>音阶</view>
         <view class="{{flag==2?'select':'normal'}}" id='2' bindtap='switchNav'>和弦</view>
-        <view class="{{flag==3?'select':'normal'}}" id='3' bindtap='switchNav'>和弦走向</view>
-        <view class="{{flag==4?'select':'normal'}}" id='4' bindtap='switchNav'>旋律</view>
-        <view class="{{flag==5?'select':'normal'}}" id='5' bindtap='switchNav'>节奏</view>
+        <view class="{{flag==3?'select':'normal'}}" id='3' bindtap='switchNav'>旋律</view>
+        <view class="{{flag==4?'select':'normal'}}" id='4' bindtap='switchNav'>节奏</view>
       </scroll-view>
       <view class='right'>
         <view class='category'>
-          <swiper current='{{currentTab}}' style="height:{{scrollheight}}px" >
-            <swiper-item id='0' class="obj" catchtouchmove="stopTouchMove">
-            <scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px">
-              <view class="content2" style="opacity:{{10}}">
+          <swiper current='{{currentTab}}' style="height:{{scrollheight}}px">
+            <swiper-item class="obj" catchtouchmove="stopTouchMove" wx:for="{{content}}" wx:for-index="i" id='{{i}}' wx:key="id">
+            <scroll-view scroll-y="true" class='right' style="height:{{scrollheight-135*scrollwidth/750}}px">
+            <view class="content2" style="opacity:{{10}}" wx:for="{{item}}" wx:for-index="j" wx:key="j">
               <view class="line">
               <view class='text'>
-              {{content[0].text}}
+              {{item.text}}
               </view>
-              <button wx:if="{{!content[0].ifShoucang}}"class="btn"  bindtap="btnShoucang0" style="background-image:url(/images/shoucang1.png)">
+              <button wx:if="{{!item.ifShoucang}}"class="btn"  bindtap="btnShoucang{{i}}{{j}}" style="background-image:url(https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/shoucang1.png?sign=a7683350961acda06ddc9457a712b869&t=1585726652)">
 </button>
-<button wx:else class="btn"  bindtap="btnShoucang0" style="background-image:url(/images/shoucang2.png)"></button>
+<button wx:else class="btn"  bindtap="btnShoucang{{i}}{{j}}" style="background-image:url(https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/shoucang2.png?sign=222cf223823037bf0fd2abef3b990c57&t=1585726680)"></button>
               </view>
-              <image src="{{content[0].music.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic0'></image><text>循环播放</text>
-              <switch checkd="{{content[0].music.innerAudioContext.loop}}" bindchange="switch0Change"/>
+              <image src="{{item.music.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic{{i}}{{j}}' data-pidi="{{i}}" data-pidj="{{j}}"></image><text>循环播放</text>
+              <switch checked="{{item.music.innerAudioContext.loop}}" bindchange="switch{{i}}{{j}}Change"/>
               </view>
-              <view class="content2" style="opacity:{{10}}">
-              <view class="title">
-              <view class='text'>
-              {{content[1].text}}
-              </view>
-              <button wx:if="{{!content[1].ifShoucang}}"class="btn"  bindtap="btnShoucang1" style="background-image:url(/images/shoucang1.png)">
-</button>
-<button wx:else class="btn"  bindtap="btnShoucang1" style="background-image:url(/images/shoucang2.png)"></button>
-              </view>
-              <image src="{{content[1].music.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic1'></image><text>循环播放</text>
-              <switch checkd="{{content[1].music.innerAudioContext.loop}}" bindchange="switch1Change"/>
-              </view>
-               <view class="content2" style="opacity:{{10}}">
-              <view class="title">
-              <view class='text'>
-              {{content[2].text}}
-              </view>
-              <button wx:if="{{!content[2].ifShoucang}}"class="btn"  bindtap="btnShoucang2" style="background-image:url(/images/shoucang1.png)">
-</button>
-<button wx:else class="btn"  bindtap="btnShoucang2" style="background-image:url(/images/shoucang2.png)"></button>
-              </view>
-              <image src="{{content[2].music.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic2'></image><text>循环播放</text>
-              <switch checkd="{{content[2].music.innerAudioContext.loop}}" bindchange="switch2Change"/>
-              </view>
-               <view class="content2" style="opacity:{{10}}">
-              <view class="title">
-              <view class='text'>
-              {{content[3].text}}
-              </view>
-              <button wx:if="{{!content[3].ifShoucang}}"class="btn"  bindtap="btnShoucang3" style="background-image:url(/images/shoucang1.png)">
-</button>
-<button wx:else class="btn"  bindtap="btnShoucang3" style="background-image:url(/images/shoucang2.png)"></button>
-              </view>
-              <image src="{{content[3].music.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic3'></image><text>循环播放</text>
-              <switch checkd="{{content[3].music.innerAudioContext.loop}}" bindchange="switch3Change"/>
-              </view>
-              <view class="content2" style="opacity:{{10}}">
-              <view class="title">
-              <view class='text'>
-              {{content[4].text}}
-              </view>
-              <button wx:if="{{!content[4].ifShoucang}}"class="btn"  bindtap="btnShoucang4" style="background-image:url(/images/shoucang1.png)">
-</button>
-<button wx:else class="btn"  bindtap="btnShoucang4" style="background-image:url(/images/shoucang2.png)"></button>
-              </view>
-              <image src="{{content[4].music.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic4'></image><text>循环播放</text>
-              <switch checkd="{{content[4].music.innerAudioContext.loop}}" bindchange="switch4Change"/>
-              </view>
-              <view class="content2" style="opacity:{{10}}">
-              <view class="title">
-              <view class='text'>
-              {{content[5].text}}
-              </view>
-              <button wx:if="{{!content[5].ifShoucang}}"class="btn"  bindtap="btnShoucang5" style="background-image:url(/images/shoucang1.png)">
-</button>
-<button wx:else class="btn"  bindtap="btnShoucang5" style="background-image:url(/images/shoucang2.png)"></button>
-              </view>
-              <image src="{{content[5].music.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic5'></image><text>循环播放</text>
-              <switch checkd="{{content[5].music.innerAudioContext.loop}}" bindchange="switch5Change"/>
-              </view>
-              <view class="content2" style="opacity:{{10}}">
-              <view class="title">
-              <view class='text'>
-              {{content[6].text}}
-              </view>
-              <button wx:if="{{!content[6].ifShoucang}}"class="btn"  bindtap="btnShoucang6" style="background-image:url(/images/shoucang1.png)">
-</button>
-<button wx:else class="btn"  bindtap="btnShoucang6" style="background-image:url(/images/shoucang2.png)"></button>
-              </view>
-              <image src="{{content[6].music.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic6'></image><text>循环播放</text>
-              <switch checkd="{{content[6].music.innerAudioContext.loop}}" bindchange="switch6Change"/>
-              </view>
-              <view class="content2" style="opacity:{{10}}">
-              <view class="title">
-              <view class='text'>
-              {{content[7].text}}
-              </view>
-              <button wx:if="{{!content[7].ifShoucang}}"class="btn"  bindtap="btnShoucang7" style="background-image:url(/images/shoucang1.png)">
-</button>
-<button wx:else class="btn"  bindtap="btnShoucang7" style="background-image:url(/images/shoucang2.png)"></button>
-              </view>
-              <image src="{{content[7].music.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic7'></image><text>循环播放</text>
-              <switch checkd="{{content[7].music.innerAudioContext.loop}}" bindchange="switch7Change"/>
-              </view>
-              <view class="content2" style="opacity:{{10}}">
-              <view class="title">
-              <view class='text'>
-              {{content[8].text}}
-              </view>
-              <button wx:if="{{!content[8].ifShoucang}}"class="btn"  bindtap="btnShoucang8" style="background-image:url(/images/shoucang1.png)">
-</button>
-<button wx:else class="btn"  bindtap="btnShoucang8" style="background-image:url(/images/shoucang2.png)"></button>
-              </view>
-              <image src="{{content[8].music.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic8'></image><text>循环播放</text>
-              <switch checkd="{{content[8].music.innerAudioContext.loop}}" bindchange="switch8Change"/>
-              </view>
-              <view class="content2" style="opacity:{{10}}">
-              <view class="title">
-              <view class='text'>
-              {{content[9].text}}
-              </view>
-              <button wx:if="{{!content[9].ifShoucang}}"class="btn"  bindtap="btnShoucang9" style="background-image:url(/images/shoucang1.png)">
-</button>
-<button wx:else class="btn"  bindtap="btnShoucang9" style="background-image:url(/images/shoucang2.png)"></button>
-              </view>
-              <image src="{{content[9].music.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic9'></image><text>循环播放</text>
-              <switch checkd="{{content[9].music.innerAudioContext.loop}}" bindchange="switch9Change"/>
-              </view>
-              <view class="content2" style="opacity:{{10}}">
-              <view class="title">
-              <view class='text'>
-              {{content[10].text}}
-              </view>
-              <button wx:if="{{!content[10].ifShoucang}}"class="btn"  bindtap="btnShoucang10" style="background-image:url(/images/shoucang1.png)">
-</button>
-<button wx:else class="btn"  bindtap="btnShoucang10" style="background-image:url(/images/shoucang2.png)"></button>
-              </view>
-              <image src="{{content[10].music.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic10'></image><text>循环播放</text>
-              <switch checkd="{{content[10].music.innerAudioContext.loop}}" bindchange="switch10Change"/>
-              </view>
-              <view class="content2" style="opacity:{{10}}">
-              <view class="title">
-              <view class='text'>
-              {{content[11].text}}
-              </view>
-              <button wx:if="{{!content[11].ifShoucang}}"class="btn"  bindtap="btnShoucang11" style="background-image:url(/images/shoucang1.png)">
-</button>
-<button wx:else class="btn"  bindtap="btnShoucang11" style="background-image:url(/images/shoucang2.png)"></button>
-              </view>
-              <image src="{{content[11].music.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic11'></image><text>循环播放</text>
-              <switch checkd="{{content[11].music.innerAudioContext.loop}}" bindchange="switch11Change"/>
-              </view>
-              <view class="content2" style="opacity:{{10}}">
-              <view class="title">
-              <view class='text'>
-              {{content[12].text}}
-              </view>
-              <button wx:if="{{!content[12].ifShoucang}}"class="btn"  bindtap="btnShoucang12" style="background-image:url(/images/shoucang1.png)">
-</button>
-<button wx:else class="btn"  bindtap="btnShoucang12" style="background-image:url(/images/shoucang2.png)"></button>
-              </view>
-              <image src="{{content[12].music.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic12'></image><text>循环播放</text>
-              <switch checkd="{{content[12].music.innerAudioContext.loop}}" bindchange="switch12Change"/>
-              </view>
-              </scroll-view>               
-            </swiper-item>
-            <swiper-item id='1' catchtouchmove="stopTouchMove">
-            <scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px">           
-              
-              </scroll-view>              
-            </swiper-item>
-            <swiper-item id='2' catchtouchmove="stopTouchMove">
-            <scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px">
-              
               </scroll-view> 
             </swiper-item>
-            <swiper-item id='3' catchtouchmove="stopTouchMove">
-            <scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px">            
-              
-              </scroll-view> 
-            </swiper-item>
-            <swiper-item id='4' catchtouchmove="stopTouchMove">
-            <scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px">
-              
-              
-              </scroll-view> 
-            </swiper-item>
-            <swiper-item id='5' catchtouchmove="stopTouchMove">
-            <scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px">
-              
-              </scroll-view> 
-            </swiper-item>
-            
           </swiper>
         </view>
         </view>
