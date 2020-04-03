@@ -7,20 +7,20 @@
     "pages/shoucang/shoucang",
     "pages/cuoti/cuoti",
     "pages/daka/daka",
-    "pages/settings/settings",
+    "pages/help/help",
     "pages/index2/index2",
     "pages/play/play",
     "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#abacdb",
+    "navigationBarBackgroundColor": "#98b4d8",
     "navigationBarTitleText": "视唱练耳Pro",
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
-    "selectedColor": "#9784c2",
+    "selectedColor": "#729dd4",
     "list": [
       {
         "pagePath": "pages/test/test",

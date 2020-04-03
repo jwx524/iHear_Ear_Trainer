@@ -4,42 +4,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    div:[
-      {
-        id: 0,
-        text:"音组"
-      },
-      {
-        id: 1,
-        text: "音程"
-      },
-      {
-        id: 2,
-        text: "调式"
-      },
-      {
-        id: 3,
-        text: "和弦"
-      },
-      {
-        id: 4,
-        text: "节奏"
-      },
-    ]
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getSystemInfo({
-      success: (res) => {
-        this.setData({
-          scrollheight: res.windowHeight,
-          scrollwidth: res.windowWidth
-        });
-      }
-    })
+    
   },
 
   /**
@@ -88,17 +60,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    return {
-      title: '帮你练就绝对音准！',
-      imageUrl: ''
-    }
-  },
-  jump:function(e){
-    console.log(e.currentTarget)
-    var id = parseInt(e.currentTarget.dataset.jid)
-    console.log(id)
-    wx.navigateTo({
-      url:'/pages/detail/detail?id=' + id
-    })
+    
   }
 })

@@ -11,10 +11,10 @@
     <view class="func">
       <text class="functitle">对题率：{{grade}}%</text>
     </view>
-    <navigator class="func" url="/pages/shoucang/shoucang" open-type="navigate">
+    <!-- <navigator class="func" url="/pages/shoucang/shoucang" open-type="navigate">
       <text class="functitle">收藏夹</text>
       <view class='arrow'></view>
-    </navigator>
+    </navigator> -->
     <navigator class="func" url="/pages/cuoti/cuoti" open-type="navigate">
       <text class="functitle">错题本</text>
       <view class='arrow'></view>
@@ -23,10 +23,12 @@
       <text class="functitle">每日打卡</text>
       <view class='arrow'></view>
     </navigator>
-    <navigator class="func" url="/pages/settings/settings" open-type="navigate">
-      <text class="functitle">设置</text>
+    <navigator class="func" url="/pages/help/help" open-type="navigate">
+      <text class="functitle">帮助</text>
       <view class='arrow'></view>
     </navigator>
-    
+    <view class="func">
+      <text class="functitle">设置提醒</text>
+    </view>
   </view>
 </view>

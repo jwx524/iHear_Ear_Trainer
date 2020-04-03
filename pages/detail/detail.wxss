@@ -1,5 +1,125 @@
 .bg{
-  background-color: #abacdb;
+  background-color: #98b4d8;
   width: 100%;
-  height: 100%
+  height: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+}
+#0{
+  display: flex;
+}
+.line{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn0{
+  width: 105rpx;
+  height: 105rpx;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.btncommon{
+  width: 200rpx;
+  height: 105rpx;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.arrset{
+  position: relative;
+  top: -200rpx;
+}
+.arrow{
+width: 40rpx;
+height: 40rpx;
+border-top: 2px solid #000;
+border-right: 2px solid #000;
+position: relative;
+right: -270rpx;
+transform: rotate(45deg);
+display: inline-flex;
+}
+.arrowadv{
+width: 40rpx;
+height: 40rpx;
+border-top: 2px solid #000;
+border-right: 2px solid #000;
+position: relative;
+left: -270rpx; 
+transform: rotate(-135deg);
+display: inline-flex;
+}
+.arrowadvfirst{
+width: 40rpx;
+height: 40rpx;
+border-top: 2px solid #999;
+border-right: 2px solid #999;
+position: relative;
+left: -270rpx; 
+transform: rotate(-135deg);
+display: inline-flex;
+}
+.lower{
+position: absolute;
+bottom: 80rpx;
+}
+.arrowlast{
+  width: 40rpx;
+height: 40rpx;
+border-top: 2px solid #999;
+border-right: 2px solid #999;
+position: relative;
+right: -270rpx;
+transform: rotate(45deg);
+display: inline-flex;
+}
+.music{
+  height: 100rpx;
+  width: 100rpx;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 25rpx;
+  margin-left: 50rpx;
+}
+.std{
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+}
+.stdtag{
+  color: #555;
+  margin: 20rpx 5rpx 0rpx 5rpx;
+}
+.swp{
+  background-color: #fff;
+  width: 100%;
+  height: 150rpx;
+  position: absolute;
+  top: 150rpx;
+}
+.btn2{
+  width: 260rpx;
+  height: 105rpx;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn1{
+  width: 230rpx;
+  height: 105rpx;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn3{
+  width: 150rpx;
+  height: 105rpx;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,6 +1,96 @@
 <view class = "container bg" style="height:{{scrollheight}}px;width:{{scrollwidth}}px">
-<text>detail id: {{id}}</text>
-<view wx:if="id==0" id="0">
-
+<text style="">detail id: {{id}}</text>
+<input class="ansstr" type="text" disabled='true' placeholder="{{ansstr}}" placeholder-style="color:#000"/>
+<view class="line std" wx:if="{{id!=4}}">
+  <image src="{{ifplaystd?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusicStd'></image>
+  <text class="stdtag">标准音</text>
 </view>
+
+
+<swiper class="swp"current="{{currentIndex}}" indicator-dots="{{true}}" style="height:150rpx;width:{{scrollwidth*0.75}}px" bindchange="change">
+  <swiper-item wx:for="{{6}}" wx:key="index" >
+    <text>{{index+1}}</text>
+  </swiper-item>
+</swiper>
+
+
+<view class="line arrset">
+<view class="{{currentIndex==0?'arrowadvfirst':'arrowadv'}}" catchtap="{{currentIndex==0?'':'prev'}}"></view><view class="{{currentIndex==5?'arrowlast':'arrow'}}" catchtap="{{currentIndex==5?'':'next'}}"></view>
+</view>
+
+<view class="line ansshow"></view>
+
+<view class="lower">
+<view wx:if="{{id==0}}" id="0">
+<view class="line">
+  <button wx:for="{{btn0}}"  wx:key="id" wx:if="{{index<7}}" class="btn0" catchtap="ans" data-id="{{item}}">
+    <text>{{item}}</text>
+  </button>
+</view>
+<view class="line">
+  <button class="btn0" wx:for="{{btn0}}" wx:key="id" wx:if="{{index>6}}"catchtap="anss" data-id="{{item}}">
+    <text>{{item}}</text>
+  </button>
+</view>
+</view>
+
+<view wx:if="{{id==1}}" id="1">
+<view class="line">
+  <button wx:for="{{btn1}}"  wx:key="id" wx:if="{{index<2}}" class="btn1" catchtap="ans" data-id="{{item}}">
+    <text>{{item}}</text>
+  </button>
+</view>
+<view class="line">
+  <button class="btn1" wx:for="{{btn1}}" wx:key="id" wx:if="{{(index>1)&&(index<5)}}"catchtap="anss" data-id="{{item}}">
+    <text>{{item}}</text>
+  </button>
+</view>
+<view class="line">
+  <button class="btn2" wx:for="{{btn1}}" wx:key="id" wx:if="{{index>4}}"catchtap="anss" data-id="{{item}}">
+    <text>{{item}}</text>
+  </button>
+</view>
+</view>
+
+<view wx:if="{{id==2}}" id="2">
+<view class="line">
+  <button wx:for="{{btn1}}"  wx:key="id" wx:if="{{index<7}}" class="btn0" catchtap="ans" data-id="{{item}}">
+    <text>{{item}}</text>
+  </button>
+</view>
+<view class="line">
+  <button class="btn2" wx:for="{{btn1}}" wx:key="id" wx:if="{{(index>6)&&(index<9)}}"catchtap="ans" data-id="{{item}}">
+    <text>{{item}}</text>
+  </button>
+</view>
+<view class="line">
+  <button class="btn2" wx:for="{{btn1}}" wx:key="id" wx:if="{{index>8}}"catchtap="ans" data-id="{{item}}">
+    <text>{{item}}</text>
+  </button>
+</view>
+</view>
+
+<view wx:if="{{id==3}}" id="3">
+<view class="line">
+  <button wx:for="{{btn3}}"  wx:key="id" wx:if="{{index<4}}" class="btn3" catchtap="ans" data-id="{{item}}">
+    <text>{{item}}</text>
+  </button>
+</view>
+<view class="line">
+  <button class="btn1" wx:for="{{btn3}}" wx:key="id" wx:if="{{index>3}}"catchtap="anss" data-id="{{item}}">
+    <text>{{item}}</text>
+  </button>
+</view>
+</view>
+
+<view class="line" catchtap="anscommon" wx:if="{{id!=4}}">
+  <button class="btncommon" id="delete" bindtap="ansdelete"><text>删除</text></button>
+  <button class="btncommon" id="cancel" bindtap="anscancel"><text>取消</text></button>
+  <button class="btncommon" id="confirm" bindtap="ansconfirm"><text>确定</text></button>
+</view>
+<view class="line">
+  
+</view>
+</view>
+
 </view>

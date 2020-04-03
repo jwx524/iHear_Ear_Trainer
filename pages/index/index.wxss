@@ -49,13 +49,13 @@ page{
 }
 .select {
   background-color: #ffffff;
-  border-bottom: 2px solid rgb(106, 121, 172);
+  border-bottom: 2px solid #729dd4;
   border-right: 2px solid #f2f2f2;
   font-weight: bold;
   display: flex;
   text-align: center;
   justify-content: center;
-  color: rgb(106, 121, 172);
+  color: #729dd4;
 }
 .normal {
   display: flex;

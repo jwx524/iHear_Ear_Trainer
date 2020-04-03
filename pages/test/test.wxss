@@ -13,7 +13,7 @@
   justify-content: center;
   height: 290rpx;
   width: 290rpx;
-  background-color:#aeaed3;
+  background-color:#98b4d8;
   margin: 20rpx;
   border-radius: 40rpx;
   box-shadow: 3rpx 3rpx 5rpx 5rpx #ccc;
@@ -29,4 +29,5 @@ text{
 }
 .single{
   width: 600rpx;
+  height: 260rpx;
 }
