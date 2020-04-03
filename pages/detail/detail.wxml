@@ -54,17 +54,17 @@
 
 <view wx:if="{{id==2}}" id="2">
 <view class="line">
-  <button wx:for="{{btn1}}"  wx:key="id" wx:if="{{index<7}}" class="btn0" catchtap="ans" data-id="{{item}}">
+  <button wx:for="{{btn2}}"  wx:key="id" wx:if="{{index<7}}" class="btn0" catchtap="ans" data-id="{{item}}">
     <text>{{item}}</text>
   </button>
 </view>
 <view class="line">
-  <button class="btn2" wx:for="{{btn1}}" wx:key="id" wx:if="{{(index>6)&&(index<9)}}"catchtap="ans" data-id="{{item}}">
+  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>6)&&(index<9)}}"catchtap="ans" data-id="{{item}}">
     <text>{{item}}</text>
   </button>
 </view>
 <view class="line">
-  <button class="btn2" wx:for="{{btn1}}" wx:key="id" wx:if="{{index>8}}"catchtap="ans" data-id="{{item}}">
+  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{index>8}}"catchtap="ans" data-id="{{item}}">
     <text>{{item}}</text>
   </button>
 </view>

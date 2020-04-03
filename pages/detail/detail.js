@@ -61,7 +61,11 @@ Page({
     console.log(e.target.id)
   },
   ansdelete: function () {
-    var ansstr = this.data.ansstr.slice(0,-1)
+    var c = this.data.ansstr.charAt(this.data.ansstr.length-1)
+    var ansstr = this.data.ansstr.slice(0, -1)
+    if(c==' '){
+      ansstr = ansstr.slice(0,-1)
+    }
     this.setData({
       ansstr: ansstr
     })
