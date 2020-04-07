@@ -187,27 +187,8 @@ Page({
     })
     console.log(this.data.scrollheight)
     var innerAudioContext = wx.createInnerAudioContext();
-    var i = 0;
-    // for (i = 0; i < 12; i++) {
-      
-    //   this.setData({
-    //     ['content[{{i}}].music.innerAudioContext'] : innerAudioContext
-    //   })
-    // }
     this.setData({
-      'content[0][0].music.innerAudioContext': innerAudioContext,
-      'content[0][1].music.innerAudioContext': innerAudioContext,
-      'content[0][2].music.innerAudioContext': innerAudioContext,
-      'content[0][3].music.innerAudioContext': innerAudioContext,
-      'content[0][4].music.innerAudioContext': innerAudioContext,
-      'content[0][5].music.innerAudioContext': innerAudioContext,
-      'content[0][6].music.innerAudioContext': innerAudioContext,
-      'content[0][7].music.innerAudioContext': innerAudioContext,
-      'content[0][8].music.innerAudioContext': innerAudioContext,
-      'content[0][9].music.innerAudioContext': innerAudioContext,
-      'content[0][10].music.innerAudioContext': innerAudioContext,
-      'content[0][11].music.innerAudioContext': innerAudioContext,
-      'content[1][0].music.innerAudioContext': innerAudioContext,
+      innerAudioContext: innerAudioContext
     })
     innerAudioContext.loop = false
     innerAudioContext.onPlay(() => {//监听播放事件
@@ -219,346 +200,37 @@ Page({
     innerAudioContext.onPause(() => {//监听暂停事件
       console.log('stopped')
     })
-    
-    
   },
   playMusic: function (e) {
     console.log(e.currentTarget)
-    var pid = parseInt(e.currentTarget.dataset.pid)
-    var ifplay = this.data.content[pid].music.ifplay;
-    var innerAudioContext = this.data.content[pid].music.innerAudioContext;
+    var pidi = parseInt(e.currentTarget.dataset.pidi)
+    var pidj = parseInt(e.currentTarget.dataset.pidj)
+    console.log(pidi)
+    console.log(pidj)
+    var ifplay = this.data.content[pidi][pidj].music.ifplay;
+    var innerAudioContext = this.data.innerAudioContext;
+    var content = this.data.content
     if (!ifplay) {
-      innerAudioContext.src = this.data.content[pid].music.src;
+      innerAudioContext.src = this.data.content[pidi][pidj].music.src;
       innerAudioContext.play();
+      content[pidi][pidj].music.ifplay = true
       this.setData({
-        'content[pid].music.ifplay': true,
+        content: content
       })
       innerAudioContext.onEnded((res) => {
         console.log('播放结束!');
+        content[pidi][pidj].music.ifplay = false
         this.setData({
-          'content[pid].music.ifplay': false,
+          content: content
         })
       })
     }
     else {
       console.log('播放结束!');
       innerAudioContext.pause();
+      content[pidi][pidj].music.ifplay = false
       this.setData({
-        'content[pid].music.ifplay': false
-      })
-    }
-  },
-  playMusic00:function(e){
-    console.log(e.currentTarget)
-    var pid = parseInt(e.currentTarget.dataset.pid)
-    var ifplay = this.data.content[0][0].music.ifplay;
-    var innerAudioContext = this.data.content[0][0].music.innerAudioContext;
-    if(!ifplay){
-      innerAudioContext.src = this.data.content[0][0].music.src;
-      innerAudioContext.play();
-      this.setData({
-        'content[0][0].music.ifplay': true,
-      })
-      innerAudioContext.onEnded((res) => {
-        console.log('播放结束!');
-        this.setData({
-          'content[0][0].music.ifplay':false,
-        })
-      })
-    }
-    else{
-      console.log('播放结束!');
-      innerAudioContext.pause();
-      this.setData({
-        'content[0][0].music.ifplay': false
-      })
-    }
-},
-  playMusic01: function () {
-    var ifplay = this.data.content[0][1].music.ifplay;
-    var innerAudioContext = this.data.content[0][1].music.innerAudioContext;
-    if (!ifplay) {
-      innerAudioContext.src = this.data.content[0][1].music.src;
-      innerAudioContext.play();
-      this.setData({
-        'content[0][1].music.ifplay': true,
-      })
-      innerAudioContext.onEnded((res) => {
-        console.log('播放结束!');
-        this.setData({
-          'content[0][1].music.ifplay': false,
-        })
-      })
-    }
-    else {
-      console.log('播放结束!');
-      innerAudioContext.pause();
-      this.setData({
-        'content[0][1].music.ifplay': false
-      })
-    }
-  },
-  playMusic02: function () {
-    var ifplay = this.data.content[0][2].music.ifplay;
-    var innerAudioContext = this.data.content[0][2].music.innerAudioContext;
-    if (!ifplay) {
-      innerAudioContext.src = this.data.content[0][2].music.src;
-      innerAudioContext.play();
-      this.setData({
-        'content[0][2].music.ifplay': true,
-      })
-      innerAudioContext.onEnded((res) => {
-        console.log('播放结束!');
-        this.setData({
-          'content[0][2].music.ifplay': false,
-        })
-      })
-    }
-    else {
-      console.log('播放结束!');
-      innerAudioContext.pause();
-      this.setData({
-        'content[0][2].music.ifplay': false
-      })
-    }
-  },
-  playMusic03: function () {
-    var ifplay = this.data.content[0][3].music.ifplay;
-    var innerAudioContext = this.data.content[0][3].music.innerAudioContext;
-    if (!ifplay) {
-      innerAudioContext.src = this.data.content[0][3].music.src;
-      innerAudioContext.play();
-      this.setData({
-        'content[0][3].music.ifplay': true,
-      })
-      innerAudioContext.onEnded((res) => {
-        console.log('播放结束!');
-        this.setData({
-          'content[0][3].music.ifplay': false,
-        })
-      })
-    }
-    else {
-      console.log('播放结束!');
-      innerAudioContext.pause();
-      this.setData({
-        'content[0][3].music.ifplay': false
-      })
-    }
-  },
-  playMusic04: function () {
-    var ifplay = this.data.content[0][4].music.ifplay;
-    var innerAudioContext = this.data.content[0][4].music.innerAudioContext;
-    if (!ifplay) {
-      innerAudioContext.src = this.data.content[0][4].music.src;
-      innerAudioContext.play();
-      this.setData({
-        'content[0][4].music.ifplay': true,
-      })
-      innerAudioContext.onEnded((res) => {
-        console.log('播放结束!');
-        this.setData({
-          'content[0][4].music.ifplay': false,
-        })
-      })
-    }
-    else {
-      console.log('播放结束!');
-      innerAudioContext.pause();
-      this.setData({
-        'content[0][4].music.ifplay': false
-      })
-    }
-  },
-  playMusic05: function () {
-    var ifplay = this.data.content[0][5].music.ifplay;
-    var innerAudioContext = this.data.content[0][5].music.innerAudioContext;
-    if (!ifplay) {
-      innerAudioContext.src = this.data.content[0][5].music.src;
-      innerAudioContext.play();
-      this.setData({
-        'content[0][5].music.ifplay': true,
-      })
-      innerAudioContext.onEnded((res) => {
-        console.log('播放结束!');
-        this.setData({
-          'content[0][5].music.ifplay': false,
-        })
-      })
-    }
-    else {
-      console.log('播放结束!');
-      innerAudioContext.pause();
-      this.setData({
-        'content[0][5].music.ifplay': false
-      })
-    }
-  },
-  playMusic06: function () {
-    var ifplay = this.data.content[0][6].music.ifplay;
-    var innerAudioContext = this.data.content[0][6].music.innerAudioContext;
-    if (!ifplay) {
-      innerAudioContext.src = this.data.content[0][6].music.src;
-      innerAudioContext.play();
-      this.setData({
-        'content[0][6].music.ifplay': true,
-      })
-      innerAudioContext.onEnded((res) => {
-        console.log('播放结束!');
-        this.setData({
-          'content[0][6].music.ifplay': false,
-        })
-      })
-    }
-    else {
-      console.log('播放结束!');
-      innerAudioContext.pause();
-      this.setData({
-        'content[0][6].music.ifplay': false
-      })
-    }
-  },
-  playMusic07: function () {
-    var ifplay = this.data.content[0][7].music.ifplay;
-    var innerAudioContext = this.data.content[0][7].music.innerAudioContext;
-    if (!ifplay) {
-      innerAudioContext.src = this.data.content[0][7].music.src;
-      innerAudioContext.play();
-      this.setData({
-        'content[0][7].music.ifplay': true,
-      })
-      innerAudioContext.onEnded((res) => {
-        console.log('播放结束!');
-        this.setData({
-          'content[0][7].music.ifplay': false,
-        })
-      })
-    }
-    else {
-      console.log('播放结束!');
-      innerAudioContext.pause();
-      this.setData({
-        'content[0][7].music.ifplay': false
-      })
-    }
-  },
-  playMusic08: function () {
-    var ifplay = this.data.content[0][8].music.ifplay;
-    var innerAudioContext = this.data.content[0][8].music.innerAudioContext;
-    if (!ifplay) {
-      innerAudioContext.src = this.data.content[0][8].music.src;
-      innerAudioContext.play();
-      this.setData({
-        'content[0][8].music.ifplay': true,
-      })
-      innerAudioContext.onEnded((res) => {
-        console.log('播放结束!');
-        this.setData({
-          'content[0][8].music.ifplay': false,
-        })
-      })
-    }
-    else {
-      console.log('播放结束!');
-      innerAudioContext.pause();
-      this.setData({
-        'content[0][8].music.ifplay': false
-      })
-    }
-  },
-  playMusic09: function () {
-    var ifplay = this.data.content[0][9].music.ifplay;
-    var innerAudioContext = this.data.content[0][9].music.innerAudioContext;
-    if (!ifplay) {
-      innerAudioContext.src = this.data.content[0][9].music.src;
-      innerAudioContext.play();
-      this.setData({
-        'content[0][9].music.ifplay': true,
-      })
-      innerAudioContext.onEnded((res) => {
-        console.log('播放结束!');
-        this.setData({
-          'content[0][9].music.ifplay': false,
-        })
-      })
-    }
-    else {
-      console.log('播放结束!');
-      innerAudioContext.pause();
-      this.setData({
-        'content[0][9].music.ifplay': false
-      })
-    }
-  },
-  playMusic010: function () {
-    var ifplay = this.data.content[0][10].music.ifplay;
-    var innerAudioContext = this.data.content[0][10].music.innerAudioContext;
-    if (!ifplay) {
-      innerAudioContext.src = this.data.content[0][10].music.src;
-      innerAudioContext.play();
-      this.setData({
-        'content[0][10].music.ifplay': true,
-      })
-      innerAudioContext.onEnded((res) => {
-        console.log('播放结束!');
-        this.setData({
-          'content[0][10].music.ifplay': false,
-        })
-      })
-    }
-    else {
-      console.log('播放结束!');
-      innerAudioContext.pause();
-      this.setData({
-        'content[0][10].music.ifplay': false
-      })
-    }
-  },
-  playMusic011: function () {
-    var ifplay = this.data.content[0][11].music.ifplay;
-    var innerAudioContext = this.data.content[0][11].music.innerAudioContext;
-    if (!ifplay) {
-      innerAudioContext.src = this.data.content[0][11].music.src;
-      innerAudioContext.play();
-      this.setData({
-        'content[0][11].music.ifplay': true,
-      })
-      innerAudioContext.onEnded((res) => {
-        console.log('播放结束!');
-        this.setData({
-          'content[0][11].music.ifplay': false,
-        })
-      })
-    }
-    else {
-      console.log('播放结束!');
-      innerAudioContext.pause();
-      this.setData({
-        'content[0][11].music.ifplay': false
-      })
-    }
-  },
-  playMusic10: function () {
-    var ifplay = this.data.content[1][0].music.ifplay;
-    var innerAudioContext = this.data.content[1][0].music.innerAudioContext;
-    if (!ifplay) {
-      innerAudioContext.src = this.data.content[1][0].music.src;
-      innerAudioContext.play();
-      this.setData({
-        'content[1][0].music.ifplay': true,
-      })
-      innerAudioContext.onEnded((res) => {
-        console.log('播放结束!');
-        this.setData({
-          'content[1][0].music.ifplay': false,
-        })
-      })
-    }
-    else {
-      console.log('播放结束!');
-      innerAudioContext.pause();
-      this.setData({
-        'content[1][0].music.ifplay': false
+        content: content
       })
     }
   },

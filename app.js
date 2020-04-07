@@ -32,6 +32,11 @@ App({
         }
       }
     })
+    wx.cloud.init
+      ({
+        env: 'jwx-q7azx',
+        traceUser: true,
+      })
   },
   globalData: {
     userInfo: null

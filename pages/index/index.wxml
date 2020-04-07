@@ -21,7 +21,7 @@
               {{item.text}}
               </view>
               </view>
-              <image src="{{item.music.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic{{i}}{{j}}' data-pidi="{{i}}" data-pidj="{{j}}"></image>
+              <image src="{{item.music.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic' data-pidi="{{i}}" data-pidj="{{j}}"></image>
               <text>{{item.intro}}</text>
               </view>
               </scroll-view> 

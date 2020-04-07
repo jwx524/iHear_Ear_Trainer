@@ -9,7 +9,8 @@
     "pages/help/help",
     "pages/index2/index2",
     "pages/play/play",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/show/show"
   ],
   "window": {
     "backgroundTextStyle": "dark",

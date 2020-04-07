@@ -12,8 +12,9 @@
 		"autoAudits": false,
 		"coverView": true
 	},
+	"cloudfunctionRoot": "cloudfunctions/",
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
+	"libVersion": "2.10.4",
 	"appid": "wx9c0e9bd4fa231d49",
 	"projectname": "%E4%B9%90%E7%90%862020",
 	"debugOptions": {
@@ -22,6 +23,7 @@
 	"isGameTourist": false,
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,

@@ -8,19 +8,20 @@
 
 
 <swiper class="swp"current="{{currentIndex}}" indicator-dots="{{true}}" style="height:150rpx;width:{{scrollwidth*0.75}}px" bindchange="change">
-  <swiper-item wx:for="{{6}}" wx:key="index" >
-    <text>{{index+1}}</text>
+  <swiper-item wx:for="{{testmusic}}" wx:key="index" >
+    <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic'></image>
   </swiper-item>
 </swiper>
 
 
 <view class="line arrset">
-<view class="{{currentIndex==0?'arrowadvfirst':'arrowadv'}}" catchtap="{{currentIndex==0?'':'prev'}}"></view><view class="{{currentIndex==5?'arrowlast':'arrow'}}" catchtap="{{currentIndex==5?'':'next'}}"></view>
+<view class="{{currentIndex==0?'arrowadvfirst':'arrowadv'}}" catchtap="{{currentIndex==0?'':'prev'}}"></view><view class="{{currentIndex==4?'arrowlast':'arrow'}}" catchtap="{{currentIndex==4?'':'next'}}"></view>
 </view>
 
 <view class="line ansshow"></view>
 
 <view class="lower">
+<button wx:if="{{finished==5}}" class="btncommon" catchtap="submit">提交</button>
 <view wx:if="{{id==0}}" id="0">
 <view class="line">
   <button wx:for="{{btn0}}"  wx:key="id" wx:if="{{index<7}}" class="btn0" catchtap="ans" data-id="{{item}}">
@@ -28,7 +29,10 @@
   </button>
 </view>
 <view class="line">
-  <button class="btn0" wx:for="{{btn0}}" wx:key="id" wx:if="{{index>6}}"catchtap="anss" data-id="{{item}}">
+  <button class="btn0" wx:for="{{btn0}}" wx:key="id" wx:if="{{(index>6)&&(index<9)}}"catchtap="ans" data-id="{{item}}">
+    <text>{{item}}</text>
+  </button>
+  <button class="btn0" wx:for="{{btn0}}" wx:key="id" wx:if="{{index>8}}"catchtap="anss" data-id="{{item}}">
     <text>{{item}}</text>
   </button>
 </view>
@@ -54,17 +58,22 @@
 
 <view wx:if="{{id==2}}" id="2">
 <view class="line">
-  <button wx:for="{{btn2}}"  wx:key="id" wx:if="{{index<7}}" class="btn0" catchtap="ans" data-id="{{item}}">
+  <button wx:for="{{btn2}}"  wx:key="id" wx:if="{{index<5}}" class="btn0" catchtap="ans" data-id="{{item}}">
     <text>{{item}}</text>
   </button>
 </view>
 <view class="line">
-  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>6)&&(index<9)}}"catchtap="ans" data-id="{{item}}">
+  <button wx:for="{{btn2}}"  wx:key="id" wx:if="{{(index<9)&&(index>4)}}" class="btn0" catchtap="ans" data-id="{{item}}">
     <text>{{item}}</text>
   </button>
 </view>
 <view class="line">
-  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{index>8}}"catchtap="ans" data-id="{{item}}">
+  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>8)&&(index<11)}}"catchtap="ans" data-id="{{item}}">
+    <text>{{item}}</text>
+  </button>
+</view>
+<view class="line">
+  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{index>10}}"catchtap="ans" data-id="{{item}}">
     <text>{{item}}</text>
   </button>
 </view>
