@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "SearchBar": "/components/searchBox/index"
+    
   },
   "disableScroll": true
 }

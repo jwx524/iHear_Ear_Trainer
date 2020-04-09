@@ -1,2 +1,14 @@
 <!--pages/show/show.wxml-->
-<text>hhh</text>
+<view class="container bg" style="height:{{scrollheight}}px;width:{{scrollwidth}}px">
+  <swiper current='{{currentIndex}}' style="height:{{scrollheight}}px;width:{{scrollwidth}}px" bindchange="change" vertical="true">
+    <swiper-item class="swpitem"  >
+      <text class="first">你答对了{{5-wrongnum}}/5题</text>
+    </swiper-item>
+    <swiper-item class="swpitem" wx:for="{{testmusic}}" wx:if="{{index<wrongnum}}" wx:key="index">
+      <text>{{index+1}}</text>
+      <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic'></image>
+      <text>正确答案：{{item.answer}}</text>
+      <text>你的答案：{{item.myans}}</text>
+    </swiper-item>
+  </swiper>
+</view>

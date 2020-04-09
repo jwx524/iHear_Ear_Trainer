@@ -1,5 +1,5 @@
 const db = wx.cloud.database({})
-
+const util = require('../../utils/util.js')
 
 Page({
 
@@ -166,9 +166,41 @@ Page({
   },
   submit:function(e){
     var testmusic = this.data.testmusic
-    wx.redirectTo({
-      url: '../show/show'
+    var TIME = util.formatTime(new Date());
+    
+    wx.cloud.init({
+      env: 'jwx-q7azx',
+      traceUser: true,
     })
+    const db = wx.cloud.database()
+    db.collection('allcount').add({
+      data: {
+        time: TIME.slice(0, 10),
+      },
+      success: res => {
+        console.log(res)
+      }
+    })
+    for(let i = 0; i < 5; i++){
+      if(testmusic[i].wrong == true){
+        db.collection('wrong').add({
+          data: {
+            musicid: testmusic[i].index,
+            time: TIME.slice(0, 10),
+            myans: testmusic[i].myans
+          },
+          success: res => {
+            console.log(res)
+            wx.redirectTo({
+              url: '../show/show?wrongnum=' + this.data.wrongnum
+            })
+          }
+        })
+      }
+    }
+              // wx.redirectTo({
+              //  url: '../show/show?wrongnum=' + this.data.wrongnum
+              // })
   },
   ans:function(e){
     console.log(e.target.dataset.id)
@@ -311,18 +343,12 @@ Page({
     if (!ifplay) {
       innerAudioContext.src = this.data.testmusic[c].src
       innerAudioContext.play();
-      // this.setData({
-      //   'testmusic[0].ifplay': true,
-      // })
       testmusic[c].ifplay = true
       this.setData({
         testmusic:testmusic
       })
       innerAudioContext.onEnded((res) => {
         console.log('播放结束!');
-        // this.setData({
-        //   'testmusic[0].ifplay': false,
-        // })
         testmusic[c].ifplay = false
         this.setData({
           testmusic: testmusic
@@ -332,30 +358,11 @@ Page({
     else {
       console.log('播放结束!');
       innerAudioContext.pause();
-      // this.setData({
-      //   'testmusic[0].ifplay': false
-      // })
       testmusic[c].ifplay = false
       this.setData({
         testmusic: testmusic
       })
     }
-  },
-  getNextIndex: function (nextFlag) {
-    let ret,
-      currentIndex = app.currentIndex,
-      mod = this.data.playMod,
-      len = this.data.songslist.length
-    if (mod === RANDOM_MOD) {
-      ret = util.randomNum(len)
-    } else {
-      if (nextFlag) {
-        ret = currentIndex + 1 == len ? 0 : currentIndex + 1
-      } else {
-        ret = currentIndex - 1 < 0 ? len - 1 : currentIndex - 1
-      }
-    }
-    return ret
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -403,6 +410,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+    return {
+      title: '帮你练就绝对音准！',
+      imageUrl: ''
+    }
   }
 })

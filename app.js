@@ -37,8 +37,23 @@ App({
         env: 'jwx-q7azx',
         traceUser: true,
       })
+    this.getopenid()
+    // var openid = (wx.getStorageSync('openId'))
+    // this.globalData.openid = openid
+    // console.log(this.globalData.openid)
   },
   globalData: {
-    userInfo: null
-  }
+    userInfo: null,
+    openid:""
+  },
+  getopenid() {
+    wx.cloud.callFunction({
+      name: 'getOpenID',
+      complete: res => {
+        console.log('openid--', res.result)
+        var openid = res.result.openid
+        this.globalData.openid = openid
+      }
+    })
+  },
 })
