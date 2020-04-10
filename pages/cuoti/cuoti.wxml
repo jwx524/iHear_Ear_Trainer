@@ -1,0 +1,15 @@
+<view class="container bg" style="height:{{scrollheight}}px;width:{{scrollwidth}}px">
+<scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px">
+<view class="content2" style="opacity:{{10}}" wx:for="{{testmusic}}">
+  <view class="line">
+  <view class='text'>
+  {{index+1}}
+  </view>
+  </view>
+  <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic' data-pid="{{index}}"></image>
+  <view class="line"><text>正确答案：{{item.answer}}</text></view>
+  <view class="line"><text>你的答案:{{item.myans}}</text></view>
+  <view class="line"><text>时间：{{item.time}}</text></view>
+  </view>
+</scroll-view>
+</view>

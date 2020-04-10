@@ -12,5 +12,15 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  align-items: center;
   justify-content: center;
+}
+.music{
+  height: 100rpx;
+  width: 100rpx;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 25rpx;
+  margin-left: 50rpx;
 }

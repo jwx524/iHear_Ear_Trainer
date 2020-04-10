@@ -38,9 +38,6 @@ App({
         traceUser: true,
       })
     this.getopenid()
-    // var openid = (wx.getStorageSync('openId'))
-    // this.globalData.openid = openid
-    // console.log(this.globalData.openid)
   },
   globalData: {
     userInfo: null,

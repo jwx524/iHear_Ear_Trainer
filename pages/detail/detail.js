@@ -23,9 +23,7 @@ Page({
     innerAudioContextStd:null,
     innerAudioContext:null,
     ifplaystd: false,
-    ansstr:"",
-    wrongnum:0,
-    finished:0,
+    wrongnum:5,
     testmusic:[{
       index: "",
       src:"",
@@ -191,80 +189,85 @@ Page({
           },
           success: res => {
             console.log(res)
-            wx.redirectTo({
-              url: '../show/show?wrongnum=' + this.data.wrongnum
-            })
+            // wx.redirectTo({
+            //   url: '../show/show?wrongnum=' + this.data.wrongnum
+            // })
           }
         })
       }
     }
-              // wx.redirectTo({
-              //  url: '../show/show?wrongnum=' + this.data.wrongnum
-              // })
+              wx.redirectTo({
+               url: '../show/show?wrongnum=' + this.data.wrongnum
+              })
   },
   ans:function(e){
     console.log(e.target.dataset.id)
-    var ansstr = this.data.ansstr+e.target.dataset.id
+    var c = this.data.currentIndex
+    var testmusic = this.data.testmusic
+    var ansstr = testmusic[c].myans + e.target.dataset.id
+    testmusic[c].myans = ansstr
     this.setData({
-      ansstr:ansstr
+      testmusic: testmusic
     })
   },
   anss: function (e) {
-    console.log(e.target.dataset.id)
-    var ansstr = this.data.ansstr + e.target.dataset.id + " "
+    var c = this.data.currentIndex
+    var testmusic = this.data.testmusic
+    var ansstr = testmusic[c].myans + e.target.dataset.id + " "
+    testmusic[c].myans = ansstr
     this.setData({
-      ansstr: ansstr
+      testmusic: testmusic
     })
   },
   anscommon: function (e) {
     console.log(e.target.id)
   },
   ansdelete: function () {
-    var c = this.data.ansstr.charAt(this.data.ansstr.length-1)
-    var ansstr = this.data.ansstr.slice(0, -1)
-    if(c==' '){
+    var testmusic = this.data.testmusic
+    var c = this.data.currentIndex
+    var cc = testmusic[c].myans.charAt(testmusic[c].myans.length - 1)
+    var ansstr = testmusic[c].myans.slice(0, -1)
+    if(cc==' '){
       ansstr = ansstr.slice(0,-1)
     }
+    testmusic[c].myans = ansstr
     this.setData({
-      ansstr: ansstr
+      testmusic: testmusic
     })
   },
   anscancel:function(){
+    var c = this.data.currentIndex
+    var testmusic = this.data.testmusic
+    testmusic[c].myans = ""
     this.setData({
-      ansstr: ""
+      testmusic: testmusic
     })
   },
   ansconfirm:function(){
-    var ansstr = this.data.ansstr
+    var testmusic = this.data.testmusic
+    var c = this.data.currentIndex
+    var ansstr = testmusic[c].myans
     if(ansstr!=""){
-      var f = this.data.finished
-      var c = this.data.currentIndex
-      var answer = this.data.testmusic[c].answer
-      var testmusic = this.data.testmusic
-      testmusic[c].myans = ansstr
-      this.setData({
-        testmusic:testmusic
-      })
+      var answer = testmusic[c].answer
       if(answer==ansstr){
         console.log(true)
         testmusic[c].wrong = false
         this.setData({
           testmusic: testmusic
         })
+        var wrongnum = this.data.wrongnum
+        this.setData({
+          wrongnum: wrongnum - 1
+        })
       }
       else{
         console.log(false)
-        var wrongnum = this.data.wrongnum
-        this.setData({
-          wrongnum : wrongnum + 1
-        })
       }
       if(c==4){
         c = c - 1
       }
       this.setData({
-        finished : f + 1,
-        ansstr: "",
+        // ansstr: "",
         currentIndex: c+1
       }) //清空答案池，答题数+1，翻下一页
     }
