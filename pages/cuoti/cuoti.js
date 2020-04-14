@@ -44,12 +44,12 @@ Page({
         var testmusic = new Array()
         for(let i = 0; i < res.data.length; i++){
           testmusic[i]={
-            index : res.data[i].musicid,
+            index: res.data[res.data.length - 1 - i].musicid,
             src: "",
             answer: "",
             ifplay: false,
-            myans: res.data[i].myans,
-            time: res.data[i].time
+            myans: res.data[res.data.length - 1 - i].myans,
+            time: res.data[res.data.length - 1 - i].time
           }
         }
         this.setData({

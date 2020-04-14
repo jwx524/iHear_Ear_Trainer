@@ -27,7 +27,7 @@
       <text class="functitle">帮助</text>
       <view class='arrow'></view>
     </navigator>
-    <view class="func" catchtap="template_Msg">
+    <view class="func" catchtap="">
       <text class="functitle">设置提醒</text>
     </view>
   </view>
