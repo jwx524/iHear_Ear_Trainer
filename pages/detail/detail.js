@@ -11,10 +11,10 @@ Page({
       "C", "D", "E", "F", "G", "A", "B", "#","♭","3","4","5","6",
     ],
     btn2:[
-      "C", "D", "E", "F", "G", "A", "B", "#", "♭", "大调", "自然小调", "和声小调", "旋律小调",
+      "C", "D", "E", "F", "G", "A", "B", "#", "♭", "大调", "自然小调", "和声小调", "旋律小调", "雅乐", "清乐", "燕乐", "宫调式", "商调式", "角调式", "徵调式", "羽调式", "利地亚调式", "混合利地亚调式", "多利亚调式", "弗里几亚调式",
     ],
     btn1: [
-      "大", "小", "二度", "三度", "六度","纯四度","纯五度",
+      "大", "小", "二度", "三度", "六度", "七度", "纯四度", "纯五度", "增四度",
     ],
     btn3: [
       "大", "小", "增", "减", "三和弦", "6和弦", "46和弦",
@@ -31,6 +31,10 @@ Page({
       ifplay: false,
       myans: "",
       wrong: true,
+      A: "",
+      B: "",
+      C: "",
+      D: "",
     },
     {
       index: "",
@@ -39,6 +43,10 @@ Page({
       ifplay: false,
       myans: "",
       wrong: true,
+      A: "",
+      B: "",
+      C: "",
+      D: "",
     },
     {
       index: "",
@@ -47,6 +55,10 @@ Page({
       ifplay: false,
       myans: "",
       wrong: true,
+      A: "",
+      B: "",
+      C: "",
+      D: "",
     },
     {
       index: "",
@@ -55,6 +67,10 @@ Page({
       ifplay: false,
       myans: "",
       wrong: true,
+      A: "",
+      B: "",
+      C: "",
+      D: "",
     },
     {
       index: "",
@@ -63,6 +79,10 @@ Page({
       ifplay: false,
       myans: "",
       wrong: true,
+      A: "",
+      B: "",
+      C: "",
+      D: "",
     },
   ]
   },
@@ -80,7 +100,71 @@ Page({
     if(this.data.id==0){
       wx.showModal({
         title: '提示',
-        content: '请用科学音高记录法标记你听到的音高',
+        content: '请用科学音高记录法标记你听到的音高（*若不了解什么是科学音高，请通过查看“我的->帮助”页面获取帮助）',
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+            wx.navigateBack({
+              delta: 1
+            })
+          }
+        }
+      })
+    }
+    if (this.data.id == 1) {
+      wx.showModal({
+        title: '提示',
+        content: '请先后标记你听到的两组音程（*若不了解什么是音程，请通过查看“我的->帮助”页面获取帮助）',
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+            wx.navigateBack({
+              delta: 1
+            })
+          }
+        }
+      })
+    }
+    if (this.data.id == 2) {
+      wx.showModal({
+        title: '提示',
+        content: '请为你听到的音阶标注调式（*若对选项中的名词不了解，请通过查看“我的->帮助”页面获取帮助）',
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+            wx.navigateBack({
+              delta: 1
+            })
+          }
+        }
+      })
+    }
+    if (this.data.id == 3) {
+      wx.showModal({
+        title: '提示',
+        content: '请为你听到的音阶标注调式（*若对选项中的名词不了解，请通过查看“我的->帮助”页面获取帮助）',
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+            wx.navigateBack({
+              delta: 1
+            })
+          }
+        }
+      })
+    }
+    if (this.data.id == 4) {
+      wx.showModal({
+        title: '提示',
+        content: '请选出你听到的节奏型（*若对选项中的标识不了解，请通过查看“我的->帮助”页面获取帮助）',
         success(res) {
           if (res.confirm) {
             console.log('用户点击确定')
@@ -163,42 +247,129 @@ Page({
    
   },
   submit:function(e){
-    var testmusic = this.data.testmusic
-    var TIME = util.formatTime(new Date());
-    
-    wx.cloud.init({
-      env: 'jwx-q7azx',
-      traceUser: true,
-    })
-    const db = wx.cloud.database()
-    db.collection('allcount').add({
-      data: {
-        time: TIME.slice(0, 10),
-      },
-      success: res => {
-        console.log(res)
-      }
-    })
-    for(let i = 0; i < 5; i++){
-      if(testmusic[i].wrong == true){
-        db.collection('wrong').add({
-          data: {
-            musicid: testmusic[i].index,
-            time: TIME.slice(0, 10),
-            myans: testmusic[i].myans
-          },
-          success: res => {
-            console.log(res)
-            // wx.redirectTo({
-            //   url: '../show/show?wrongnum=' + this.data.wrongnum
-            // })
-          }
-        })
-      }
-    }
-              wx.redirectTo({
-               url: '../show/show?wrongnum=' + this.data.wrongnum
+    let that = this
+    wx.showModal({
+      title: '提示',
+      content: '确定要提交吗？',
+      success(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          var testmusic = that.data.testmusic
+          var TIME = util.formatTime(new Date());
+
+          wx.cloud.init({
+            env: 'jwx-q7azx',
+            traceUser: true,
+          })
+          const db = wx.cloud.database()
+          db.collection('allcount').add({
+            data: {
+              time: TIME.slice(0, 10),
+            },
+            success: res => {
+              console.log(res)
+            }
+          })
+          for (let i = 0; i < 5; i++) {
+            var testmusic = that.data.testmusic
+            var ansstr = testmusic[i].myans
+            var answer = testmusic[i].answer
+            if (answer == ansstr) {
+              console.log(true)
+              testmusic[i].wrong = false
+              that.setData({
+                testmusic: testmusic
               })
+              var wrongnum = that.data.wrongnum
+              that.setData({
+                wrongnum: wrongnum - 1
+              })
+            }
+            else {
+              console.log(false)
+            }
+            var testmusic = that.data.testmusic
+            if (testmusic[i].wrong == true) {
+              db.collection('wrong').add({
+                data: {
+                  musicid: testmusic[i].index,
+                  time: TIME.slice(0, 10),
+                  myans: testmusic[i].myans
+                },
+                success: res => {
+                  console.log(res)
+                  // wx.redirectTo({
+                  //   url: '../show/show?wrongnum=' + this.data.wrongnum
+                  // })
+                }
+              })
+            }
+          }
+          wx.redirectTo({
+            url: '../show/show?wrongnum=' + that.data.wrongnum
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+          // wx.navigateBack({
+          //   delta: 1
+          // })
+        }
+      }
+    })
+    // var testmusic = this.data.testmusic
+    // var TIME = util.formatTime(new Date());
+    
+    // wx.cloud.init({
+    //   env: 'jwx-q7azx',
+    //   traceUser: true,
+    // })
+    // const db = wx.cloud.database()
+    // db.collection('allcount').add({
+    //   data: {
+    //     time: TIME.slice(0, 10),
+    //   },
+    //   success: res => {
+    //     console.log(res)
+    //   }
+    // })
+    // for(let i = 0; i < 5; i++){
+    //   var testmusic = this.data.testmusic
+    //   var ansstr = testmusic[i].myans
+    //   var answer = testmusic[i].answer
+    //   if (answer == ansstr) {
+    //     console.log(true)
+    //     testmusic[i].wrong = false
+    //     this.setData({
+    //       testmusic: testmusic
+    //     })
+    //     var wrongnum = this.data.wrongnum
+    //     this.setData({
+    //       wrongnum: wrongnum - 1
+    //     })
+    //   }
+    //   else {
+    //     console.log(false)
+    //   }
+    //   var testmusic = this.data.testmusic
+    //   if(testmusic[i].wrong == true){
+    //     db.collection('wrong').add({
+    //       data: {
+    //         musicid: testmusic[i].index,
+    //         time: TIME.slice(0, 10),
+    //         myans: testmusic[i].myans
+    //       },
+    //       success: res => {
+    //         console.log(res)
+    //         // wx.redirectTo({
+    //         //   url: '../show/show?wrongnum=' + this.data.wrongnum
+    //         // })
+    //       }
+    //     })
+    //   }
+    // }
+    //           wx.redirectTo({
+    //            url: '../show/show?wrongnum=' + this.data.wrongnum
+    //           })
   },
   ans:function(e){
     console.log(e.target.dataset.id)
@@ -214,6 +385,16 @@ Page({
     var c = this.data.currentIndex
     var testmusic = this.data.testmusic
     var ansstr = testmusic[c].myans + e.target.dataset.id + " "
+    testmusic[c].myans = ansstr
+    this.setData({
+      testmusic: testmusic
+    })
+  },
+  ans4:function(e){
+    console.log(e.target.dataset.id)
+    var c = this.data.currentIndex
+    var testmusic = this.data.testmusic
+    var ansstr = e.target.dataset.id
     testmusic[c].myans = ansstr
     this.setData({
       testmusic: testmusic
@@ -244,33 +425,13 @@ Page({
     })
   },
   ansconfirm:function(){
-    var testmusic = this.data.testmusic
     var c = this.data.currentIndex
-    var ansstr = testmusic[c].myans
-    if(ansstr!=""){
-      var answer = testmusic[c].answer
-      if(answer==ansstr){
-        console.log(true)
-        testmusic[c].wrong = false
-        this.setData({
-          testmusic: testmusic
-        })
-        var wrongnum = this.data.wrongnum
-        this.setData({
-          wrongnum: wrongnum - 1
-        })
-      }
-      else{
-        console.log(false)
-      }
       if(c==4){
         c = c - 1
       }
       this.setData({
-        // ansstr: "",
         currentIndex: c+1
-      }) //清空答案池，答题数+1，翻下一页
-    }
+      }) //答题数+1，翻下一页
   },
   change:function(e){
     console.log(e.detail.current)

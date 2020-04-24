@@ -1,7 +1,7 @@
 <view class = "container bg" style="height:{{scrollheight}}px;width:{{scrollwidth}}px">
 <text style="">detail id: {{id}}</text>
 <!-- <input class="ansstr" type="text" disabled='true' placeholder="{{ansstr}}" placeholder-style="color:#000"/> -->
-<view wx:for="{{testmusic}}">
+<view wx:for="{{testmusic}}" wx:if="{{id!=4}}">
     <input wx:if="{{index==currentIndex}}" class="ansstr" type="text" disabled='true' placeholder="{{item.myans}}" placeholder-style="color:#000"/>
 </view>
 <view class="line std" wx:if="{{id!=4}}">
@@ -42,17 +42,17 @@
 
 <view wx:if="{{id==1}}" id="1">
 <view class="line">
-  <button wx:for="{{btn1}}"  wx:key="id" wx:if="{{index<2}}" class="btn1" catchtap="ans" data-id="{{item}}">
+  <button wx:for="{{btn1}}"  wx:key="id" wx:if="{{index<2}}" class="btn3" catchtap="ans" data-id="{{item}}">
     <text>{{item}}</text>
   </button>
 </view>
 <view class="line">
-  <button class="btn1" wx:for="{{btn1}}" wx:key="id" wx:if="{{(index>1)&&(index<5)}}"catchtap="anss" data-id="{{item}}">
+  <button class="btn3" wx:for="{{btn1}}" wx:key="id" wx:if="{{(index>1)&&(index<6)}}"catchtap="anss" data-id="{{item}}">
     <text>{{item}}</text>
   </button>
 </view>
 <view class="line">
-  <button class="btn2" wx:for="{{btn1}}" wx:key="id" wx:if="{{index>4}}"catchtap="anss" data-id="{{item}}">
+  <button class="btn1" wx:for="{{btn1}}" wx:key="id" wx:if="{{index>5}}"catchtap="anss" data-id="{{item}}">
     <text>{{item}}</text>
   </button>
 </view>
@@ -70,12 +70,27 @@
   </button>
 </view>
 <view class="line">
-  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>8)&&(index<11)}}"catchtap="ans" data-id="{{item}}">
+  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>8)&&(index<11)}}"catchtap="anss" data-id="{{item}}">
     <text>{{item}}</text>
   </button>
 </view>
 <view class="line">
-  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{index>10}}"catchtap="ans" data-id="{{item}}">
+  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>10)&&(index<13)}}"catchtap="anss" data-id="{{item}}">
+    <text>{{item}}</text>
+  </button>
+</view>
+<view class="line">
+  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>12)&&(index<16)}}"catchtap="ans" data-id="{{item}}">
+    <text>{{item}}</text>
+  </button>
+</view>
+<view class="line">
+  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>15)&&(index<21)}}"catchtap="anss" data-id="{{item}}">
+    <text>{{item}}</text>
+  </button>
+</view>
+<view class="line">
+  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>20)&&(index<25)}}"catchtap="anss" data-id="{{item}}">
     <text>{{item}}</text>
   </button>
 </view>
@@ -94,9 +109,52 @@
 </view>
 </view>
 
-<view class="line" catchtap="anscommon" wx:if="{{id!=4}}">
-  <button class="btncommon" id="delete" bindtap="ansdelete"><text>删除</text></button>
-  <button class="btncommon" id="cancel" bindtap="anscancel"><text>取消</text></button>
+
+<swiper wx:if="{{id==4}}" id="4" class="swp4" current="{{currentIndex}}" style="height:500rpx;width:{{scrollwidth*0.75}}px" bindchange="change">
+  <swiper-item wx:for="{{testmusic}}" wx:key="index" >
+<view class="line2">
+  <button class="btn0" catchtap="ans4" data-id="A" wx:if="{{(item.myans)!='A'}}">
+    <text>A</text>
+  </button>
+  <button class="btn0 picked" catchtap="ans4" data-id="A" wx:if="{{(item.myans)=='A'}}">
+    <text>A</text>
+  </button>
+  <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic'></image>
+</view>
+<view class="line2">
+  <button class="btn0" catchtap="ans4" data-id="B" wx:if="{{(item.myans)!='B'}}">
+    <text>B</text>
+  </button>
+  <button class="btn0 picked" catchtap="ans4" data-id="B" wx:if="{{(item.myans)=='B'}}">
+    <text>B</text>
+  </button>
+  <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic'></image>
+</view>
+<view class="line2">
+  <button class="btn0" catchtap="ans4" data-id="C" wx:if="{{(item.myans)!='C'}}">
+    <text>C</text>
+  </button>
+  <button class="btn0 picked" catchtap="ans4" data-id="C" wx:if="{{(item.myans)=='C'}}">
+    <text>C</text>
+  </button>
+  <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic'></image>
+</view>
+<view class="line2">
+  <button class="btn0" catchtap="ans4" data-id="D" wx:if="{{(item.myans)!='D'}}">
+    <text>D</text>
+  </button>
+  <button class="btn0 picked" catchtap="ans4" data-id="D" wx:if="{{(item.myans)=='D'}}">
+    <text>D</text>
+  </button>
+  <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic'></image>
+</view>
+</swiper-item>
+</swiper>
+
+
+<view class="line" catchtap="anscommon" >
+  <button wx:if="{{id!=4}}" class="btncommon" id="delete" bindtap="ansdelete"><text>删除</text></button>
+  <button wx:if="{{id!=4}}" class="btncommon" id="cancel" bindtap="anscancel"><text>取消</text></button>
   <button wx:if="{{currentIndex!=4}}" class="btncommon" id="confirm" bindtap="ansconfirm"><text>确定</text></button>
   <button wx:if="{{currentIndex==4}}" class="btncommon" catchtap="submit">提交</button>
 </view>

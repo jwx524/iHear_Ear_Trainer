@@ -1,6 +1,7 @@
 const util = require('../../utils/util.js')
 const app = getApp()
-import subscribe from '../../utils/SubscribeMessageUtil'
+const db = wx.cloud.database({})
+const TmplId = '3oKMgxRhW3dapI_hEbftSgUUnqjaAS9P06LIkD0Ewv4';
 Page({
   
   /**
@@ -14,16 +15,89 @@ Page({
     openid: "",
     wrong: 0,
     allcount: 0,
-    // push_content: {
-    //   thing1: {
-    //     value: '您有新的学习任务需要完成噢~'
-    //   },
-    //   thing2: {
-    //     value: '视唱练耳'
-    //   },
-    // }
+    subs: 0,
+    study:  {
+        id: 0,
+        //这里的变量名字一定要和从平台申请的模板所给的变量对应
+        thing1: { value: '学习任务' },
+        thing2: { value: '视唱练耳训练' },
+      },
   },
+  Subscribe: function (e) {
+    let that = this
+    const item = this.data.study
+    wx.requestSubscribeMessage({
+      tmplIds: [TmplId],
+      success(res) {
 
+        // if (res.errMsg === 'requestSubscribeMessage:ok')
+        if (res[TmplId]=='accept')
+         {
+
+          wx.cloud
+            .callFunction({
+              //通过调用云函数，实现用户点击允许我们发送订阅消息，
+              //将该数据订阅保存到数据库，以便在满足条件的时候发送给用户
+              name: 'subscribeMessage',
+              data: {
+                data: item,
+                templateId: TmplId,
+                //这个是给用户发送订阅消息后，用户点击订阅消息进入小程序的相关页面，一定要是在线的才可以
+                page: 'pages/test/test',
+              },
+              // success(res) {
+              //   console.log("success", res);
+              //   wx.showToast({
+              //     title: '订阅成功',
+              //     icon: 'success',
+              //     duration: 2000,
+              //   });
+              //   that.setData({
+              //     subs: 1
+              //   })
+              // },
+              // fail(res) {
+              //   console.log("fail", res)
+              //   wx.showToast({
+              //     title: '订阅失败',
+              //     icon: 'success',
+              //     duration: 2000,
+              //   });
+              // },
+              // complete(res) {
+              //   console.log("complete", res)
+              //   wx.showToast({
+              //     title: '订阅失败',
+              //     icon: 'success',
+              //     duration: 2000,
+              //   });
+              // }
+            })
+            .then(() => {
+              wx.showToast({
+                title: '订阅成功',
+                icon: 'success',
+                duration: 2000,
+              });
+              that.setData({
+                subs: 1
+              })
+            })
+            .catch(() => {
+              wx.showToast({
+                title: '订阅失败',
+                icon: 'success',
+                duration: 2000,
+              });
+            });
+        }
+      },
+      fail(re) {
+        console.log(re)
+      },
+    });
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -69,6 +143,22 @@ Page({
       openid: app.globalData.openid
     })
     const db = wx.cloud.database()
+    db.collection('SubscribeMessage').where({
+      touser: this.data.openid,
+      done: false
+    }).count({
+      success: res => {
+        console.log(res)
+        this.setData({
+          subs: 0
+        })
+        if (res.total != 0) {
+          this.setData({
+            subs: 1
+          })
+        }
+      }
+    })
     db.collection('wrong').where({
       _openid: this.data.openid
     }).count({
@@ -101,58 +191,7 @@ Page({
       hasUserInfo: true
     })
   },
-  subscriptionNotice: function () {
-    subscribe.subscription(['3oKMgxRhW3dapI_hEbftSgUUnqjaAS9P06LIkD0Ewv4'])
-  },
-  // template_Msg: function (e) {
-  //   wx.showLoading({ //期间为了显示效果可以添加一个过渡的弹出框提示“加载中”  
-  //     title: '加载中',
-  //     icon: 'loading',
-  //   });
-
-  //   //获取access_token
-  //   wx.request({
-  //     url: "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx9c0e9bd4fa231d49&secret=a9ab7566acd9a370b3fe6674faea47ab",
-  //     success: (res) => {
-  //       console.log(res);
-  //       this.setData({
-  //         token: res.data.access_token //将access_token存到data的token里
-  //       });
-  //       console.log("access_token:" + this.data.token);
-  //     }
-  //   });
-
-  //   var access_token_url = 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token=' + this.data.token;
-  //   var push_content = {
-  //     "keyword1": this.data.push_content_data[0],
-  //     "keyword2": this.data.push_content_data[1],
-  //   };
-  //   console.log(push_content)
-  //   wx.request({
-  //     url: access_token_url,
-
-  //     //注意不要用value代替data
-  //     data: {
-  //       touser: this.data.openid,
-  //       template_id: '3oKMgxRhW3dapI_hEbftSgUUnqjaAS9P06LIkD0Ewv4', //换成你申请的模板消息id，  
-  //       page: '/pages/mine/mine',
-  //       data: push_content,
-  //       color: '#ccc',
-  //       emphasis_keyword: 'keyword3.DATA'
-  //     },
-  //     method: 'POST',
-  //     success: function (res) {
-  //       wx.hideLoading();
-  //       console.log("发送成功");
-  //       console.log(res);
-  //     },
-  //     fail: function (err) {
-  //       // fail  
-  //       console.log("push err")
-  //       console.log(err);
-  //     }
-  //   });
-  // },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -205,6 +244,22 @@ Page({
       openid: app.globalData.openid
     })
     const db = wx.cloud.database()
+    db.collection('SubscribeMessage').where({
+      touser: this.data.openid,
+      done: false
+    }).count({
+      success: res => {
+        console.log(res)
+        this.setData({
+          subs: 0
+        })
+        if (res.total != 0) {
+          this.setData({
+            subs: 1
+          })
+        }
+      }
+    })
     db.collection('wrong').where({
       _openid: this.data.openid
     }).count({
@@ -290,6 +345,22 @@ Page({
       openid: app.globalData.openid
     })
     const db = wx.cloud.database()
+    db.collection('SubscribeMessage').where({
+      touser: this.data.openid,
+      done: false
+    }).count({
+      success: res => {
+        console.log(res)
+        this.setData({
+          subs: 0
+        })
+        if (res.total != 0) {
+          this.setData({
+            subs: 1
+          })
+        }
+      }
+    })
     db.collection('wrong').where({
       _openid: this.data.openid
     }).count({

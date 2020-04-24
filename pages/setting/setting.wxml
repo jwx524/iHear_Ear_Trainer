@@ -1,0 +1,33 @@
+<view class="container">
+  <view wx:for="{{ study }}" class="card" wx:key="{{ item.id }}">
+    <view class="card-body">
+      <view class="card-desc">
+        <text class="card-label">温馨提示：</text>
+        <text>{{ item.thing1.value}}</text>
+      </view>
+      <view class="card-desc">
+        <text class="card-label">任务名称：</text>
+        <text>{{ item.thing2.value }}</text>
+      </view>
+    </view>
+    <button class="button" data-item="{{item}}" bindtap="Subscribe"  hover-class="button-hover" wx:if="{{subs==0}}">
+      学习任务提醒
+    </button>
+    <button class="button0" wx:if="{{subs!=0}}">
+      学习任务提醒
+    </button>
+     <button class="button1" data-item="{{item}}" bindtap="send"  hover-class="button-hover">
+      发送学习任务提醒
+    </button>
+
+
+  </view>
+</view>
+
+
+
+<!-- 模仿卖家发货/买家收获，可以调用根据库中的信息，向卖家/买家发送消息提醒-->
+
+
+
+

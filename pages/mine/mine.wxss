@@ -37,6 +37,14 @@
   background-color: #eee;
   border-bottom: 1px solid #999;
 }
+.func0{
+  color: #666;
+  display: block;
+  width: 100%;
+  padding: 40rpx;
+  background-color: #eee;
+  border-bottom: 1px solid #999;
+}
 .functitle{
   position: relative;
   left: 40rpx;
@@ -52,4 +60,7 @@ right: 20rpx;
 transform: rotate(45deg);
 margin-top: 13rpx;
 display: inline-flex;
+}
+.button-hover{
+  background: #f7f7f7;
 }

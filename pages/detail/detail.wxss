@@ -15,6 +15,11 @@
   justify-content: center;
   align-items: center;
 }
+.line2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .btn0{
   width: 105rpx;
   height: 105rpx;
@@ -110,7 +115,7 @@ display: inline-flex;
   align-items: center;
 }
 .btn1{
-  width: 230rpx;
+  width: 220rpx;
   height: 105rpx;
   display: inline-flex;
   justify-content: center;
@@ -122,4 +127,13 @@ display: inline-flex;
   display: inline-flex;
   justify-content: center;
   align-items: center;
+}
+.swp4{
+  display: flex;
+  background-color: #fff;
+  width: 100%;
+  height: 500rpx;
+}
+.picked{
+  color: #98b4d8
 }

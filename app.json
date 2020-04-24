@@ -10,7 +10,8 @@
     "pages/index2/index2",
     "pages/play/play",
     "pages/detail/detail",
-    "pages/show/show"
+    "pages/show/show",
+    "pages/setting/setting"
   ],
   "window": {
     "backgroundTextStyle": "dark",

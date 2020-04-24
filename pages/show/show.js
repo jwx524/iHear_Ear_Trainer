@@ -78,37 +78,78 @@ Page({
     var start = 0
     db.collection('wrong').where({
       _openid: this.data.openid
-    }).get({
+    }).count({
       success: res =>{
-        console.log(res.data)
-        length = res.data.length
-        start = length - this.data.wrongnum
-        var testmusic = this.data.testmusic
-        var c = 0
-        console.log(start)
-        console.log(length)
-        for(let i = start; i < length; i++){
-          testmusic[c].index = res.data[i].musicid
-          testmusic[c].myans = res.data[i].myans
-          c = c + 1
-        }
-        this.setData({
-          testmusic: testmusic
-        })
-        for (let i = 0; i < 5; i++) {
-          var testmusic = this.data.testmusic
-          db.collection('music').doc(this.data.testmusic[i].index).get({
-            success: res => {
-              testmusic[i].src = res.data.src
-              testmusic[i].answer = res.data.answer
-              this.setData({
-                testmusic: testmusic
+        var total = res.total
+        var total = total - this.data.wrongnum
+        db.collection('wrong').where({
+          _openid: this.data.openid
+        }).skip(total).get({
+          success: res => {
+            console.log(res.data)
+            length = res.data.length
+            start = length - this.data.wrongnum
+            var testmusic = this.data.testmusic
+            var c = 0
+            console.log(start)
+            console.log(length)
+            for (let i = start; i < length; i++) {
+              testmusic[c].index = res.data[i].musicid
+              testmusic[c].myans = res.data[i].myans
+              c = c + 1
+            }
+            this.setData({
+              testmusic: testmusic
+            })
+            for (let i = 0; i < 5; i++) {
+              var testmusic = this.data.testmusic
+              db.collection('music').doc(this.data.testmusic[i].index).get({
+                success: res => {
+                  testmusic[i].src = res.data.src
+                  testmusic[i].answer = res.data.answer
+                  this.setData({
+                    testmusic: testmusic
+                  })
+                }
               })
             }
-          })
-        }
+          }
+        })
       }
     })
+    // db.collection('wrong').where({
+    //   _openid: this.data.openid
+    // }).get({
+    //   success: res =>{
+    //     console.log(res.data)
+    //     length = res.data.length
+    //     start = length - this.data.wrongnum
+    //     var testmusic = this.data.testmusic
+    //     var c = 0
+    //     console.log(start)
+    //     console.log(length)
+    //     for(let i = start; i < length; i++){
+    //       testmusic[c].index = res.data[i].musicid
+    //       testmusic[c].myans = res.data[i].myans
+    //       c = c + 1
+    //     }
+    //     this.setData({
+    //       testmusic: testmusic
+    //     })
+    //     for (let i = 0; i < 5; i++) {
+    //       var testmusic = this.data.testmusic
+    //       db.collection('music').doc(this.data.testmusic[i].index).get({
+    //         success: res => {
+    //           testmusic[i].src = res.data.src
+    //           testmusic[i].answer = res.data.answer
+    //           this.setData({
+    //             testmusic: testmusic
+    //           })
+    //         }
+    //       })
+    //     }
+    //   }
+    // })
   },
   change: function (e) {
     console.log(e.detail.current)

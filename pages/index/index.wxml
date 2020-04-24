@@ -6,8 +6,8 @@
       <scroll-view class='left' scroll-x="true" style="width:{{scrollwidth}}px">
         <view class="{{flag==0?'select':'normal'}}" id='0' bindtap='switchNav'>音程</view>
         <view class="{{flag==1?'select':'normal'}}" id='1' bindtap='switchNav'>调式</view>
-        <view class="{{flag==2?'select':'normal'}}" id='2' bindtap='switchNav'>和弦</view>
-        <view class="{{flag==3?'select':'normal'}}" id='3' bindtap='switchNav'>旋律</view>
+        <view class="{{flag==2?'select':'normal'}}" id='2' bindtap='switchNav'>三和弦</view>
+        <view class="{{flag==3?'select':'normal'}}" id='3' bindtap='switchNav'>七和弦</view>
         <view class="{{flag==4?'select':'normal'}}" id='4' bindtap='switchNav'>节奏</view>
       </scroll-view>
       <view class='right'>

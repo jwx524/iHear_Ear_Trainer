@@ -27,7 +27,10 @@
       <text class="functitle">帮助</text>
       <view class='arrow'></view>
     </navigator>
-    <view class="func" catchtap="">
+    <view class="func" catchtap="Subscribe" wx:if="{{subs==0}}" hover-class="button-hover">
+      <text class="functitle">设置提醒</text>
+    </view>
+    <view class="func0" wx:if="{{subs!=0}}">
       <text class="functitle">设置提醒</text>
     </view>
   </view>
