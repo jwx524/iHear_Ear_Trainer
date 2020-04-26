@@ -1,3 +1,7 @@
+<cu-custom bgColor="bg-gradual-mine-top">
+	<view slot="content">我的</view>
+</cu-custom>
+<image class='background' src="/images/top.png" mode="aspectFill"></image>
 <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 登录</button>
@@ -6,6 +10,7 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
+  
   <view class="functionlist">
     <view class="divLine"></view>
     <view class="func">

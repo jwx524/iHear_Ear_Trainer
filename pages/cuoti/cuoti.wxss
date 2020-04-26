@@ -17,10 +17,23 @@
   justify-content: center;
   position: relative;
 }
+
+.lineVertical{
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.line{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .text{
   margin-left: 5rpx;
   margin-right: 5rpx;
-  padding-left: 15rpx;
   color:#000;
   align-items: center;
   justify-content: center;
@@ -31,8 +44,7 @@ text{
   align-items:center;
   justify-content: center;
   position: relative;
-  right: -175rpx;
-  top: -35rpx;
+  right: -30rpx; 
   color: #aaa;
 }
 .music{

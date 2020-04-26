@@ -29,9 +29,8 @@ Page({
     wx.requestSubscribeMessage({
       tmplIds: [TmplId],
       success(res) {
-
-        // if (res.errMsg === 'requestSubscribeMessage:ok')
         if (res[TmplId]=='accept')
+        // if (res.errMsg === 'requestSubscribeMessage:ok')
          {
 
           wx.cloud

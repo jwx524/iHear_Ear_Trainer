@@ -1,13 +1,21 @@
-.userinfo {
+.background {
+  position:fixed; 
+  background-size:cover;
+  z-index: -1;
   background-color: #fff;
+}
+
+.userinfo {
+  height: 550rpx;
   display: flex;
-  align-items:center;
-  justify-content: flex-start;
-  flex-direction: column;
-  width: 100%;
-  padding: 30rpx;
+  justify-content: center;
+  overflow: hidden;
   position: relative;
-  border-bottom: 1px solid #999;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-weight: 300;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 .userinfo-avatar {
   width: 176rpx;
@@ -17,7 +25,7 @@
 }
 
 .userinfo-nickname {
-  color: #000;
+  color: #eee;
   display: flex;
   font-size: 60rpx;
   font-weight: bold;
@@ -34,7 +42,7 @@
   display: block;
   width: 100%;
   padding: 40rpx;
-  background-color: #eee;
+  background-color: #fff;
   border-bottom: 1px solid #999;
 }
 .func0{
@@ -42,7 +50,7 @@
   display: block;
   width: 100%;
   padding: 40rpx;
-  background-color: #eee;
+  background-color: #fff;
   border-bottom: 1px solid #999;
 }
 .functitle{

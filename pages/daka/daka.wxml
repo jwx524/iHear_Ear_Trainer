@@ -1,3 +1,7 @@
+<cu-custom bgColor="bg-misty-blue" isBack="{{true}}">
+	<view slot="content">每日打卡</view>
+</cu-custom>
+
 <view class="container bg" style="height:{{scrollheight}}px;width:{{scrollwidth}}px">
 <text>今日已完成{{testtoday}}题</text>
 </view>
