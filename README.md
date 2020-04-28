@@ -1,3 +1,3 @@
-# music_theory_2020
+# iHear_Ear_Trainer
 
 视唱练耳助手
