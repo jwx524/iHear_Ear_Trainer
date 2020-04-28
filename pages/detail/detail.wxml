@@ -1,7 +1,3 @@
-<cu-custom bgColor="bg-misty-blue" isBack="{{true}}">
-	<view slot="content">iHear视唱练耳助手</view>
-</cu-custom>
-
 <view class = "container bg" style="height:{{scrollheight}}px;width:{{scrollwidth}}px">
 <text style="">detail id: {{id}}</text>
 <!-- <input class="ansstr" type="text" disabled='true' placeholder="{{ansstr}}" placeholder-style="color:#000"/> -->
@@ -10,7 +6,7 @@
 </view>
 <view class="line std" wx:if="{{id!=4}}">
   <image src="{{ifplaystd?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusicStd'></image>
-  <text class="stdtag">标准音</text>
+  <text class="stdtag">标准音A4</text>
 </view>
 
 

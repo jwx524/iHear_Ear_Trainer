@@ -11,6 +11,11 @@
       "name": "myTrigger",     
       "type": "timer", 
       "config": "0 30 18 * * * *"
+    },
+    {
+      "name": "myTrigger2",
+      "type": "timer",
+      "config": "0 5 19 * * * *"
     }
   ]
 }

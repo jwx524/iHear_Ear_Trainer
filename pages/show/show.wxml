@@ -1,8 +1,4 @@
 <!--pages/show/show.wxml-->
-<cu-custom bgColor="bg-misty-blue" isBack="{{true}}">
-	<view slot="content">答题情况</view>
-</cu-custom>
-
 <view class="container bg" style="height:{{scrollheight}}px;width:{{scrollwidth}}px">
   <swiper current='{{currentIndex}}' style="height:{{scrollheight}}px;width:{{scrollwidth}}px" bindchange="change" vertical="true">
     <swiper-item class="swpitem"  >

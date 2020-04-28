@@ -1,25 +1,17 @@
-<cu-custom bgColor="bg-misty-blue" isBack="{{true}}">
-	<view slot="content">iHear视唱练耳助手</view>
-</cu-custom>
-
 <view class="container bg" style="height:{{scrollheight}}px;width:{{scrollwidth}}px">
 <scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px" bindscrolltolower="ReachBottom">
   <text>为提高复习效率，只保留近20道错题</text>
-
 <view class="content2" style="opacity:{{10}}" wx:for="{{testmusic}}">
   <view class="line">
   <view class='text'>
   {{index+1}}
   </view>
-  <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic' data-pid="{{index}}"></image> 
   </view>
-
- <view class="lineVertical">
+  <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic' data-pid="{{index}}"></image>
   <view class="line"><text>正确答案：{{item.answer}}</text></view>
   <view class="line"><text>你的答案:{{item.myans}}</text></view>
   <view class="line"><text>时间：{{item.time}}</text></view>
   </view>
-</view>
+  <!-- <button catchtap="next">下一页</button> -->
 </scroll-view>
 </view>
-  <!-- <button catchtap="next">下一页</button> -->
