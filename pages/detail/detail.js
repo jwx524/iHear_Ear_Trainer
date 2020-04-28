@@ -100,7 +100,7 @@ Page({
     if(this.data.id==0){
       wx.showModal({
         title: '提示',
-        content: '请用科学音高记录法标记你听到的音高（*若不了解什么是科学音高，请通过查看“我的->帮助”页面获取帮助）',
+        content: '请用科学音高记录法(c1=C4)标记你听到的音高（*若不了解什么是科学音高，请通过查看“我的->帮助”页面获取帮助）',
         success(res) {
           if (res.confirm) {
             console.log('用户点击确定')
@@ -478,7 +478,7 @@ Page({
     var ifplaystd = this.data.ifplaystd;
     var innerAudioContextStd = this.data.innerAudioContextStd;
     if (!ifplaystd) {
-      innerAudioContextStd.src = "https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/std.m4a?sign=efe9595bfb524e0f5f413ce08784b62f&t=1585881197";
+      innerAudioContextStd.src = "https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/std.m4a?sign=fc48756b93b3e5f8ccdddb131adc0685&t=1587970667";
       innerAudioContextStd.play();
       this.setData({
         ifplaystd: true,

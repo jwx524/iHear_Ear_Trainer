@@ -10,7 +10,7 @@
 </view>
 <view class="line std" wx:if="{{id!=4}}">
   <image src="{{ifplaystd?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusicStd'></image>
-  <text class="stdtag">标准音</text>
+  <text class="stdtag">标准音A4</text>
 </view>
 
 
