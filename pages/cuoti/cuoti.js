@@ -7,7 +7,7 @@ Page({
    */
   data: {
     openid: "",
-    innerAudioContext:null,
+    innerAudioContext: null,
     total: 0,
   },
 
@@ -38,84 +38,88 @@ Page({
       innerAudioContext: innerAudioContext
     })
     const db = wx.cloud.database()
-      db.collection('wrong').where({
-        _openid: this.data.openid
-      }).count({
-        success: res => {
-          var total = res.total
-          total = total - 20
-          // if (options.total != 0){
-          //   total = options.total
-          // }
-          if(total < 0){
-            total = 0
-          }
-          this.setData({
-            total: total
-          })
-          db.collection('wrong').where({
-            _openid: this.data.openid
-          }).skip(total).get({
-            success: res => {
-              console.log(res.data.length)
-              var testmusic = new Array()
-              for (let i = 0; i < res.data.length; i++) {
-                testmusic[i] = {
-                  index: res.data[res.data.length - 1 - i].musicid,
-                  src: "",
-                  answer: "",
-                  ifplay: false,
-                  myans: res.data[res.data.length - 1 - i].myans,
-                  time: res.data[res.data.length - 1 - i].time
+    db.collection('wrong').where({
+      _openid: this.data.openid
+    }).count({
+      success: res => {
+        var total = res.total
+        total = total - 20
+        // if (options.total != 0){
+        //   total = options.total
+        // }
+        if (total < 0) {
+          total = 0
+        }
+        this.setData({
+          total: total
+        })
+        db.collection('wrong').where({
+          _openid: this.data.openid
+        }).skip(total).get({
+          success: res => {
+            console.log(res.data.length)
+            var testmusic = new Array()
+            for (let i = 0; i < res.data.length; i++) {
+              testmusic[i] = {
+                index: res.data[res.data.length - 1 - i].musicid,
+                src: "",
+                answer: "",
+                ifplay: false,
+                ifbeat:false,
+                myans: res.data[res.data.length - 1 - i].myans,
+                time: res.data[res.data.length - 1 - i].time
+              }
+              if (res.data[res.data.length - 1 - i].A!=null){
+                testmusic[i].ifbeat = true
+              }
+            }
+            this.setData({
+              testmusic: testmusic,
+            })
+            for (let i = 0; i < res.data.length; i++) {
+              var testmusic = this.data.testmusic
+              db.collection('music').doc(this.data.testmusic[i].index).get({
+                success: res => {
+                  testmusic[i].src = res.data.src
+                  testmusic[i].answer = res.data.answer
+                  this.setData({
+                    testmusic: testmusic
+                  })
                 }
-              }
-              this.setData({
-                testmusic: testmusic,
-              })
-              for (let i = 0; i < res.data.length; i++) {
-                var testmusic = this.data.testmusic
-                db.collection('music').doc(this.data.testmusic[i].index).get({
-                  success: res => {
-                    testmusic[i].src = res.data.src
-                    testmusic[i].answer = res.data.answer
-                    this.setData({
-                      testmusic: testmusic
-                    })
-                  }
-                })
-              }
-              wx.hideLoading()
-              wx.showToast({
-                title: '加载成功',
               })
             }
-          })
-        }
-      })
-    
+            wx.hideLoading()
+            wx.showToast({
+              title: '加载成功',
+            })
+          }
+        })
+      }
+    })
+
   },
-  next:function(){
-      wx.cloud.init({
-        traceUser: true,
-      })
-      const db = wx.cloud.database()
-      wx.showLoading({
-        title: '玩命加载中',
-      })
-      var total = this.data.total
-      total = total - 20
-      this.setData({
-        total: total
-      })
-          wx.redirectTo({
-               url: '../cuoti/cuoti?total=' + this.data.total
-              })
-          wx.hideLoading()
-          wx.showToast({
-            title: '加载成功',
-          })
-        
-      
+  next: function () {
+    wx.cloud.init({
+      traceUser: true,
+    })
+    const db = wx.cloud.database()
+    wx.showLoading({
+      title: '玩命加载中',
+    })
+    var total = this.data.total
+    total = total - 20
+    this.setData({
+      total: total
+    })
+    wx.redirectTo({
+      url: '../cuoti/cuoti?total=' + this.data.total
+    })
+    wx.hideLoading()
+    wx.showToast({
+      title: '加载成功',
+    })
+
+
   },
   playMusic: function (e) {
     console.log(e.currentTarget)
@@ -151,48 +155,48 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+
   }
 })

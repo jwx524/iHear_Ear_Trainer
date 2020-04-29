@@ -247,6 +247,18 @@ Page({
                   this.setData({
                     days: that.data.days
                   });
+                  wx.hideLoading()
+                  wx.showToast({
+                    title: '加载成功',
+                  })
+                  this.setData({
+                    cur_year: year,
+                    cur_month: month,
+                    monthDaySize: monthDaySize,
+                    date: date,
+                    calendarSignData: calendarSignData,
+                    // calendarSignDay: calendarSignDay
+                  })
                 }
               }
             })
@@ -275,18 +287,7 @@ Page({
           // this.setData({
           //   days: that.data.days
           // });
-          wx.hideLoading()
-          wx.showToast({
-            title: '加载成功',
-          })
-          this.setData({
-            cur_year: year,
-            cur_month: month,
-            monthDaySize: monthDaySize,
-            date: date,
-            calendarSignData: calendarSignData,
-            // calendarSignDay: calendarSignDay
-          })
+          
         }
       })
     // })

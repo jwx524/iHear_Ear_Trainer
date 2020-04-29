@@ -1,6 +1,6 @@
 <view class="container bg" style="height:{{scrollheight}}px;width:{{scrollwidth}}px">
 <scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px" bindscrolltolower="ReachBottom">
-  <text>为提高复习效率，只保留近20道错题</text>
+  <text>为提高复习效率，只保留近20道错题，请尽快复习</text>
 <view class="content2" style="opacity:{{10}}" wx:for="{{testmusic}}">
   <view class="line">
   <view class='text'>
@@ -8,8 +8,10 @@
   </view>
   </view>
   <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic' data-pid="{{index}}"></image>
-  <view class="line"><text>正确答案：{{item.answer}}</text></view>
-  <view class="line"><text>你的答案:{{item.myans}}</text></view>
+  <view wx:if="{{!item.ifbeat}}">
+    <view class="line"><text>正确答案：{{item.answer}}</text></view>
+    <view class="line"><text>你的答案:{{item.myans}}</text></view>
+  </view>
   <view class="line"><text>时间：{{item.time}}</text></view>
   </view>
   <!-- <button catchtap="next">下一页</button> -->

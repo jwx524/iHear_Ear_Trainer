@@ -100,7 +100,7 @@ Page({
     if(this.data.id==0){
       wx.showModal({
         title: '提示',
-        content: '请用科学音高记录法(c1=C4)标记你听到的音高（*若不了解什么是科学音高，请通过查看“我的->帮助”页面获取帮助）',
+        content: '请用科学音高记录法(c1=C4)依次标记你听到的每个音高（*若不了解什么是科学音高，请通过查看“我的->帮助”页面获取帮助）',
         success(res) {
           if (res.confirm) {
             console.log('用户点击确定')
@@ -116,7 +116,7 @@ Page({
     if (this.data.id == 1) {
       wx.showModal({
         title: '提示',
-        content: '请先后标记你听到的两组音程（*若不了解什么是音程，请通过查看“我的->帮助”页面获取帮助）',
+        content: '请先后标记你听到的两组音程（*若对音程的概念不了解，请通过查看“我的->帮助”页面获取帮助）',
         success(res) {
           if (res.confirm) {
             console.log('用户点击确定')
@@ -148,7 +148,7 @@ Page({
     if (this.data.id == 3) {
       wx.showModal({
         title: '提示',
-        content: '请为你听到的音阶标注调式（*若对选项中的名词不了解，请通过查看“我的->帮助”页面获取帮助）',
+        content: '请请先后标记你听到的两组和弦（*若对和弦的概念不了解，请通过查看“我的->帮助”页面获取帮助）',
         success(res) {
           if (res.confirm) {
             console.log('用户点击确定')

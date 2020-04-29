@@ -3,7 +3,7 @@ const app = getApp()
 const db = wx.cloud.database({})
 const TmplId = '3oKMgxRhW3dapI_hEbftSgUUnqjaAS9P06LIkD0Ewv4';
 Page({
-  
+
   /**
    * 页面的初始数据
    */
@@ -11,27 +11,28 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    grade:0,
+    grade: 0,
     openid: "",
     wrong: 0,
     allcount: 0,
     subs: 0,
-    study:  {
-        id: 0,
-        //这里的变量名字一定要和从平台申请的模板所给的变量对应
-        thing1: { value: '学习任务' },
-        thing2: { value: '视唱练耳训练' },
-      },
+    study: {
+      id: 0,
+      //这里的变量名字一定要和从平台申请的模板所给的变量对应
+      thing1: { value: '学习任务' },
+      thing2: { value: '视唱练耳训练' },
+    },
   },
+
   Subscribe: function (e) {
     let that = this
     const item = this.data.study
     wx.requestSubscribeMessage({
       tmplIds: [TmplId],
       success(res) {
-        if (res[TmplId]=='accept')
+        if (res[TmplId] == 'accept')
         // if (res.errMsg === 'requestSubscribeMessage:ok')
-         {
+        {
 
           wx.cloud
             .callFunction({
@@ -74,8 +75,8 @@ Page({
             })
             .then(() => {
               wx.showToast({
-                title: '订阅成功，将于19:00为您推送学习提醒',
-                icon: 'success',
+                title: '订阅成功，将于每天19:00为您推送学习提醒',
+                icon: 'none',
                 duration: 2000,
               });
               that.setData({
@@ -97,7 +98,7 @@ Page({
     });
 
   },
-  unSubscribe:function(){
+  unSubscribe: function () {
     this.setData({
       subs: 0
     })
@@ -130,12 +131,12 @@ Page({
     })
     var TIME = util.formatTime(new Date());
     this.setData({ time: TIME })
- /*   wx.setNavigationBarTitle({
-      title: TIME,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })*/
+    /*   wx.setNavigationBarTitle({
+         title: TIME,
+         success: function(res) {},
+         fail: function(res) {},
+         complete: function(res) {},
+       })*/
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -185,15 +186,15 @@ Page({
     db.collection('wrong').where({
       _openid: this.data.openid
     }).count({
-      success: res =>{
+      success: res => {
         this.setData({
           wrong: res.total
         })
         db.collection('allcount').where({
           _openid: this.data.openid
         }).count({
-          success: res =>{
-            if(res.total!=0){
+          success: res => {
+            if (res.total != 0) {
               var allcount = 5 * res.total
               var grade = ((1 - this.data.wrong / (1.0 * allcount)) * 100).toFixed()
               this.setData({
@@ -214,12 +215,12 @@ Page({
       hasUserInfo: true
     })
   },
-  
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
@@ -312,14 +313,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+
   },
 
   /**
@@ -415,7 +416,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+
   },
 
   /**
