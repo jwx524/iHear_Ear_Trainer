@@ -39,6 +39,9 @@
                 <text>{{days[j+k].mydate}}</text>
               </view>
               <!-- 当前日期未签到 -->
+              <view wx:elif="{{(days[j+k].mydate+cur_month*35)==date}}" style='background-color:#999' class='cell'>
+                <text>{{days[j+k].mydate}}</text>
+              </view>
               <view wx:else>
                 <text>{{days[j+k].mydate}}</text>
               </view>

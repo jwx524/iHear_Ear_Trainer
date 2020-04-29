@@ -14,7 +14,8 @@ Page({
     count: 0,
     today:"",
     testtoday:0,
-    ifSign: false
+    ifSign: false,
+    cc:0
   },
 
   /**
@@ -200,14 +201,22 @@ Page({
       const db = wx.cloud.database()
       calendarSignData = new Array(monthDaySize)
       var ctotal = 0
+      var total = 0
+      var cc = 0
+      var canwrite = true
       db.collection('calendarSignData').where({
-        _openid: this.data.openid
+        _openid: app.globalData.openid
       }).count({
         success: res => {
+          cc=this.data.cc
+          total = res.total
+          this.setData({
+            total: total
+          })
           ctotal = Math.ceil(1.0 * res.total / 20)
           for (let j = 0; j < ctotal; j++) {
             db.collection('calendarSignData').where({
-              _openid: this.data.openid
+              _openid: app.globalData.openid
             }).skip(j * 20).get({
               success: res => {
                 console.log(res.data)
@@ -215,31 +224,36 @@ Page({
                 for (let i = 0; i < res.data.length; i++) {
                   cid = parseInt(res.data[i].date)
                   calendarSignData[cid] = cid
+                  cc = cc + 1
                 }
+                this.setData({
+                  cc: cc,
+                })
                 // wx.setStorageSync("calendarSignData", calendarSignData);
-                if(j==(ctotal - 1)){
-                  // console.log(j)
+                if(this.data.cc==this.data.total){
+                  console.log(this.data.total)
+                  console.log(this.data.cc)
                   var that = this;
                   const thisMonthDays = this.getThisMonthDays(year, month);
                   var count = this.data.count
                   var days = this.data.days
                   for (let i = 1; i <= thisMonthDays; i++) {
                     var ii = i + month * 35;
-                    console.log(ii)
-                    console.log(calendarSignData[ii])
+                    // console.log(ii)
+                    // console.log(calendarSignData[ii])
                     if (ii == calendarSignData[ii]) {
                       var obj = {
                         mydate: i,
                         isSign: true
                       }
-                      console.log(true)
+                      // console.log(true)
                     }
                     else {
                       var obj = {
                         mydate: i,
                         isSign: false
                       }
-                      console.log(false)
+                      // console.log(false)
                     }
                     // that.data.days.push(obj);
                     days[count+i-1] = obj

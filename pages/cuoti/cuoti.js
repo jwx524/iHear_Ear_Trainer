@@ -65,11 +65,11 @@ Page({
                 src: "",
                 answer: "",
                 ifplay: false,
-                ifbeat:false,
+                ifbeat: false,
                 myans: res.data[res.data.length - 1 - i].myans,
                 time: res.data[res.data.length - 1 - i].time
               }
-              if (res.data[res.data.length - 1 - i].A!=null){
+              if (res.data[res.data.length - 1 - i].A != null) {
                 testmusic[i].ifbeat = true
               }
             }
