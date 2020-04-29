@@ -74,7 +74,7 @@ Page({
             })
             .then(() => {
               wx.showToast({
-                title: '订阅成功',
+                title: '订阅成功，将于19:00为您推送学习提醒',
                 icon: 'success',
                 duration: 2000,
               });
@@ -95,6 +95,30 @@ Page({
         console.log(re)
       },
     });
+
+  },
+  unSubscribe:function(){
+    this.setData({
+      subs: 0
+    })
+    wx.cloud
+      .callFunction({
+        name: 'unsubscribeMessage',
+      })
+      .then(() => {
+        wx.showToast({
+          title: '已取消',
+          icon: 'success',
+          duration: 2000,
+        });
+      })
+      .catch(() => {
+        wx.showToast({
+          title: '订阅失败',
+          icon: 'success',
+          duration: 2000,
+        });
+      });
 
   },
   /**

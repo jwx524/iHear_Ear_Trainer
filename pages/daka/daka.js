@@ -45,7 +45,7 @@ Page({
     })
     const db = wx.cloud.database()
     db.collection('calendarSignData').where({
-      _id: date + "",
+      date: date + "",
       _openid: app.globalData.openid
     }).count({
       success: res =>{
@@ -124,7 +124,7 @@ Page({
   },
 
   // 计算当月1号前空了几个格子，把它填充在days数组的前面
-  calculateEmptyGrids: async function (year, month) {
+  calculateEmptyGrids: function (year, month) {
     var that = this;
     var count = 0
     //计算每个月时要清零
@@ -152,7 +152,7 @@ Page({
   },
 
   // 绘制当月天数占的格子，并把它放到days数组中
-  calculateDays: async function (year, month) {
+  calculateDays: function (year, month) {
     var that = this;
     const thisMonthDays = this.getThisMonthDays(year, month);
     for (let i = 1; i <= thisMonthDays; i++) {
@@ -179,7 +179,7 @@ Page({
 
   },
   
-  onJudgeSign: async function (year,month){
+  onJudgeSign: function (year,month){
     // return new Promise(resolve => {
       const monthDaySize = this.getThisMonthDays(year, month);
       //获取当前用户当前任务的签到状态
@@ -213,7 +213,7 @@ Page({
                 console.log(res.data)
                 var cid = 0
                 for (let i = 0; i < res.data.length; i++) {
-                  cid = parseInt(res.data[i]._id)
+                  cid = parseInt(res.data[i].date)
                   calendarSignData[cid] = cid
                 }
                 // wx.setStorageSync("calendarSignData", calendarSignData);
@@ -338,7 +338,7 @@ Page({
     const db = wx.cloud.database()
     db.collection('calendarSignData').add({
       data: {
-        _id: date+"",
+        date: date + ""
       },
       success: res => {
         console.log(res)
@@ -349,7 +349,7 @@ Page({
     // if(calendarSignData[date-1]==null)
     // {calendarSignDay=0;}
     // calendarSignDay = calendarSignDay + 1;
-    wx.setStorageSync("calendarSignData", calendarSignData);
+    // wx.setStorageSync("calendarSignData", calendarSignData);
     // wx.setStorageSync("calendarSignDay", calendarSignDay);
     const mydate = new Date();
     const now_year = mydate.getFullYear();
@@ -373,7 +373,7 @@ Page({
       // calendarSignDay: calendarSignDay
     })
   },
-  ongetsignup: async function(){
+  ongetsignup: function(){
     var TIME = util.formatTime(new Date());
     this.setData({ today: TIME.slice(0, 10) })
     wx.cloud.init({

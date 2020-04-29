@@ -8,9 +8,9 @@ exports.main = async (event, context) => {
       .collection('SubscribeMessage')
       // 查询条件这里做了简化，只查找了状态为未发送的消息
       // 在真正的生产环境，可以根据开课日期等条件筛选应该发送哪些消息
-      .where({
-        done: false,
-      })
+      // .where({
+      //   done: false,
+      // })
       .get();
     // 循环消息列表
     const sendPromises = messages.data.map(async message => {
@@ -26,11 +26,13 @@ exports.main = async (event, context) => {
         return db
           .collection('SubscribeMessage')
           .doc(message._id)
-          .update({
-            data: {
-              done: true,
-            },
-          });
+          .get()
+          // .remove()
+          // .update({
+          //   data: {
+          //     done: true,
+          //   },
+          // });
       } catch (e) {
         return e;
       }

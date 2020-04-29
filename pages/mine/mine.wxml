@@ -30,8 +30,8 @@
     <view class="func" catchtap="Subscribe" wx:if="{{subs==0}}" hover-class="button-hover">
       <text class="functitle">设置提醒</text>
     </view>
-    <view class="func0" wx:if="{{subs!=0}}">
-      <text class="functitle">设置提醒</text>
+    <view class="func0" wx:if="{{subs!=0}}" catchtap="unSubscribe" hover-class="button-hover">
+      <text class="functitle">取消提醒</text>
     </view>
   </view>
 </view>
