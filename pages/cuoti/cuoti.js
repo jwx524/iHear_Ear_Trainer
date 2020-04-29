@@ -47,6 +47,9 @@ Page({
           // if (options.total != 0){
           //   total = options.total
           // }
+          if(total < 0){
+            total = 0
+          }
           this.setData({
             total: total
           })

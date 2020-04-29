@@ -32,7 +32,10 @@
             <!-- 每个月份的有数字的单元格 -->
             <view class='cell' wx:else>
               <!-- 当前日期已签到 -->
-              <view wx:if="{{(days[j+k].mydate+cur_month*35)==calendarSignData[(days[j+k].mydate+cur_month*35)]}}" style='background-color:#83C75D' class='cell'>
+              <!-- <view wx:if="{{(days[j+k].mydate+cur_month*35)==calendarSignData[(days[j+k].mydate+cur_month*35)]}}" style='background-color:#83C75D' class='cell'>
+                <text>{{days[j+k].mydate}}</text>
+              </view> -->
+              <view wx:if="{{days[j+k].isSign}}" style='background-color:#83C75D' class='cell'>
                 <text>{{days[j+k].mydate}}</text>
               </view>
               <!-- 当前日期未签到 -->
@@ -45,7 +48,7 @@
       </view>
     </view>
   </view>
-  <!-- 坚持打卡天数 -->
+  <!-- 今日完成题目 -->
   <view class='count'>
     <text>今日完成</text>
     <view class='daynumber'>
@@ -56,7 +59,8 @@
   </view>
    <view class="calendarSign">
     <button wx:if="{{testtoday==0}}" >今日还未答题，无法签到</button>
-    <button wx:elif="{{date!=calendarSignData[date]}}" style="color:#fff;background-color:#83C75D;" bindtap="calendarSign">签到</button>
+    <!-- <button wx:elif="{{date!=calendarSignData[date]}}" style="color:#fff;background-color:#83C75D;" bindtap="calendarSign">签到</button> -->
+    <button wx:elif="{{!ifSign}}" style="color:#fff;background-color:#83C75D;" bindtap="calendarSign">签到</button>
     <button wx:else="">今日已签到</button>
   </view>
 </view>
