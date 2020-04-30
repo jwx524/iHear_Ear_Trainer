@@ -26,8 +26,8 @@ exports.main = async (event, context) => {
         return db
           .collection('SubscribeMessage')
           .doc(message._id)
-          .get()
-          // .remove()
+          .remove()
+          // .get()
           // .update({
           //   data: {
           //     done: true,

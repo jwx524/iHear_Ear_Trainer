@@ -75,7 +75,7 @@ Page({
             })
             .then(() => {
               wx.showToast({
-                title: '订阅成功，将于每天19:00为您推送学习提醒',
+                title: '订阅成功，将于20:00为您推送学习提醒',
                 icon: 'none',
                 duration: 2000,
               });
