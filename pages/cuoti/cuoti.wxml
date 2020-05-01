@@ -12,6 +12,10 @@
     <view class="line"><text>正确答案：{{item.answer}}</text></view>
     <view class="line"><text>你的答案:{{item.myans}}</text></view>
   </view>
+  <view wx:if="{{item.ifbeat}}">
+    <text>正确答案：</text><image src="{{item.answer}}"></image>
+    <text>你的答案：</text><image src="{{item.myans}}"></image>
+  </view>
   <view class="line"><text>时间：{{item.time}}</text></view>
   </view>
   <!-- <button catchtap="next">下一页</button> -->

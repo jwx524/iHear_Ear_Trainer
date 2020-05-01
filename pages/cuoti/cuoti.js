@@ -69,29 +69,64 @@ Page({
                 myans: res.data[res.data.length - 1 - i].myans,
                 time: res.data[res.data.length - 1 - i].time
               }
-              if (res.data[res.data.length - 1 - i].A != null) {
-                testmusic[i].ifbeat = true
-              }
+              
             }
             this.setData({
               testmusic: testmusic,
+              cc:0
             })
             for (let i = 0; i < res.data.length; i++) {
               var testmusic = this.data.testmusic
+              var cc = this.data.cc
               db.collection('music').doc(this.data.testmusic[i].index).get({
                 success: res => {
+                  cc = cc + 1
                   testmusic[i].src = res.data.src
                   testmusic[i].answer = res.data.answer
+                  if (res.data.A != null) {
+                    testmusic[i].ifbeat = true
+                    if (res.data.answer == 'A') {
+                      testmusic[i].answer = res.data.A
+                    }
+                    if (res.data.answer == 'B') {
+                      testmusic[i].answer = res.data.B
+                    }
+                    if (res.data.answer == 'C') {
+                      testmusic[i].answer = res.data.C
+                    }
+                    if (res.data.answer == 'D') {
+                      testmusic[i].answer = res.data.D
+                    }
+                    if (testmusic[i].myans == 'A') {
+                      testmusic[i].myans = res.data.A
+                    }
+                    if (testmusic[i].myans == 'B') {
+                      testmusic[i].myans = res.data.B
+                    }
+                    if (testmusic[i].myans == 'C') {
+                      testmusic[i].myans = res.data.C
+                    }
+                    if (testmusic[i].myans == 'D') {
+                      testmusic[i].myans = res.data.D
+                    }
+                  }
                   this.setData({
-                    testmusic: testmusic
+                    testmusic: testmusic,
+                    cc :cc
                   })
+                  if(this.data.cc == 20){
+                    wx.hideLoading()
+                    wx.showToast({
+                      title: '加载成功',
+                    })
+                  }
                 }
               })
             }
-            wx.hideLoading()
-            wx.showToast({
-              title: '加载成功',
-            })
+            // wx.hideLoading()
+            // wx.showToast({
+            //   title: '加载成功',
+            // })
           }
         })
       }

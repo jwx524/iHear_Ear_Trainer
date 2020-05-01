@@ -164,7 +164,7 @@ Page({
     if (this.data.id == 4) {
       wx.showModal({
         title: '提示',
-        content: '请选出你听到的节奏型（*若对选项中的标识不了解，请通过查看“我的->帮助”页面获取帮助）',
+        content: '请选出你听到钢琴音的节奏型（*若对选项中的标识不了解，请通过查看“我的->帮助”页面获取帮助）',
         success(res) {
           if (res.confirm) {
             console.log('用户点击确定')
@@ -236,6 +236,12 @@ Page({
             success: res => {
               testmusic[i].src = res.data.src
               testmusic[i].answer = res.data.answer
+              if(this.data.id==4){
+                testmusic[i].A = res.data.A
+                testmusic[i].B = res.data.B
+                testmusic[i].C = res.data.C
+                testmusic[i].D = res.data.D
+              }
               this.setData({
                 testmusic:testmusic
               })

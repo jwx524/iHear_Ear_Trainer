@@ -8,8 +8,14 @@
     <swiper-item class="swpitem" wx:for="{{testmusic}}" wx:if="{{index<wrongnum}}">
       <text>{{index+1}}</text>
       <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic'></image>
-      <text>正确答案：{{item.answer}}</text>
-      <text>你的答案：{{item.myans}}</text>
+      <view wx:if="{{!item.ifbeat}}">
+        <text>正确答案：{{item.answer}}</text>
+        <text>你的答案：{{item.myans}}</text>
+      </view>
+      <view wx:if="{{item.ifbeat}}">
+        <text>正确答案：</text><image src="{{item.answer}}"></image>
+        <text>你的答案：</text><image src="{{item.myans}}"></image>
+      </view>
     </swiper-item>
   </swiper>
 </view>

@@ -5,13 +5,13 @@
   <view class="bar">
     <!-- 上一个月 -->
     <!----><view class="previous" bindtap="handleCalendar" data-handle="prev">
-    <image src='https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/qj.png?sign=104f2e21730277cb3a66aca2e5eafe49&t=1588069118'></image>
+    <image src='https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/qj.png?sign=18d0ee072db45bb2484d97f97f8b0a60&t=1588345844'></image>
     </view>
     <!-- 显示年月 -->
     <view class="date">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
     <!-- 下一个月 -->
     <view class="next" bindtap="handleCalendar" data-handle="next">
-      <image src='https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/ht.png?sign=030f1df5c17798593584822f8b9076dd&t=1588069147'></image>
+      <image src='https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/ht.png?sign=0bd3376ed68ad5cf7c99e30335cd6c3f&t=1588345864'></image>
     </view>
   </view>
   <!-- 显示星期 -->

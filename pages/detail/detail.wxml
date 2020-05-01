@@ -119,7 +119,7 @@
   <button class="btn0 picked" catchtap="ans4" data-id="A" wx:if="{{(item.myans)=='A'}}">
     <text>A</text>
   </button>
-  <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic'></image>
+  <image src="{{item.A}}" class='music' catchtap='playMusic'></image>
 </view>
 <view class="line2">
   <button class="btn0" catchtap="ans4" data-id="B" wx:if="{{(item.myans)!='B'}}">
@@ -128,7 +128,7 @@
   <button class="btn0 picked" catchtap="ans4" data-id="B" wx:if="{{(item.myans)=='B'}}">
     <text>B</text>
   </button>
-  <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic'></image>
+  <image src="{{item.B}}" class='music' catchtap='playMusic'></image>
 </view>
 <view class="line2">
   <button class="btn0" catchtap="ans4" data-id="C" wx:if="{{(item.myans)!='C'}}">
@@ -137,7 +137,7 @@
   <button class="btn0 picked" catchtap="ans4" data-id="C" wx:if="{{(item.myans)=='C'}}">
     <text>C</text>
   </button>
-  <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic'></image>
+  <image src="{{item.C}}" class='music' catchtap='playMusic'></image>
 </view>
 <view class="line2">
   <button class="btn0" catchtap="ans4" data-id="D" wx:if="{{(item.myans)!='D'}}">
@@ -146,7 +146,7 @@
   <button class="btn0 picked" catchtap="ans4" data-id="D" wx:if="{{(item.myans)=='D'}}">
     <text>D</text>
   </button>
-  <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic'></image>
+  <image src="{{item.D}}" class='music' catchtap='playMusic'></image>
 </view>
 </swiper-item>
 </swiper>
