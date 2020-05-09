@@ -20,7 +20,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/-2.m4a?sign=234001d1bffa4599f4a8515eeed9f0a9&t=1585793399',
           ifplay: false,
         },
-        intro: "小二度",
+        intro: "两音距离1个半音，如do-降re",
       },
       {
         ifShoucang: false,
@@ -29,7 +29,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2B2.m4a?sign=6cae8400e0b66fbded22118f4b719ac2&t=1585793550',
           ifplay: false,
         },
-        intro: "",
+        intro: "两音距离2个半音（1个全音），如do-re",
       },
       {
         ifShoucang: false,
@@ -38,7 +38,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/-3.m4a?sign=6982ffae29509d4f2f693427af16c12e&t=1585793738',
           ifplay: false,
         },
-        intro: "",
+        intro: "两音距离3个半音（1个全音+1个半音），如do-降mi",
       },
       {
         ifShoucang: false,
@@ -47,7 +47,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2B3.m4a?sign=ba2ed04e24d4e8b4738db6d9ee36b6bf&t=1585793916',
           ifplay: false,
         },
-        intro: "",
+        intro: "两音距离4个半音（2个全音），如do-mi",
       },
       {
         ifShoucang: false,
@@ -56,7 +56,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/4.m4a?sign=09930d351bfb06edf38c1f1992c1c6b7&t=1585794044',
           ifplay: false,
         },
-        intro: "",
+        intro: "两音距离5个半音（2个全音+1个半音），如do-fa",
       },
       {
         ifShoucang: false,
@@ -65,7 +65,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2B4.m4a?sign=ac8ba42ce4636787837c7305c7220346&t=1585794127',
           ifplay: false,
         },
-        intro: "",
+        intro: "两音距离6个半音（3个全音），如do-升fa",
       },
       {
         ifShoucang: false,
@@ -74,7 +74,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/5.m4a?sign=9ad66cc94b5d44cc8ddc37d37c5de4af&t=1585794266',
           ifplay: false,
         },
-        intro: "",
+        intro: "两音距离7个半音（3个全音+1个半音），如do-sol",
       },
       {
         ifShoucang: false,
@@ -83,7 +83,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/-6.m4a?sign=52d75d71f176e3bb0ec01ec2365aa2e1&t=1585794391',
           ifplay: false,
         },
-        intro: "",
+        intro: "两音距离8个半音（4个全音），如do-降la",
       },
       {
         ifShoucang: false,
@@ -92,7 +92,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2B6.m4a?sign=177cb1a8d72171f6c344a698aba5bd11&t=1585794503',
           ifplay: false,
         },
-        intro: "",
+        intro: "两音距离9个半音（4个全音+1个半音），如do-la",
       },
       {
         ifShoucang: false,
@@ -101,7 +101,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/-7.m4a?sign=69dc1f3dfa74217723d74ce778db3202&t=1585794581',
           ifplay: false,
         },
-        intro: "",
+        intro: "两音距离10个半音（5个全音），如do-降si",
       },
       {
         ifShoucang: false,
@@ -110,7 +110,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2B7.m4a?sign=03ff8acbad3799de5f3153ce67059939&t=1585795058',
           ifplay: false,
         },
-        intro: "",
+        intro: "两音距离11个半音（5个全音+1个半音），如do-si",
       },
       {
         ifShoucang: false,
@@ -119,7 +119,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/8.m4a?sign=33fdb0d696ba009dd380f37f46846d8d&t=1585795077',
           ifplay: false,
         },
-        intro: "",
+        intro: "两音距离12个半音（6个全音），如do-下一组的高音do",
       },
     ],
     [
@@ -130,7 +130,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%A4%A7%E8%B0%83.m4a?sign=5f1f237904605800134297dbf0e31454&t=1585822339',
           ifplay: false,
         },
-        intro: "",
+        intro: "do re mi fa sol la si do",
       },
       {
         ifShoucang: false,
@@ -139,7 +139,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E8%87%AA%E7%84%B6%E5%B0%8F%E8%B0%83.m4a?sign=7e33458f0d2ebd0cae0ca20f29c1819d&t=1588385199',
           ifplay: false,
         },
-        intro: "",
+        intro: "do re 降mi fa sol 降la 降si do",
       },
       {
         ifShoucang: false,
@@ -148,7 +148,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%92%8C%E5%A3%B0%E5%B0%8F%E8%B0%83.m4a?sign=fe0dbc6d16a27b8ac7607da31e656c8c&t=1588418015',
           ifplay: false,
         },
-        intro: "",
+        intro: "do re 降mi fa sol 降la si do",
       },
       {
         ifShoucang: false,
@@ -157,7 +157,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E6%97%8B%E5%BE%8B%E5%B0%8F%E8%B0%83.m4a?sign=5ae5efbe5ae58374350bd01e463efc92&t=1588418123',
           ifplay: false,
         },
-        intro: "",
+        intro: "do re 降mi fa sol la si do",
       },
       {
         ifShoucang: false,
@@ -166,7 +166,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/yayue.m4a?sign=4eb2a7955866a31fb4be1728d7d6e05c&t=1588418552',
           ifplay: false,
         },
-        intro: "",
+        intro: "do re mi 升fa sol la si do",
       },
       {
         ifShoucang: false,
@@ -175,7 +175,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E7%87%95%E4%B9%90.m4a?sign=a06273bde97c5521725a7ca764cb6b16&t=1588418644',
           ifplay: false,
         },
-        intro: "",
+        intro: "do re mi fa sol la 降si do",
       },
       {
         ifShoucang: false,
@@ -184,7 +184,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%A4%9A%E5%88%A9%E4%BA%9A%E8%B0%83%E5%BC%8F.m4a?sign=e2558041f631dbcb46cadcbbeb2dc8e1&t=1588419035',
           ifplay: false,
         },
-        intro: "",
+        intro: "do re 降mi fa sol la 降si do",
       },
       {
         ifShoucang: false,
@@ -193,7 +193,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%BC%97%E9%87%8C%E5%87%A0%E4%BA%9A%E8%B0%83%E5%BC%8F.m4a?sign=9a9332693c04c170c201ec94cbb734aa&t=1588419220',
           ifplay: false,
         },
-        intro: "",
+        intro: "do 降re 降mi fa sol 降la 降si do",
       },
       {
         ifShoucang: false,
@@ -202,7 +202,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E6%B4%9B%E5%85%8B%E5%88%A9%E4%BA%9A%E8%B0%83%E5%BC%8F.m4a?sign=0d29342af4fb7c27e94c41b79e7aa81a&t=1588419323',
           ifplay: false,
         },
-        intro: "",
+        intro: "do 降re 降mi fa 降sol 降la 降si do",
       },
     ],
     [
@@ -213,7 +213,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%A4%A7%E4%B8%89%E5%92%8C%E5%BC%A6.m4a?sign=2d7720ed698bd7fa1cd5532ac60f1b9a&t=1588419443',
           ifplay: false,
         },
-        intro: "",
+        intro: "根音（三和弦中最低的音）与三音（三和弦中中间的音）是大三度，三音与五音（三和弦中最高的音）是小三度，如do-mi-sol",
       },
       {
         ifShoucang: false,
@@ -222,7 +222,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%B0%8F%E4%B8%89%E5%92%8C%E5%BC%A6.m4a?sign=70f41556372f5ca34079f370a1c96920&t=1588419583',
           ifplay: false,
         },
-        intro: "",
+        intro: "根音与三音是小三度，三音与五音是大三度，如do-降mi-sol",
       },
       {
         ifShoucang: false,
@@ -231,7 +231,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%A2%9E%E4%B8%89%E5%92%8C%E5%BC%A6.m4a?sign=eec9167284d83f013abbeb70153e3dee&t=1588419662',
           ifplay: false,
         },
-        intro: "",
+        intro: "根音与三音是大三度，三音与五音是大三度，如do-mi-升sol（降la）",
       },
       {
         ifShoucang: false,
@@ -240,7 +240,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%87%8F%E4%B8%89%E5%92%8C%E5%BC%A6.m4a?sign=28aca317de26eda2bd6d22df6ce95027&t=1588419740',
           ifplay: false,
         },
-        intro: "",
+        intro: "根音与三音是小三度，三音与五音是小三度，如do-降mi-降sol（升fa）",
       },
       {
         ifShoucang: false,
@@ -249,7 +249,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%A4%A76.m4a?sign=9eddeeddd28702941467bc5655e49fa9&t=1588419853',
           ifplay: false,
         },
-        intro: "",
+        intro: "大三和弦的第一转位（将大三和弦的根音升一个八度），如mi-sol-高音do",
       },
       {
         ifShoucang: false,
@@ -258,7 +258,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%B0%8F6.m4a?sign=4f815b55cba17f164ce87be893c1630c&t=1588419932',
           ifplay: false,
         },
-        intro: "",
+        intro: "小三和弦的第一转位（将小三和弦的根音升一个八度），如降mi-sol-高音do",
       },
       {
         ifShoucang: false,
@@ -267,7 +267,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%87%8F6.m4a?sign=637e9f8b2e44802b82a35d62a243f8bb&t=1588420041',
           ifplay: false,
         },
-        intro: "",
+        intro: "减三和弦的第一转位（将减三和弦的根音升一个八度），如降mi-降sol-高音do",
       },
       {
         ifShoucang: false,
@@ -276,7 +276,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%A4%A746.m4a?sign=1523c0da23697b5327bc7fe4e28f51f5&t=1588420139',
           ifplay: false,
         },
-        intro: "",
+        intro: "大三和弦的第二转位（将大三和弦的根音和三音都升一个八度），如sol-高音do-高音mi",
       },
       {
         ifShoucang: false,
@@ -285,7 +285,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%B0%8F46.m4a?sign=50169af4a4a1662f3a34af231255f185&t=1588420234',
           ifplay: false,
         },
-        intro: "",
+        intro: "小三和弦的第二转位（将小三和弦的根音和三音都升一个八度），如sol-高音do-高音降mi",
       },
       {
         ifShoucang: false,
@@ -294,7 +294,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%87%8F46.m4a?sign=f967937a2f712838ff85a2824d79d9d5&t=1588420355',
           ifplay: false,
         },
-        intro: "",
+        intro: "减三和弦的第二转位（将减三和弦的根音和三音都升一个八度），如降sol-高音do-高音降mi",
       },
     ],
     [
@@ -305,7 +305,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%A4%A7%E5%B0%8F%E4%B8%83.m4a?sign=e53e3a123df05fd21eab1c6512d1b6da&t=1588420961',
           ifplay: false,
         },
-        intro: "",
+        intro: "在大三和弦的基础上，加上跟根音构成小七度的七音，如do-mi-sol-降si",
       },
       {
         ifShoucang: false,
@@ -314,7 +314,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%A4%A7%E5%A4%A7%E4%B8%83.m4a?sign=e3f32ff6197d97101c75b80d0ca773ca&t=1588421089',
           ifplay: false,
         },
-        intro: "",
+        intro: "在大三和弦的基础上，加上跟根音构成大七度的七音，如do-mi-sol-si",
       },
       {
         ifShoucang: false,
@@ -323,7 +323,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%B0%8F%E5%B0%8F%E4%B8%83.m4a?sign=181518d678fa19c889f0ee6bb27575d0&t=1588421292',
           ifplay: false,
         },
-        intro: "",
+        intro: "在小三和弦的基础上，加上跟根音构成小七度的七音，如do-降mi-sol-降si",
       },
       {
         ifShoucang: false,
@@ -332,7 +332,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%87%8F%E5%B0%8F72.m4a?sign=a076d12c75003aabdee851ab83a036c2&t=1588421608',
           ifplay: false,
         },
-        intro: "",
+        intro: "在减三和弦的基础上，加上跟根音构成小七度的七音，如do-降mi-降sol-降si",
       },
       {
         ifShoucang: false,
@@ -341,7 +341,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%87%8F%E5%B0%8F7.m4a?sign=361346b0939a8a6945429d825fe4a033&t=1588421427',
           ifplay: false,
         },
-        intro: "",
+        intro: "在减三和弦的基础上，加上跟根音构成减七度（大六度）的七音，如do-降mi-降sol-la",
       },
     ],
     [
@@ -352,7 +352,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%85%A8%E9%9F%B3%E7%AC%A6.m4a?sign=5720e183f8ce18d053d96826ccce281b&t=1588382003',
           ifplay: false,
         },
-        intro: "",
+        intro: "音长是四分音符的4倍，即4/4拍中的4拍",
       },
       {
         ifShoucang: false,
@@ -361,7 +361,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E4%BA%8C%E5%88%86%E9%9F%B3%E7%AC%A6.m4a?sign=eb28ca629ac22fc3c1aa260d8c0c169f&t=1588382509',
           ifplay: false,
         },
-        intro: "",
+        intro: "音长是四分音符的2倍，即4/4拍中的2拍",
       },
       {
         ifShoucang: false,
@@ -370,7 +370,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%9B%9B%E5%88%86%E9%9F%B3%E7%AC%A6.m4a?sign=1466bfe357e5919358a8cd54127816cb&t=1588382667',
           ifplay: false,
         },
-        intro: "",
+        intro: "4/4拍中的1拍",
       },
       {
         ifShoucang: false,
@@ -379,7 +379,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%85%AB%E5%88%86%E9%9F%B3%E7%AC%A6.m4a?sign=2cbfee1e1f4d5ee5408e3a621d647d28&t=1588383403',
           ifplay: false,
         },
-        intro: "",
+        intro: "音长是四分音符的1/2，即4/4拍中的半拍",
       },
       {
         ifShoucang: false,
@@ -388,7 +388,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%8D%81%E5%85%AD%E5%88%86%E9%9F%B3%E7%AC%A6.m4a?sign=062d43ef111a3f6d51bf17d8179f0514&t=1588383508',
           ifplay: false,
         },
-        intro: "",
+        intro: "音长是四分音符的1/4，即4/4拍中的1/4拍",
       },
       {
         ifShoucang: false,
@@ -397,7 +397,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E9%99%84%E7%82%B9.m4a?sign=de3ff99b64382263eeceb609445c5425&t=1588383698',
           ifplay: false,
         },
-        intro: "",
+        intro: "对于附点前的音符，其音长变为原来的1.5倍",
       },
       {
         ifShoucang: false,
@@ -406,7 +406,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E4%B8%89%E8%BF%9E%E9%9F%B3.m4a?sign=9fd1bce1f613d55946386af932e598b0&t=1588383920',
           ifplay: false,
         },
-        intro: "",
+        intro: "三个连续、等长的音，三等分1拍、2拍或4拍",
       },
       {
         ifShoucang: false,
@@ -415,7 +415,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%85%A8%E4%BC%91%E6%AD%A2.m4a?sign=e5afb3541f7bd6c3b08c6e480978f803&t=1588384073',
           ifplay: false,
         },
-        intro: "",
+        intro: "对应全音符，在与全音符相等的时值内休止",
       },
       {
         ifShoucang: false,
@@ -424,7 +424,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E4%BA%8C%E5%88%86%E4%BC%91%E6%AD%A2.m4a?sign=ca25e050232c1d83eb3e9c19df3676d1&t=1588384203',
           ifplay: false,
         },
-        intro: "",
+        intro: "对应二分音符，在与二分音符相等的时值内休止",
       },
       {
         ifShoucang: false,
@@ -433,7 +433,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%9B%9B%E5%88%86%E4%BC%91%E6%AD%A2.m4a?sign=3392b6d07fe87dec2d3d6a254192714a&t=1588384613',
           ifplay: false,
         },
-        intro: "",
+        intro: "对应四分音符，在与四分音符相等的时值内休止",
       },
       {
         ifShoucang: false,
@@ -442,7 +442,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%85%AB%E5%88%86%E4%BC%91%E6%AD%A2.m4a?sign=e753fe72286263fd23ddd034beaea57e&t=1588384704',
           ifplay: false,
         },
-        intro: "",
+        intro: "对应八分音符，在与八分音符相等的时值内休止",
       },
       {
         ifShoucang: false,
@@ -451,7 +451,7 @@ Page({
           src: 'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%E5%8D%81%E5%85%AD%E5%88%86%E4%BC%91%E6%AD%A2.m4a?sign=fda3c9d92d4827630dc769ea8e610d77&t=1588384809',
           ifplay: false,
         },
-        intro: "",
+        intro: "对应十六分音符，在与十六分音符相等的时值内休止",
       },
     ],
 
