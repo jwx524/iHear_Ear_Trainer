@@ -2,13 +2,10 @@
   "pages": [
     "pages/test/test",
     "pages/index/index",
-    "pages/logs/logs",
     "pages/mine/mine",
     "pages/cuoti/cuoti",
     "pages/daka/daka",
     "pages/help/help",
-    "pages/index2/index2",
-    "pages/play/play",
     "pages/detail/detail",
     "pages/show/show",
     "pages/setting/setting"

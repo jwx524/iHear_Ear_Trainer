@@ -75,6 +75,7 @@ Page({
               testmusic: testmusic,
               cc: 0
             })
+            var L = res.data.length
             for (let i = 0; i < res.data.length; i++) {
               var testmusic = this.data.testmusic
               var cc = this.data.cc
@@ -114,7 +115,7 @@ Page({
                     testmusic: testmusic,
                     cc: cc
                   })
-                  if (this.data.cc == 20) {
+                  if (this.data.cc == L) {
                     wx.hideLoading()
                     wx.showToast({
                       title: '加载成功',
