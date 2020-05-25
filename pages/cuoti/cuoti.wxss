@@ -1,49 +1,97 @@
-.content2{
-  background-color: #fff;
-  padding: 25rpx 50rpx 50rpx 50rpx;
-  margin-top: 25rpx;
-  margin-bottom: 25rpx;
-  margin-left: 25rpx;
-  margin-right: 25rpx;
-  border-radius: 40rpx;
-  box-shadow: 4rpx 4rpx 6rpx 8rpx #ccc;
+page {
+  background-color: #95baeb;
 }
+
 .bg{
-  background-color: #98b4d8;
+  background-color: #95baeb;
   width: 100%;
   height: 100%;
   display: flex;
   text-align: center;
   justify-content: center;
   position: relative;
+  margin-bottom: 20rpx;
 }
-.text{
-  margin-left: 5rpx;
-  margin-right: 5rpx;
-  padding-left: 15rpx;
-  color:#000;
+
+.hint {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
-  display: inline-flex;
+  font-size:32rpx;
+  border-radius: 10rpx;
+  background-color: #e9f4ffec;
+  height: 100%;
+  width: 95vw;
+  padding: 35rpx;
+  margin-left: 19rpx;
+  margin-top: 20rpx;
 }
-text{
-  display: inline-flex;
-  align-items:center;
-  justify-content: center;
-  position: relative;
-  right: -175rpx;
-  top: -35rpx;
-  color: #aaa;
+
+.hint .texts {
+  color: #4b8dd8;
+  margin-left: 20rpx;
 }
-.music{
-  height: 100rpx;
-  width: 100rpx;
-  display: inline-flex;
+
+.hint .img {
+  height: 50rpx;
+  width: 60rpx;
+}
+
+.content-div {
+  display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  margin-top: 25rpx;
-  margin-left: 50rpx;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 25rpx 40rpx;
+  margin: 0rpx 40rpx;
 }
+
+.content2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  margin: 20rpx 0rpx 20rpx 30rpx;
+}
+
+.div {
+  background: rgb(233, 233, 233);
+  width: 100%;
+  height: 2rpx;
+  margin-top: 30rpx;
+}
+
+.num{
+  font-size: 120rpx;
+  font-weight: bolder;
+  font-family: 'Microsoft JhengHei';
+  color:#9ac7fc;
+  margin-right: 10rpx;
+}
+
+.music{
+  height: 80rpx;
+  width: 80rpx;
+  margin-left: 20rpx;
+}
+
+.line {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  margin-left: 40rpx;
+}
+
+.answerimg {
+  width: 250rpx;
+  height: 90rpx;
+  margin-bottom: 10rpx;
+  margin-right: 105rpx;
+}
+
 .right {
   width: 100%;
   height: 100%;

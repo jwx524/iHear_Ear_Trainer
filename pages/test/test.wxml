@@ -1,24 +1,23 @@
-<view class="container" id="contain" style="height:{{scrollheight}}px;width:{{scrollwidth}}px">
-  <view class="testcol">
-    <view class="testobj single" catchtap="jump" data-jid="{{div[0].id}}">
-    <text>{{div[0].text}}</text>
-    </view>
-  </view>
-  <view class="testcol">
-    <view class="testobj" catchtap="jump" data-jid="{{div[1].id}}">
-    <text>{{div[1].text}}</text>
-    </view>
-    <view class="testobj" catchtap="jump" data-jid="{{div[2].id}}">
-    <text>{{div[2].text}}</text>
-    </view>
-  </view>
-  <view class="testcol">
-    <view class="testobj" catchtap="jump" data-jid="{{div[3].id}}">
-    <text>{{div[3].text}}</text>
-    </view>
-    <view class="testobj" catchtap="jump" data-jid="{{div[4].id}}">
-    <text>{{div[4].text}}</text>
-    </view>
-  </view>
-  
+<cu-custom bgColor="bg-gradual-blue-light">
+	<view slot="content">iHear视唱练耳助手</view>
+</cu-custom>
+<image class='background' style="height:100vh; width:100vw" src="https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2Bbackground/main.png?sign=62974858b12ec7bb3b8e9e4f9ddec509&t=1589514430"></image>
+
+<view class="vertical-line" style="margin:30rpx 0rpx 30rpx 60rpx">
+	<view class="line">
+		<view class="head">声声</view>
+		<view class="head" style="font-weight:bolder">入耳</view>
+	</view>
+	<view class="div"></view>
+  <view class="subtitle">立刻开始听音练耳之旅</view>
+  <view class="subtitle">如有疑问详见我的-帮助</view>
 </view>
+
+<text class="swipe-select-text">左右滑动进行选择</text>
+<view class="tower-swiper" bindtouchmove="towerMove" bindtouchstart="towerStart" bindtouchend="towerEnd">
+  <view class="tower-item {{item.zIndex < 2?'none':''}}" wx:for="{{swiperList}}" wx:key style="--index:{{item.zIndex}};--left:{{item.mLeft}}">
+    <view class="swiper-item" catchtap="jump" data-jid="{{swiperList[index].id}}">
+      <image src="{{item.url}}" style="height:70vh;width:70vw" wx:if="{{item.type=='image'}}" >1223</image>    
+    </view>
+  </view>
+</view> 

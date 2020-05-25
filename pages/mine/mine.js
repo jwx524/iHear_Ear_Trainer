@@ -3,7 +3,7 @@ const app = getApp()
 const db = wx.cloud.database({})
 const TmplId = '3oKMgxRhW3dapI_hEbftSgUUnqjaAS9P06LIkD0Ewv4';
 Page({
-
+  
   /**
    * 页面的初始数据
    */
@@ -11,17 +11,19 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    grade: 0,
+    grade:0,
     openid: "",
     wrong: 0,
     allcount: 0,
     subs: 0,
-    study: {
-      id: 0,
-      //这里的变量名字一定要和从平台申请的模板所给的变量对应
-      thing1: { value: '学习任务' },
-      thing2: { value: '视唱练耳训练' },
-    },
+    study:  {
+        id: 0,
+        //这里的变量名字一定要和从平台申请的模板所给的变量对应
+        thing1: { value: '学习任务' },
+        thing2: { value: '视唱练耳训练' },
+      },
+      imgheight: 0,
+      barheight: 0,
   },
 
   Subscribe: function (e) {
@@ -30,9 +32,9 @@ Page({
     wx.requestSubscribeMessage({
       tmplIds: [TmplId],
       success(res) {
-        if (res[TmplId] == 'accept')
+        if (res[TmplId]=='accept')
         // if (res.errMsg === 'requestSubscribeMessage:ok')
-        {
+         {
 
           wx.cloud
             .callFunction({
@@ -98,7 +100,7 @@ Page({
     });
 
   },
-  unSubscribe: function () {
+  unSubscribe:function(){
     this.setData({
       subs: 0
     })
@@ -120,23 +122,40 @@ Page({
           duration: 2000,
         });
       });
-
+  },
+  imgLoad: function(e) {
+    var img_height = e.detail.height;
+    var img_width = e.detail.width;
+    var scr_width = wx.getSystemInfoSync().windowWidth;
+    var ratio = img_height/img_width;
+    this.setData({
+      imgheight: scr_width*ratio,
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getSystemInfo({
+      success: (res) => {
+        this.setData({
+          scrollheight: res.windowHeight - app.globalData.CustomBar,
+          scrollwidth: res.windowWidth,
+          barheight: 118*res.windowWidth/750,
+        });
+      }
+    })
     wx.cloud.init({
       traceUser: true,
     })
     var TIME = util.formatTime(new Date());
     this.setData({ time: TIME })
-    /*   wx.setNavigationBarTitle({
-         title: TIME,
-         success: function(res) {},
-         fail: function(res) {},
-         complete: function(res) {},
-       })*/
+ /*   wx.setNavigationBarTitle({
+      title: TIME,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })*/
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -186,15 +205,15 @@ Page({
     db.collection('wrong').where({
       _openid: this.data.openid
     }).count({
-      success: res => {
+      success: res =>{
         this.setData({
           wrong: res.total
         })
         db.collection('allcount').where({
           _openid: this.data.openid
         }).count({
-          success: res => {
-            if (res.total != 0) {
+          success: res =>{
+            if(res.total!=0){
               var allcount = 5 * res.total
               var grade = ((1 - this.data.wrong / (1.0 * allcount)) * 100).toFixed()
               this.setData({
@@ -215,12 +234,12 @@ Page({
       hasUserInfo: true
     })
   },
-
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
@@ -313,14 +332,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    
   },
 
   /**
@@ -416,7 +435,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    
   },
 
   /**

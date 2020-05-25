@@ -1,36 +1,52 @@
-<view class="container">
+<cu-custom bgColor="bg-gradual-mine-top">
+	<view slot="content">我的</view>
+</cu-custom>
+<image class='background' src="https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2Bbackground/top.png?sign=50a165bb5191ae041e2d4e692fde17b3&t=1589515120" mode="widthFix" bindload="imgLoad"></image>
+
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 登录</button>
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="sign-in"> 登录</button>
     <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
     </block>
   </view>
-  <view class="functionlist">
-    <view class="divLine"></view>
-    <view class="func">
-      <text class="functitle">对题率：{{grade}}%</text>
+
+<view class="functionlist">
+  <view class="i-progress">
+    <view class="i-progress-text">
+        <view>对题率：{{grade}}%</view>
     </view>
-    <!-- <navigator class="func" url="/pages/shoucang/shoucang" open-type="navigate">
-      <text class="functitle">收藏夹</text>
-      <view class='arrow'></view>
-    </navigator> -->
-    <navigator class="func" url="/pages/cuoti/cuoti" open-type="navigate">
-      <text class="functitle">错题本</text>
-      <view class='arrow'></view>
-    </navigator>
-    <navigator class="func" url="/pages/daka/daka" open-type="navigate">
+    <view class="i-progress-outer">
+        <view class="i-progress-inner">
+            <view class="i-progress-bg" style="width: {{grade}}%;height:30rpx"></view>
+        </view>
+    </view>
+  </view>
+  <view class="btn-layout" style="height:{{scrollheight-imgheight-barheight}}px">
+    <navigator class="btn1" url="/pages/cuoti/cuoti" open-type="navigate">
+        <image class="icon" src="/images/cuoti.png"></image>
+        <text class="functitle">错题本</text>
+        <view class='arrow'></view>
+      </navigator> 
+      
+    <navigator class="btn2" url="/pages/daka/daka" open-type="navigate">
+      <image class="icon" src="/images/daka.png"></image>
       <text class="functitle">每日打卡</text>
       <view class='arrow'></view>
     </navigator>
-    <navigator class="func" url="/pages/help/help" open-type="navigate">
+
+    <navigator class="btn3" url="/pages/help/help" open-type="navigate">
+      <image class="icon" src="/images/help.png"></image>
       <text class="functitle">帮助</text>
       <view class='arrow'></view>
     </navigator>
-    <view class="func" catchtap="Subscribe" wx:if="{{subs==0}}" hover-class="button-hover">
+
+    <view class="btn4" catchtap="Subscribe" wx:if="{{subs==0}}" hover-class="button-hover">
+      <image class="icon" src="/images/reminder.png"></image>
       <text class="functitle">设置提醒</text>
     </view>
-    <view class="func0" wx:if="{{subs!=0}}" catchtap="unSubscribe" hover-class="button-hover">
+    <view class="btn5" wx:if="{{subs!=0}}" catchtap="unSubscribe" hover-class="button-hover">
+      <image class="icon" src="/images/reminder2.png"></image>
       <text class="functitle">取消提醒</text>
     </view>
   </view>

@@ -454,10 +454,14 @@ Page({
         intro: "对应十六分音符，在与十六分音符相等的时值内休止",
       },
     ],
-
     ],
-
+    //颜色列表，其实只有4个颜色，复制粘贴罢了
+    colorArr: ["linear-gradient(90deg, #0f6bae, #4f93c5)", "linear-gradient(90deg, #2488d6, #4193d3)", "linear-gradient(90deg, #83b8ff, #a2c8fb)", "linear-gradient(90deg, #c6cdff, #dadffd)", "linear-gradient(90deg, #0f6bae, #4f93c5)", "linear-gradient(90deg, #2488d6, #4193d3)", "linear-gradient(90deg, #83b8ff, #a2c8fb)", "linear-gradient(90deg, #c6cdff, #dadffd)", "linear-gradient(90deg, #0f6bae, #4f93c5)", "linear-gradient(90deg, #2488d6, #4193d3)", "linear-gradient(90deg, #83b8ff, #a2c8fb)", "linear-gradient(90deg, #c6cdff, #dadffd)", "linear-gradient(90deg, #0f6bae, #4f93c5)", "linear-gradient(90deg, #2488d6, #4193d3)", "linear-gradient(90deg, #83b8ff, #a2c8fb)", "linear-gradient(90deg, #c6cdff, #dadffd)"],
+    //阴影列表，4个颜色的阴影与上面对应
+  shadowArr: ["#2574ad", "#2488d6", "#a3c9fd", "#d5daff", "#2574ad", "#2488d6", "#a3c9fd", "#d5daff", "#2574ad", "#2488d6", "#a3c9fd", "#d5daff", "#2574ad", "#2488d6", "#a3c9fd", "#d5daff"],
+  barheight: 0
   },
+  
   onShareAppMessage: function () {
     return {
       title: '帮你练就绝对音准！',
@@ -504,8 +508,9 @@ Page({
     wx.getSystemInfo({
       success: (res) => {
         this.setData({
-          scrollheight: res.windowHeight,
-          scrollwidth: res.windowWidth
+          scrollheight: res.windowHeight - app.globalData.CustomBar,
+          scrollwidth: res.windowWidth,
+          barheight: 100*res.windowWidth/750
         });
       }
     })

@@ -1,166 +1,171 @@
-<view class = "container bg" style="height:{{scrollheight}}px;width:{{scrollwidth}}px">
-<text style="">detail id: {{id}}</text>
-<!-- <input class="ansstr" type="text" disabled='true' placeholder="{{ansstr}}" placeholder-style="color:#000"/> -->
-<view wx:for="{{testmusic}}" wx:if="{{id!=4}}">
-    <input wx:if="{{index==currentIndex}}" class="ansstr" type="text" disabled='true' placeholder="{{item.myans}}" placeholder-style="color:#000"/>
-</view>
-<view class="line std" wx:if="{{id!=4}}">
-  <image src="{{ifplaystd?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusicStd'></image>
-  <text class="stdtag">标准音A4</text>
-</view>
+<cu-custom bgColor="bg-dati-blue" isBack="{{true}}">
+	<view slot="content">iHear视听练耳助手</view>
+</cu-custom>
+<image class='background' src="{{id==2?'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2Bbackground/dati-bg2.png?sign=f9ec559d8db51ea61872b0e625b93a60&t=1589519794':'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2Bbackground/dati-bg.png?sign=b096ba5dbffc397b34b2b925357311fc&t=1589515412'}}" bindload="imgLoad" mode="widthFix"></image>
 
+<view class="bg">
+	<!--箭头-->
+	<view class="{{currentIndex==0?'arrowadvfirst':'arrowadv'}}" catchtap="{{currentIndex==0?'':'prev'}}"></view>
+	<view class="{{currentIndex==4?'arrowlast':'arrow'}}" catchtap="{{currentIndex==4?'':'next'}}"></view>
+	<!--轮播-->
+	<swiper class="swp" style="height:{{id==2?'430rpx':'520rpx'}}" current="{{currentIndex}}" indicator-dots="{{false}}" bindchange="change">
+		<swiper-item wx:for="{{testmusic}}" wx:key="index">
+			<image src="{{item.ifplay?'/images/ps.png':'/images/st.png'}}" class='music' catchtap='playMusic'></image>
+			<view class="line3" style="height:500rpx">
+				<text class="words-play">点击播放题目音频</text>
+				<!--题号-->
+				<text style="margin-top:{{id==2?'30rpx':'70rpx'}}; margin-bottom:{{id==2?'30rpx':'40rpx'}}" class="words-num">第{{currentIndex+1}}题</text>
+				<!--用户输入的答案-->
+				<view wx:for="{{testmusic}}" wx:if="{{id!=4}}">
+					<input wx:if="{{index==currentIndex}}" type="text" disabled='true' placeholder="{{item.myans}}" placeholder-style="color:#2f5280; font-size:38rpx" />
+				</view>
+			</view>
+		</swiper-item>
+	</swiper>
+	<!--标准音-->
+	<view class="btn" style="margin-top:{{id==2?'410rpx':'500rpx'}}" wx:if="{{id!=4}}" catchtap='playMusicStd'>
+		<image src="{{ifplaystd?'/images/trumpet-af.png':'/images/trumpet-bf.png'}}" style="height:70rpx; width:70rpx"></image>
+		<text class="stdtag">标准音A4</text>
+	</view>
 
-<swiper class="swp"current="{{currentIndex}}" indicator-dots="{{true}}" style="height:150rpx;width:{{scrollwidth*0.75}}px" bindchange="change">
-  <swiper-item wx:for="{{testmusic}}" wx:key="index" >
-    <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic'></image>
-  </swiper-item>
-</swiper>
+	<view class="lower" style="position:absolute;top:{{imgheight}}px;height:{{scrollheight-imgheight}}px">
+		<scroll-view class="line4" scroll-y="true" style="height:{{scrollheight-imgheight-btnheight}}px">
+			<!--音组-->
+			<view wx:if="{{id==0}}" id="0">
+				<view class="line">
+					<button wx:for="{{btn0}}" class="btn0" hover-class="btn0-af" wx:key="id" wx:if="{{index<7}}" catchtap="ans" data-id="{{item}}">
+						<text>{{item}}</text>
+					</button>
+				</view>
+				<view class="line">
+					<button wx:for="{{btn0}}" class="btn0" hover-class="btn0-af" wx:key="id" wx:if="{{(index>6)&&(index<9)}}" catchtap="ans" data-id="{{item}}">
+						<text>{{item}}</text>
+					</button>
+					<button class="btn0" hover-class="btn0-af" wx:for="{{btn0}}" wx:key="id" wx:if="{{index>8}}" catchtap="anss" data-id="{{item}}">
+						<text>{{item}}</text>
+					</button>
+				</view>
+			</view>
+			<!--音程-->
+			<view wx:if="{{id==1}}" id="1">
+				<view class="line">
+					<button class="btn3" hover-class="btn3-af" wx:for="{{btn1}}" wx:key="id" wx:if="{{index<2}}" catchtap="ans" data-id="{{item}}">
+						<text>{{item}}</text>
+					</button>
+				</view>
+				<view class="line">
+					<button class="btn3" hover-class="btn3-af" wx:for="{{btn1}}" wx:key="id" wx:if="{{(index>1)&&(index<6)}}" catchtap="anss" data-id="{{item}}">
+						<text>{{item}}</text>
+					</button>
+				</view>
+				<view class="line">
+					<button class="btn1" hover-class="btn1-af" wx:for="{{btn1}}" wx:key="id" wx:if="{{index>5}}" catchtap="anss" data-id="{{item}}">
+						<text>{{item}}</text>
+					</button>
+				</view>
+			</view>
+			<!--调式-->
+			<view wx:if="{{id==2}}" id="2">
+				<view class="line">
+					<!--第一行字母-->
+					<button class="btn0" style="width:73rpx; height:80rpx; margin:-10rpx 5rpx 10rpx 5rpx;" hover-class="btn0-af" wx:for="{{btn2}}" wx:key="id" wx:if="{{index<9}}" catchtap="ans" data-id="{{item}}">
+						<text style="font-size:34rpx">{{item}}</text>
+					</button>
+				</view>
+				<view class="line">
+					<!--第二行大调小调-->
+					<button class="btn2" style="width:125rpx; height:80rpx; margin:0rpx 4rpx 10rpx 4rpx;" hover-class="btn2-af" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>8)&&(index<10)}}" catchtap="anss" data-id="{{item}}">
+						<text style="font-size:36rpx">{{item}}</text>
+					</button>
+					<button class="btn2" style="width:195rpx; height:80rpx; margin:0rpx 4rpx 10rpx 4rpx;" hover-class="btn2-af" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>9)&&(index<13)}}" catchtap="ans" data-id="{{item}}">
+						<text style="font-size:36rpx">{{item}}</text>
+					</button>
+				</view>
+				<view class="line">
+					<!--第三行中古调式-->
+					<button class="btn2" style="width:235rpx; height:80rpx; margin:0rpx 4rpx 10rpx 4rpx;" hover-class="btn2-af" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>12)&&(index<16)}}" catchtap="anss" data-id="{{item}}">
+						<text style="font-size:36rpx">{{item}}</text>
+					</button>
+				</view>
+				<view class="line">
+					<!--第四行民族调式-->
+					<button class="btn2" style="width:170rpx; height:80rpx; margin:0rpx 5rpx 10rpx 5rpx;" hover-class="btn2-af" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>15)&&(index<20)}}" catchtap="anss" data-id="{{item}}">
+						<text style="font-size:36rpx">{{item}}</text>
+					</button>
+				</view>
+				<view class="line">
+					<!--第五行民族调式-->
+					<button class="btn2" style="width:170rpx; height:80rpx; margin:0rpx 5rpx 10rpx 5rpx;" hover-class="btn2-af" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>19)&&(index<23)}}" catchtap="anss" data-id="{{item}}">
+						<text style="font-size:36rpx">{{item}}</text>
+					</button>
+				</view>
+			</view>
 
+			<!--和弦-->
+			<view wx:if="{{id==3}}" id="3">
+				<view class="line">
+					<button class="btn3" style="margin:30rpx 8rpx 40rpx 8rpx;" hover-class="btn3-af" wx:for="{{btn3}}" wx:key="id" wx:if="{{index<4}}" catchtap="ans" data-id="{{item}}">
+						<text>{{item}}</text>
+					</button>
+				</view>
+				<view class="line">
+					<button class="btn1" style="margin:30rpx 8rpx 40rpx 8rpx;" hover-class="btn1-af" wx:for="{{btn3}}" wx:key="id" wx:if="{{index>3}}" catchtap="anss" data-id="{{item}}">
+						<text>{{item}}</text>
+					</button>
+				</view>
+			</view>
 
-<view class="line arrset">
-<view class="{{currentIndex==0?'arrowadvfirst':'arrowadv'}}" catchtap="{{currentIndex==0?'':'prev'}}"></view><view class="{{currentIndex==4?'arrowlast':'arrow'}}" catchtap="{{currentIndex==4?'':'next'}}"></view>
-</view>
+			<!--节奏-->
+			<swiper wx:if="{{id==4}}" id="4" class="swp4" current="{{currentIndex}}" bindchange="change">
+				<swiper-item class="grid4" wx:for="{{testmusic}}" wx:key="index">
+					<view class="line2">
+						<button class="btn0" catchtap="ans4" data-id="A" wx:if="{{(item.myans)!='A'}}">
+							<text>A</text>
+						</button>
+						<button class="btn0 picked" catchtap="ans4" data-id="A" wx:if="{{(item.myans)=='A'}}">
+							<text>A</text>
+						</button>
+						<image class='choice-img' src="{{item.A}}" catchtap='playMusic'></image>
+					</view>
+					<view class="line2">
+						<button class="btn0" catchtap="ans4" data-id="B" wx:if="{{(item.myans)!='B'}}">
+							<text>B</text>
+						</button>
+						<button class="btn0 picked" catchtap="ans4" data-id="B" wx:if="{{(item.myans)=='B'}}">
+							<text>B</text>
+						</button>
+						<image class='choice-img' src="{{item.B}}" catchtap='playMusic'></image>
+					</view>
+					<view class="line2">
+						<button class="btn0" catchtap="ans4" data-id="C" wx:if="{{(item.myans)!='C'}}">
+							<text>C</text>
+						</button>
+						<button class="btn0 picked" catchtap="ans4" data-id="C" wx:if="{{(item.myans)=='C'}}">
+							<text>C</text>
+						</button>
+						<image class='choice-img' src="{{item.C}}" catchtap='playMusic'></image>
+					</view>
+					<view class="line2">
+						<button class="btn0" catchtap="ans4" data-id="D" wx:if="{{(item.myans)!='D'}}">
+							<text>D</text>
+						</button>
+						<button class="btn0 picked" catchtap="ans4" data-id="D" wx:if="{{(item.myans)=='D'}}">
+							<text>D</text>
+						</button>
+						<image class='choice-img' src="{{item.D}}" catchtap='playMusic'></image>
+					</view>
+				</swiper-item>
+			</swiper>
 
-<view class="line ansshow"></view>
+		</scroll-view>
 
-<view class="lower">
-<view wx:if="{{id==0}}" id="0">
-<view class="line">
-  <button wx:for="{{btn0}}"  wx:key="id" wx:if="{{index<7}}" class="btn0" catchtap="ans" data-id="{{item}}">
-    <text>{{item}}</text>
-  </button>
-</view>
-<view class="line">
-  <button class="btn0" wx:for="{{btn0}}" wx:key="id" wx:if="{{(index>6)&&(index<9)}}"catchtap="ans" data-id="{{item}}">
-    <text>{{item}}</text>
-  </button>
-  <button class="btn0" wx:for="{{btn0}}" wx:key="id" wx:if="{{index>8}}"catchtap="anss" data-id="{{item}}">
-    <text>{{item}}</text>
-  </button>
-</view>
-</view>
+		<view class="line" catchtap="anscommon">
+			<button wx:if="{{id!=4}}" class="delete-yes" style="margin-top:{{id==2?'10rpx':'20rpx'}};  background:#abcdfb" hover-class="btn-hover" id="delete" bindtap="ansdelete"><text>删除</text></button>
+			<button wx:if="{{id!=4}}" class="clear" style="margin-top:{{id==2?'10rpx':'20rpx'}};" hover-class="btn-hover" id="cancel" bindtap="anscancel"><text>清空</text></button>
+			<button wx:if="{{currentIndex!=4}}" class="delete-yes" style="margin-top:{{id==2?'10rpx':'20rpx'}}; background:#a2e2f8" hover-class="btn-hover" id="confirm" bindtap="ansconfirm"><text>确定</text></button>
+			<button wx:if="{{currentIndex==4}}" class="delete-yes" style="margin-top:{{id==2?'10rpx':'20rpx'}}; background:#a2e2f8" hover-class="btn-hover" catchtap="submit">提交</button>
+		</view>
 
-<view wx:if="{{id==1}}" id="1">
-<view class="line">
-  <button wx:for="{{btn1}}"  wx:key="id" wx:if="{{index<2}}" class="btn3" catchtap="ans" data-id="{{item}}">
-    <text>{{item}}</text>
-  </button>
-</view>
-<view class="line">
-  <button class="btn3" wx:for="{{btn1}}" wx:key="id" wx:if="{{(index>1)&&(index<6)}}"catchtap="anss" data-id="{{item}}">
-    <text>{{item}}</text>
-  </button>
-</view>
-<view class="line">
-  <button class="btn1" wx:for="{{btn1}}" wx:key="id" wx:if="{{index>5}}"catchtap="anss" data-id="{{item}}">
-    <text>{{item}}</text>
-  </button>
-</view>
-</view>
-
-<view wx:if="{{id==2}}" id="2">
-<view class="line">
-  <button wx:for="{{btn2}}"  wx:key="id" wx:if="{{index<5}}" class="btn0" catchtap="ans" data-id="{{item}}">
-    <text>{{item}}</text>
-  </button>
-</view>
-<view class="line">
-  <button wx:for="{{btn2}}"  wx:key="id" wx:if="{{(index<9)&&(index>4)}}" class="btn0" catchtap="ans" data-id="{{item}}">
-    <text>{{item}}</text>
-  </button>
-</view>
-<view class="line">
-  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>8)&&(index<11)}}"catchtap="anss" data-id="{{item}}">
-    <text>{{item}}</text>
-  </button>
-</view>
-<view class="line">
-  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>10)&&(index<13)}}"catchtap="anss" data-id="{{item}}">
-    <text>{{item}}</text>
-  </button>
-</view>
-<view class="line">
-  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>12)&&(index<16)}}"catchtap="ans" data-id="{{item}}">
-    <text>{{item}}</text>
-  </button>
-</view>
-<view class="line">
-  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>15)&&(index<18)}}"catchtap="anss" data-id="{{item}}">
-    <text>{{item}}</text>
-  </button>
-</view>
-<view class="line">
-  <button class="btn2" wx:for="{{btn2}}" wx:key="id" wx:if="{{(index>17)&&(index<23)}}"catchtap="anss" data-id="{{item}}">
-    <text>{{item}}</text>
-  </button>
-</view>
-</view>
-
-<view wx:if="{{id==3}}" id="3">
-<view class="line">
-  <button wx:for="{{btn3}}"  wx:key="id" wx:if="{{index<4}}" class="btn3" catchtap="ans" data-id="{{item}}">
-    <text>{{item}}</text>
-  </button>
-</view>
-<view class="line">
-  <button class="btn1" wx:for="{{btn3}}" wx:key="id" wx:if="{{index>3}}"catchtap="anss" data-id="{{item}}">
-    <text>{{item}}</text>
-  </button>
-</view>
-</view>
-
-
-<swiper wx:if="{{id==4}}" id="4" class="swp4" current="{{currentIndex}}" style="height:500rpx;width:{{scrollwidth*0.75}}px" bindchange="change">
-  <swiper-item wx:for="{{testmusic}}" wx:key="index" >
-<view class="line2">
-  <button class="btn0" catchtap="ans4" data-id="A" wx:if="{{(item.myans)!='A'}}">
-    <text>A</text>
-  </button>
-  <button class="btn0 picked" catchtap="ans4" data-id="A" wx:if="{{(item.myans)=='A'}}">
-    <text>A</text>
-  </button>
-  <image src="{{item.A}}" class='music' catchtap='playMusic'></image>
-</view>
-<view class="line2">
-  <button class="btn0" catchtap="ans4" data-id="B" wx:if="{{(item.myans)!='B'}}">
-    <text>B</text>
-  </button>
-  <button class="btn0 picked" catchtap="ans4" data-id="B" wx:if="{{(item.myans)=='B'}}">
-    <text>B</text>
-  </button>
-  <image src="{{item.B}}" class='music' catchtap='playMusic'></image>
-</view>
-<view class="line2">
-  <button class="btn0" catchtap="ans4" data-id="C" wx:if="{{(item.myans)!='C'}}">
-    <text>C</text>
-  </button>
-  <button class="btn0 picked" catchtap="ans4" data-id="C" wx:if="{{(item.myans)=='C'}}">
-    <text>C</text>
-  </button>
-  <image src="{{item.C}}" class='music' catchtap='playMusic'></image>
-</view>
-<view class="line2">
-  <button class="btn0" catchtap="ans4" data-id="D" wx:if="{{(item.myans)!='D'}}">
-    <text>D</text>
-  </button>
-  <button class="btn0 picked" catchtap="ans4" data-id="D" wx:if="{{(item.myans)=='D'}}">
-    <text>D</text>
-  </button>
-  <image src="{{item.D}}" class='music' catchtap='playMusic'></image>
-</view>
-</swiper-item>
-</swiper>
-
-
-<view class="line" catchtap="anscommon" >
-  <button wx:if="{{id!=4}}" class="btncommon" id="delete" bindtap="ansdelete"><text>删除</text></button>
-  <button wx:if="{{id!=4}}" class="btncommon" id="cancel" bindtap="anscancel"><text>取消</text></button>
-  <button wx:if="{{currentIndex!=4}}" class="btncommon" id="confirm" bindtap="ansconfirm"><text>确定</text></button>
-  <button wx:if="{{currentIndex==4}}" class="btncommon" catchtap="submit">提交</button>
-</view>
-<view class="line">
-  
-</view>
-</view>
+	</view>
 
 </view>

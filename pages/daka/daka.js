@@ -15,7 +15,7 @@ Page({
     today:"",
     testtoday:0,
     ifSign: false,
-    cc:0
+    cc:0,
   },
 
   /**

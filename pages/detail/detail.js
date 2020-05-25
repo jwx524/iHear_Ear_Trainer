@@ -1,17 +1,17 @@
 const db = wx.cloud.database({})
 const util = require('../../utils/util.js')
-
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    btn0:[
-      "C", "D", "E", "F", "G", "A", "B", "#","♭","3","4","5","6",
+    btn0: [
+      "C", "D", "E", "F", "G", "A", "B", "#", "♭", "3", "4", "5", "6",
     ],
-    btn2:[
-      "C", "D", "E", "F", "G", "A", "B", "#", "♭", "大调", "自然小调", "和声小调", "旋律小调","多利亚调式", "弗里几亚调式","洛克利亚调式","雅乐", "燕乐", "宫调式", "商调式", "角调式", "徵调式", "羽调式",
+    btn2: [
+      "C", "D", "E", "F", "G", "A", "B", "#", "♭", "大调", "自然小调", "和声小调", "旋律小调", "多利亚调式", "弗里几亚调式", "洛克利亚调式", "雅乐", "燕乐", "宫调式", "商调式", "角调式", "徵调式", "羽调式",
     ],
     btn1: [
       "大", "小", "二度", "三度", "六度", "七度", "纯四度", "纯五度", "增四度",
@@ -19,24 +19,12 @@ Page({
     btn3: [
       "大", "小", "增", "减", "三和弦", "6和弦", "46和弦",
     ],
-    currentIndex:0,
-    innerAudioContextStd:null,
-    innerAudioContext:null,
+    currentIndex: 0,
+    innerAudioContextStd: null,
+    innerAudioContext: null,
     ifplaystd: false,
-    wrongnum:5,
-    testmusic:[{
-      index: "",
-      src:"",
-      answer:"",
-      ifplay: false,
-      myans: "",
-      wrong: true,
-      A: "",
-      B: "",
-      C: "",
-      D: "",
-    },
-    {
+    wrongnum: 5,
+    testmusic: [{
       index: "",
       src: "",
       answer: "",
@@ -84,12 +72,46 @@ Page({
       C: "",
       D: "",
     },
-  ]
+    {
+      index: "",
+      src: "",
+      answer: "",
+      ifplay: false,
+      myans: "",
+      wrong: true,
+      A: "",
+      B: "",
+      C: "",
+      D: "",
+    },
+    ],
+    imgheight: 0,
+    btnheight: 0
+  },
+  imgLoad: function(e) {
+    var img_height = e.detail.height;
+    var img_width = e.detail.width;
+    var scr_width = wx.getSystemInfoSync().windowWidth;
+    var ratio = img_height/img_width;
+    this.setData({
+      imgheight: scr_width*ratio,
+      btnheight: 110*scr_width/750
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getSystemInfo({
+      success: (res) => {
+        let custom = wx.getMenuButtonBoundingClientRect();
+        var barheight = custom.bottom + custom.top - res.statusBarHeight;
+        this.setData({
+          scrollheight: res.screenHeight - res.statusBarHeight - barheight,
+          scrollwidth: res.windowWidth
+        });
+      }
+    })
     wx.cloud.init({
       traceUser: true,
     })
@@ -97,10 +119,10 @@ Page({
     this.setData({
       id: options.id
     })
-    if(this.data.id==0){
+    if (this.data.id == 0) {
       wx.showModal({
         title: '提示',
-        content: '请用科学音高记录法(c1=C4)依次标记你听到的每个音高（*若不了解什么是科学音高，请通过查看“我的->帮助”页面获取帮助）',
+        content: '请用科学音高记录法(c1=C4)依次标记你听到的每个音高\r\n（*若不了解什么是科学音高，请通过查看“我的->帮助”页面获取帮助）',
         success(res) {
           if (res.confirm) {
             console.log('用户点击确定')
@@ -116,7 +138,7 @@ Page({
     if (this.data.id == 1) {
       wx.showModal({
         title: '提示',
-        content: '请先后标记你听到的两组音程（*若对音程的概念不了解，请通过查看“我的->帮助”页面获取帮助）',
+        content: '请先后标记你听到的两组音程\r\n（*若对音程的概念不了解，请通过查看“我的->帮助”页面获取帮助）',
         success(res) {
           if (res.confirm) {
             console.log('用户点击确定')
@@ -132,7 +154,7 @@ Page({
     if (this.data.id == 2) {
       wx.showModal({
         title: '提示',
-        content: '请为你听到的音阶标注主音和调式(如：C大调)（*若对选项中的名词不了解，请通过查看“我的->帮助”页面获取帮助）',
+        content: '请为你听到的音阶标注主音和调式(如：C大调)\r\n（*若对选项中的名词不了解，请通过查看“我的->帮助”页面获取帮助）',
         success(res) {
           if (res.confirm) {
             console.log('用户点击确定')
@@ -148,7 +170,7 @@ Page({
     if (this.data.id == 3) {
       wx.showModal({
         title: '提示',
-        content: '请请先后标记你听到的两组和弦（*若对和弦的概念不了解，请通过查看“我的->帮助”页面获取帮助）',
+        content: '请请先后标记你听到的两组和弦\r\n（*若对和弦的概念不了解，请通过查看“我的->帮助”页面获取帮助）',
         success(res) {
           if (res.confirm) {
             console.log('用户点击确定')
@@ -164,7 +186,7 @@ Page({
     if (this.data.id == 4) {
       wx.showModal({
         title: '提示',
-        content: '请选出你听到钢琴音的节奏型（*若对选项中的标识不了解，请通过查看“我的->帮助”页面获取帮助）',
+        content: '请选出你听到钢琴音的节奏型\r\n（*若对选项中的标识不了解，请通过查看“我的->帮助”页面获取帮助）',
         success(res) {
           if (res.confirm) {
             console.log('用户点击确定')
@@ -177,14 +199,6 @@ Page({
         }
       })
     }
-    wx.getSystemInfo({
-      success: (res) => {
-        this.setData({
-          scrollheight: res.windowHeight,
-          scrollwidth: res.windowWidth
-        });
-      }
-    })
     var innerAudioContextStd = wx.createInnerAudioContext();
     var innerAudioContext = wx.createInnerAudioContext();
     this.setData({
@@ -196,13 +210,13 @@ Page({
     db.collection('musicindex').doc(_id).get({
       success: res => {
         this.setData({
-          count : res.data.count,
-          first : res.data.first,
+          count: res.data.count,
+          first: res.data.first,
         })
         var testIndex0 = Math.floor(Math.random() * this.data.count + this.data.first)
         console.log(testIndex0)
         var testIndex1 = Math.floor(Math.random() * this.data.count + this.data.first)
-        while (testIndex1 == testIndex0){
+        while (testIndex1 == testIndex0) {
           testIndex1 = Math.floor(Math.random() * this.data.count + this.data.first)
         }
         console.log(testIndex1)
@@ -230,29 +244,29 @@ Page({
         this.setData({
           testmusic: testmusic
         })
-        for(let i=0;i<5;i++){
+        for (let i = 0; i < 5; i++) {
           var testmusic = this.data.testmusic
           db.collection('music').doc(this.data.testmusic[i].index).get({
             success: res => {
               testmusic[i].src = res.data.src
               testmusic[i].answer = res.data.answer
-              if(this.data.id==4){
+              if (this.data.id == 4) {
                 testmusic[i].A = res.data.A
                 testmusic[i].B = res.data.B
                 testmusic[i].C = res.data.C
                 testmusic[i].D = res.data.D
               }
               this.setData({
-                testmusic:testmusic
+                testmusic: testmusic
               })
             }
           })
         }
       }
     })
-   
+
   },
-  submit:function(e){
+  submit: function (e) {
     let that = this
     wx.showModal({
       title: '提示',
@@ -324,7 +338,7 @@ Page({
     })
     // var testmusic = this.data.testmusic
     // var TIME = util.formatTime(new Date());
-    
+
     // wx.cloud.init({
     //   env: 'jwx-q7azx',
     //   traceUser: true,
@@ -377,7 +391,7 @@ Page({
     //            url: '../show/show?wrongnum=' + this.data.wrongnum
     //           })
   },
-  ans:function(e){
+  ans: function (e) {
     console.log(e.target.dataset.id)
     var c = this.data.currentIndex
     var testmusic = this.data.testmusic
@@ -396,7 +410,7 @@ Page({
       testmusic: testmusic
     })
   },
-  ans4:function(e){
+  ans4: function (e) {
     console.log(e.target.dataset.id)
     var c = this.data.currentIndex
     var testmusic = this.data.testmusic
@@ -414,15 +428,15 @@ Page({
     var c = this.data.currentIndex
     var cc = testmusic[c].myans.charAt(testmusic[c].myans.length - 1)
     var ansstr = testmusic[c].myans.slice(0, -1)
-    if(cc==' '){
-      ansstr = ansstr.slice(0,-1)
+    if (cc == ' ') {
+      ansstr = ansstr.slice(0, -1)
     }
     testmusic[c].myans = ansstr
     this.setData({
       testmusic: testmusic
     })
   },
-  anscancel:function(){
+  anscancel: function () {
     var c = this.data.currentIndex
     var testmusic = this.data.testmusic
     testmusic[c].myans = ""
@@ -430,16 +444,16 @@ Page({
       testmusic: testmusic
     })
   },
-  ansconfirm:function(){
+  ansconfirm: function () {
     var c = this.data.currentIndex
-      if(c==4){
-        c = c - 1
-      }
-      this.setData({
-        currentIndex: c+1
-      }) //答题数+1，翻下一页
+    if (c == 4) {
+      c = c - 1
+    }
+    this.setData({
+      currentIndex: c + 1
+    }) //答题数+1，翻下一页
   },
-  change:function(e){
+  change: function (e) {
     console.log(e.detail.current)
     var innerAudioContext = this.data.innerAudioContext;
     innerAudioContext.stop();
@@ -460,7 +474,7 @@ Page({
     testmusic[c].ifplay = false
     this.setData({
       testmusic: testmusic,
-      currentIndex:this.data.currentIndex-1,
+      currentIndex: this.data.currentIndex - 1,
     })
     // app.currentIndex = this.getNextIndex(false)
     // this._init()
@@ -479,7 +493,7 @@ Page({
     // app.currentIndex = this.getNextIndex(true)
     // this._init()
   },
-  playMusicStd:function(e){
+  playMusicStd: function (e) {
     console.log(e.currentTarget)
     var ifplaystd = this.data.ifplaystd;
     var innerAudioContextStd = this.data.innerAudioContextStd;
@@ -515,7 +529,7 @@ Page({
       innerAudioContext.play();
       testmusic[c].ifplay = true
       this.setData({
-        testmusic:testmusic
+        testmusic: testmusic
       })
       innerAudioContext.onEnded((res) => {
         console.log('播放结束!');
@@ -538,42 +552,42 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+
   },
 
   /**

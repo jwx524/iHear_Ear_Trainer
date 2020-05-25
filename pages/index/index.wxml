@@ -1,34 +1,35 @@
-<view class="ct">
+<view>
+	<cu-custom bgColor="bg-gradual-blue-light">
+		<view slot="content">资料库</view>
+	</cu-custom>
+
 	<!--pics文件夹下的background.jpg文件-->
 	<!-- <image class='bj' src="cloud://minipro-qycj0.6d69-minipro-qycj0-1300419391/bz1.gif" mode="aspectFill"></image> -->
 	<!--页面其它部分-->
-<view class="content">
-      <scroll-view class='left' scroll-x="true" style="width:{{scrollwidth}}px">
-        <view class="{{flag==0?'select':'normal'}}" id='0' bindtap='switchNav'>音程</view>
-        <view class="{{flag==1?'select':'normal'}}" id='1' bindtap='switchNav'>调式</view>
-        <view class="{{flag==2?'select':'normal'}}" id='2' bindtap='switchNav'>三和弦</view>
-        <view class="{{flag==3?'select':'normal'}}" id='3' bindtap='switchNav'>七和弦</view>
-        <view class="{{flag==4?'select':'normal'}}" id='4' bindtap='switchNav'>节奏</view>
-      </scroll-view>
-      <view class='right'>
-        <view class='category'>
-          <swiper current='{{currentTab}}' style="height:{{scrollheight}}px" bindchange="change">
-            <swiper-item class="obj"  wx:for="{{content}}" wx:for-index="i" id='{{i}}' wx:key="id">
-            <scroll-view scroll-y="true" class='right' style="height:{{scrollheight-135*scrollwidth/750}}px">
-            <view class="content2" style="opacity:{{10}}" wx:for="{{item}}" wx:for-index="j" wx:key="j">
-              <view class="line">
-              <view class='text'>
-              {{item.text}}
-              </view>
-              </view>
-              <image src="{{item.music.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic' data-pidi="{{i}}" data-pidj="{{j}}"></image>
-              <text>{{item.intro}}</text>
-              </view>
-              </scroll-view> 
-            </swiper-item>
-          </swiper>
-        </view>
-        </view>
-  </view>
-  </view>
-  <!-- catchtouchmove="stopTouchMove" -->
+	<view class="content">
+		<scroll-view class='left' scroll-x="true" style="width:{{scrollwidth}}px">
+			<view class="{{flag==0?'select':'normal'}}" id='0' bindtap='switchNav'>音程</view>
+			<view class="{{flag==1?'select':'normal'}}" id='1' bindtap='switchNav'>调式</view>
+			<view class="{{flag==2?'select':'normal'}}" id='2' bindtap='switchNav'>三和弦</view>
+			<view class="{{flag==3?'select':'normal'}}" id='3' bindtap='switchNav'>七和弦</view>
+			<view class="{{flag==4?'select':'normal'}}" id='4' bindtap='switchNav'>节奏</view>
+		</scroll-view>
+		<view class='right'>
+			<swiper current='{{currentTab}}' style="height:{{scrollheight}}px" bindchange="change">
+				<swiper-item wx:for="{{content}}" wx:for-index="i" id='{{i}}' wx:key="id">
+					<scroll-view scroll-y="true" class='right' style="height:{{scrollheight-barheight}}px">
+						<view class="content2" style="background:{{colorArr[j]}}; box-shadow: 0rpx 5rpx 20rpx {{shadowArr[j]}};" wx:for="{{item}}" wx:for-index="j" wx:key="j">
+							<image src="{{item.music.ifplay?'/images/pause3.png':'/images/start3.png'}}" class='music' catchtap='playMusic' data-pidi="{{i}}" data-pidj="{{j}}"></image>
+							<view class="div"></view>
+							<view class="line">
+								<view class='text1'>{{item.text}}</view>
+								<view class="text2">{{item.intro}}</view>
+							</view>
+						</view>
+					</scroll-view>
+				</swiper-item>
+			</swiper>
+		</view>
+	</view>
+</view>
+<!-- catchtouchmove="stopTouchMove" -->

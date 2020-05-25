@@ -15,30 +15,33 @@
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#98b4d8",
-    "navigationBarTitleText": "视唱练耳Pro",
-    "navigationBarTextStyle": "white"
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "cu-custom":"/colorui/components/cu-custom",
+    "i-progress": "../../dist/progress/index"
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
-    "selectedColor": "#729dd4",
+    "color": "#a6a1b1",
+    "selectedColor": "#6b9ae5",
     "list": [
       {
         "pagePath": "pages/test/test",
         "text": "主页面",
-        "iconPath": "images/tab_account2.png",
-        "selectedIconPath": "images/tab_account2.png"
+        "iconPath": "images/main1.png",
+        "selectedIconPath": "images/main2.png"
       },
       {
         "pagePath": "pages/index/index",
         "text": "资料库",
-        "iconPath": "images/tab_course1.png",
-        "selectedIconPath": "images/tab_course2.png"
+        "iconPath": "images/file1.png",
+        "selectedIconPath": "images/file2.png"
       },{
         "pagePath": "pages/mine/mine",
         "text": "我的",
-        "iconPath": "images/tab_account1.png",
-        "selectedIconPath": "images/tab_account1.png"
+        "iconPath": "images/mine1.png",
+        "selectedIconPath": "images/mine2.png"
       }
     ]
   },

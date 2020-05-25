@@ -1,66 +1,218 @@
-.userinfo {
+page {
   background-color: #fff;
-  display: flex;
-  align-items:center;
-  justify-content: flex-start;
-  flex-direction: column;
-  width: 100%;
-  padding: 30rpx;
-  position: relative;
-  border-bottom: 1px solid #999;
 }
+
+.background {
+  width: 100%;
+  position: fixed;
+  background-size: cover;
+  z-index: -1;
+  background-color: #fff;
+}
+
+.sign-in {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40rpx;
+  font-size: 36rpx;
+  height: 100rpx;
+  border-radius: 70rpx;
+  border-width: 4rpx;
+  background-color: transparent;
+  border-style: solid;
+  color: #fff;
+  border-color: #fff;
+}
+
+.userinfo {
+  height: 400rpx;
+  display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  box-sizing: border-box;
+  padding-bottom: 160rpx;
+}
+
 .userinfo-avatar {
-  width: 176rpx;
-  height: 176rpx;
+  width: 160rpx;
+  height: 160rpx;
   margin: 10rpx;
   border-radius: 50%;
 }
 
 .userinfo-nickname {
-  color: #000;
+  color: #fff;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  font-weight: bolder;
   display: flex;
-  font-size: 60rpx;
-  font-weight: bold;
+  font-size: 70rpx;
+  letter-spacing: 10rpx;
+  margin-left: 10rpx;
 }
-.functionlist{
+
+
+.functionlist {
   display: flex;
   flex-direction: column;
-  align-items:flex-start;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   position: relative;
 }
-.func{
-  color: #000;
-  display: block;
-  width: 100%;
-  padding: 40rpx;
-  background-color: #eee;
-  border-bottom: 1px solid #999;
+
+.functitle {
+  letter-spacing: 10rpx;
+  font-size: 33rpx;
+  margin: auto;
+  padding-right: 20rpx;
 }
-.func0{
-  color: #666;
-  display: block;
-  width: 100%;
-  padding: 40rpx;
-  background-color: #eee;
-  border-bottom: 1px solid #999;
+
+.arrow {
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #3865b7;
+  border-right: 2px solid #3865b7;
+  position: absolute;
+  right: 20rpx;
+  transform: rotate(45deg);
+  margin-right: 60rpx;
 }
-.functitle{
-  position: relative;
-  left: 40rpx;
+
+.icon {
+  height: 80rpx;
+  width: 80rpx;
+  margin-left: 60rpx;
+  padding: 10rpx;
+}
+
+.btn-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.btn1 {
+  /*错题本*/
   display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 110rpx;
+  width: 90%;
+  margin-top: 60rpx;
+  border-radius: 55rpx;
+  padding-right: 75rpx;
+  color: #000;
+  background-color: #e1ebfc;
+  box-shadow: 0px 4px 5px #e1ebfcb2;
 }
-.arrow{
-width: 10px;
-height: 10px;
-border-top: 2px solid #999;
-border-right: 2px solid #999;
-position: absolute;
-right: 20rpx;
-transform: rotate(45deg);
-margin-top: 13rpx;
-display: inline-flex;
+
+.btn2 {
+  /*每日打卡*/
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 110rpx;
+  width: 90%;
+  margin-top: 30rpx;
+  border-radius: 55rpx;
+  padding-right: 75rpx;
+  color: #000;
+  background-color: #c2d6fa;
+  box-shadow: 0px 4px 5px #c2d6fac0;
 }
-.button-hover{
+
+.btn3 {
+  /*帮助*/
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 110rpx;
+  width: 90%;
+  margin-top: 30rpx;
+  border-radius: 55rpx;
+  padding-right: 85rpx;
+  color: #000;
+  background: #93b6f6;
+  box-shadow: 0px 4px 5px #93b6f6a9;
+}
+
+.btn4 {
+  /*设置提醒*/
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 110rpx;
+  width: 90%;
+  margin-top: 30rpx;
+  border-radius: 55rpx;
+  padding-right: 75rpx;
+  color: #000;
+  background-color: #4d81e1;
+  box-shadow: 0px 4px 5px #4d81e1ad;
+}
+
+.btn5 {
+  /*设置提醒-之后*/
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 110rpx;
+  width: 90%;
+  margin-top: 30rpx;
+  border-radius: 55rpx;
+  padding-right: 75rpx;
+  color: rgb(182, 182, 182);
+  background-color: #4c618a;
+  box-shadow: 0px 4px 5px #4c618ab6;
+}
+
+.button-hover {
   background: #f7f7f7;
+}
+
+.i-progress {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 90%;
+  font-size: 12px;
+  position: relative
+}
+
+.i-progress-outer {
+  display: inline-block;
+  width: 100%;
+  margin-right: 0;
+  padding-right: 0;
+  box-sizing: border-box
+}
+
+.i-progress-inner {
+  display: inline-block;
+  width: 100%;
+  background-color: #fea9a9;
+  border-radius: 100px;
+  vertical-align: middle
+}
+
+.i-progress-bg {
+  border-radius: 100px;
+  background-color: #57fa60;
+  transition: all .2s linear;
+  position: relative
+}
+
+.i-progress-text {
+  display: inline-block;
+  margin-left: 30rpx;
+  margin-bottom: 5rpx;
+  text-align: left;
+  font-size: 28rpx;
+  vertical-align: middle
 }

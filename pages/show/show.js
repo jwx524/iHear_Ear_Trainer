@@ -50,8 +50,17 @@ Page({
       ifbeat: false,
     },
     ],
+    imgheight: 0,
   },
-
+  imgLoad: function(e) {
+    var img_height = e.detail.height;
+    var img_width = e.detail.width;
+    var scr_width = wx.getSystemInfoSync().windowWidth;
+    var ratio = img_height/img_width;
+    this.setData({
+      imgheight: scr_width*ratio,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -65,7 +74,7 @@ Page({
     wx.getSystemInfo({
       success: (res) => {
         this.setData({
-          scrollheight: res.windowHeight,
+          scrollheight: res.screenHeight - res.statusBarHeight - app.globalData.CustomBar,
           scrollwidth: res.windowWidth
         });
       }
@@ -201,7 +210,8 @@ Page({
   },
   playMusic: function (e) {
     console.log(e.currentTarget)
-    var c = this.data.currentIndex - 1
+    var c = parseInt(e.currentTarget.dataset.current)
+    // var c = this.data.currentIndex - 1
     var ifplay = this.data.testmusic[c].ifplay;
     var innerAudioContext = this.data.innerAudioContext;
     var testmusic = this.data.testmusic

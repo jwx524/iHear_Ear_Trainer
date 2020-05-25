@@ -1,23 +1,40 @@
-<view class="container bg" style="height:{{scrollheight}}px;width:{{scrollwidth}}px">
-<scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px" bindscrolltolower="ReachBottom">
-  <text>为提高复习效率，只保留近20道错题，请尽快复习</text>
-<view class="content2" style="opacity:{{10}}" wx:for="{{testmusic}}">
-  <view class="line">
-  <view class='text'>
-  {{index+1}}
-  </view>
-  </view>
-  <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic' data-pid="{{index}}"></image>
-  <view wx:if="{{!item.ifbeat}}">
-    <view class="line"><text>正确答案：{{item.answer}}</text></view>
-    <view class="line"><text>你的答案:{{item.myans}}</text></view>
-  </view>
-  <view wx:if="{{item.ifbeat}}">
-    <text>正确答案：</text><image src="{{item.answer}}"></image>
-    <text>你的答案：</text><image src="{{item.myans}}"></image>
-  </view>
-  <view class="line"><text>时间：{{item.time}}</text></view>
-  </view>
-  <!-- <button catchtap="next">下一页</button> -->
-</scroll-view>
+<cu-custom bgColor="bg-cuoti-blue" isBack="{{true}}">
+	<view slot="content">错题本</view>
+</cu-custom>
+
+<view class="hint">
+	<image class="img" src="https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/hint.png?sign=f57fa07d2408ff21fdcc8465458c011f&t=1588313561"></image>
+	<text class="texts">为提高复习效率，只保留近20道错题，请尽快复习</text>
+</view>
+
+<view class="container bg">
+	<scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px" bindscrolltolower="ReachBottom">
+		<view class="content-div" wx:for="{{testmusic}}">
+			<view class="content2">
+				<view class='num'>
+					{{index+1}}
+				</view>
+
+				<image class="music" src="{{item.ifplay?'/images/pause1.png':'/images/start1.png'}}" catchtap='playMusic' data-pid="{{index}}"></image>
+
+				<view class="line" wx:if="{{!item.ifbeat}}">
+					<view style="color:#5e94d1;">正确答案：{{item.answer}}</view>		<!--蓝色-->
+					<view>你的答案：{{item.myans}}</view>
+					<view style="color:#9c9d9e;">答题时间：{{item.time}}</view>		<!--灰色-->
+				</view>
+
+				<view class="line" wx:if="{{item.ifbeat}}">
+					<view style="color:#5e94d1;">正确答案：</view>		<!--蓝色-->
+					<image class="answerimg" src="{{item.answer}}"></image>
+					<view>你的答案：</view>
+					<image class="answerimg" src="{{item.myans}}"></image>
+					<view style="color:#9c9d9e;">答题时间：{{item.time}}</view>		<!--灰色-->
+				</view>								
+			</view>
+			<view class="div"></view>
+		</view>
+
+
+		<!-- <button catchtap="next">下一页</button> -->
+	</scroll-view>
 </view>

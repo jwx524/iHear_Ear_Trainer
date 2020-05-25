@@ -69,11 +69,11 @@ Page({
                 myans: res.data[res.data.length - 1 - i].myans,
                 time: res.data[res.data.length - 1 - i].time
               }
-              
+
             }
             this.setData({
               testmusic: testmusic,
-              cc:0
+              cc: 0
             })
             for (let i = 0; i < res.data.length; i++) {
               var testmusic = this.data.testmusic
@@ -112,9 +112,9 @@ Page({
                   }
                   this.setData({
                     testmusic: testmusic,
-                    cc :cc
+                    cc: cc
                   })
-                  if(this.data.cc == 20){
+                  if (this.data.cc == 20) {
                     wx.hideLoading()
                     wx.showToast({
                       title: '加载成功',

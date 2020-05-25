@@ -1,0 +1,11 @@
+<cu-custom bgColor="bg-gradual-blue-light" isBack="{{true}}">
+	<view slot="content">帮助</view>
+</cu-custom>
+
+<image style="width:100%" mode="widthFix" src="https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2Bbackground/%E5%B8%AE%E5%8A%A91.jpg?sign=e334ae161515156406005d8a601da626&t=1590207115"></image>
+<image style="width:100%" mode="widthFix" src="https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2Bbackground/%E5%B8%AE%E5%8A%A92.jpg?sign=fab6c6dcd97f4248d3f10ab8e459bf55&t=1590207156"></image>
+<image style="width:100%" mode="widthFix" src="https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2Bbackground/%E5%B8%AE%E5%8A%A93.jpg?sign=f90b3957b600c74438470f067d7c3350&t=1590207165"></image>
+<image style="width:100%" mode="widthFix" src="https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2Bbackground/%E5%B8%AE%E5%8A%A94.jpg?sign=db323bc6773f25d8cdf08f3d5f500e16&t=1590287379"></image>
+<image style="width:100%" mode="widthFix" src="https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2Bbackground/%E5%B8%AE%E5%8A%A95.jpg?sign=13a3045437cfbe88515fb28955ec365f&t=1590299447"></image>
+<image style="width:100%" mode="widthFix" src="https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2Bbackground/%E5%B8%AE%E5%8A%A96.jpg?sign=2223f9dca41510fc652618256c2c41a9&t=1590299464"></image>
+<image style="width:100%" mode="widthFix" src="https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2Bbackground/%E5%B8%AE%E5%8A%A97.jpg?sign=c3e26b56db37e196abb75dbca2a6d7ab&t=1590298032"></image>

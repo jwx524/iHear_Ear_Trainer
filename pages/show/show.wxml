@@ -1,5 +1,47 @@
 <!--pages/show/show.wxml-->
-<view class="container bg" style="height:{{scrollheight}}px;width:{{scrollwidth}}px">
+<cu-custom bgColor="bg-show-blue" isBack="{{true}}">
+	<view slot="content">答题情况</view>
+</cu-custom>
+<image class="background" src="https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2Bbackground/show-bg.png?sign=5e9774ce71e2e0b4639b1484d1bec702&t=1589515509" bindload="imgLoad" mode="widthFix"></image>
+
+
+<view class="line" style="height:{{imgheight-40}}px; width:100vw;">
+	<view class="line2" style="margin-right:60rpx">
+		<text class="correct-words">成功答对</text>
+		<view class="line">
+			<text class="num-words">{{5-wrongnum}}</text>
+			<text class="ti-words">题</text>
+		</view>
+	</view>
+	<image style="height:250rpx; width:250rpx" src="https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2Bbackground/dianzan.png?sign=a06edb41b52f92e359c0961f18a41242&t=1589515458"></image>
+</view>
+
+<view style="margin-top:60rpx">
+<text class="wrong-words">错题</text>
+<view class="div" style="width:100vh"></view>
+</view>
+
+<scroll-view current='{{currentIndex}}' scroll-y="true" style="height:{{scrollheight-imgheight}}px;width:{{scrollwidth}}px" >
+  <view wx:for="{{testmusic}}" wx:if="{{index<wrongnum}}">
+    <view class="line" style="margin:50rpx 10rpx 50rpx 10rpx">
+      <view class="line2" style="margin:0rpx 20rpx 0rpx 10rpx" catchtap='playMusic' data-current="{{index}}">
+        <image src="{{item.ifplay?'/images/pause2.png':'/images/start2.png'}}" class='music'></image>
+        <text class="play-words">点击播放</text>
+      </view>
+      <view class="line2" style="align-items:flex-start" wx:if="{{!item.ifbeat}}">
+        <text class="ans">正确答案：{{item.answer}}</text>
+        <text class="ans">你的答案：{{item.myans}}</text>
+      </view>
+      <view class="line2" wx:if="{{item.ifbeat}}">
+        <view class="line"><text class="ans">正确答案：</text><image class="img" src="{{item.answer}}"></image></view>
+        <view class="line"><text class="ans">你的答案：</text><image class="img" src="{{item.myans}}"></image></view>
+      </view>
+    </view>
+    <view class="div"></view>
+  </view>
+</scroll-view>
+
+<!--
   <swiper current='{{currentIndex}}' style="height:{{scrollheight}}px;width:{{scrollwidth}}px" bindchange="change" vertical="true">
     <swiper-item class="swpitem"  >
       <text class="first">你答对了{{5-wrongnum}}/5题</text>
@@ -7,7 +49,7 @@
     </swiper-item>
     <swiper-item class="swpitem" wx:for="{{testmusic}}" wx:if="{{index<wrongnum}}">
       <text>{{index+1}}</text>
-      <image src="{{item.ifplay?'/images/pause.png':'/images/start.png'}}" class='music' catchtap='playMusic'></image>
+      <image src="{{item.ifplay?'/images/pause1.png':'/images/start1.png'}}" class='music' catchtap='playMusic'></image>
       <view wx:if="{{!item.ifbeat}}">
         <text>正确答案：{{item.answer}}</text>
         <text>你的答案：{{item.myans}}</text>
@@ -17,5 +59,4 @@
         <text>你的答案：</text><image src="{{item.myans}}"></image>
       </view>
     </swiper-item>
-  </swiper>
-</view>
+  </swiper>   -->
