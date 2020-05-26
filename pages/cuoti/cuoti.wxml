@@ -7,34 +7,37 @@
 	<text class="texts">为提高复习效率，只保留近20道错题，请尽快复习</text>
 </view>
 
-<view class="container bg">
-	<scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px" bindscrolltolower="ReachBottom">
-		<view class="content-div" wx:for="{{testmusic}}">
-			<view class="content2">
-				<view class='num'>
-					{{index+1}}
-				</view>
 
-				<image class="music" src="{{item.ifplay?'/images/pause1.png':'/images/start1.png'}}" catchtap='playMusic' data-pid="{{index}}"></image>
-
-				<view class="line" wx:if="{{!item.ifbeat}}">
-					<view style="color:#5e94d1;">正确答案：{{item.answer}}</view>		<!--蓝色-->
-					<view>你的答案：{{item.myans}}</view>
-					<view style="color:#9c9d9e;">答题时间：{{item.time}}</view>		<!--灰色-->
-				</view>
-
-				<view class="line" wx:if="{{item.ifbeat}}">
-					<view style="color:#5e94d1;">正确答案：</view>		<!--蓝色-->
-					<image class="answerimg" src="{{item.answer}}"></image>
-					<view>你的答案：</view>
-					<image class="answerimg" src="{{item.myans}}"></image>
-					<view style="color:#9c9d9e;">答题时间：{{item.time}}</view>		<!--灰色-->
-				</view>								
+<scroll-view scroll-y="true" class='right' style="height:{{scrollheight}}px" bindscrolltolower="ReachBottom">
+	<view class="content-div" wx:for="{{testmusic}}">
+		<view class="content2">
+			<view class='num'>
+				{{index+1}}
 			</view>
-			<view class="div"></view>
+
+			<image class="music" mode="widthFix" src="{{item.ifplay?'/images/pause1.png':'/images/start1.png'}}" catchtap='playMusic' data-pid="{{index}}"></image>
+
+			<view class="line" wx:if="{{!item.ifbeat}}">
+				<view style="color:#5e94d1;">正确答案：{{item.answer}}</view>
+				<!--蓝色-->
+				<view>你的答案：{{item.myans}}</view>
+				<view style="color:#9c9d9e;">答题时间：{{item.time}}</view>
+				<!--灰色-->
+			</view>
+
+			<view class="line" wx:if="{{item.ifbeat}}">
+				<view style="color:#5e94d1;">正确答案：</view>
+				<!--蓝色-->
+				<image class="answerimg" src="{{item.answer}}"></image>
+				<view>你的答案：</view>
+				<image class="answerimg" src="{{item.myans}}"></image>
+				<view style="color:#9c9d9e;">答题时间：{{item.time}}</view>
+				<!--灰色-->
+			</view>
 		</view>
+		<view class="div"></view>
+	</view>
 
 
-		<!-- <button catchtap="next">下一页</button> -->
-	</scroll-view>
-</view>
+	<!-- <button catchtap="next">下一页</button> -->
+</scroll-view>

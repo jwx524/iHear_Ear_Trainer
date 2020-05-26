@@ -15,8 +15,7 @@
     "navigationStyle": "custom"
   },
   "usingComponents": {
-    "cu-custom":"/colorui/components/cu-custom",
-    "i-progress": "../../dist/progress/index"
+    "cu-custom":"/colorui/components/cu-custom"
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {

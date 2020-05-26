@@ -28,7 +28,7 @@ Page({
     wx.getSystemInfo({
       success: (res) => {
         this.setData({
-          scrollheight: res.windowHeight,
+          scrollheight: res.windowHeight - 320 * res.windowWidth / 750,
           scrollwidth: res.windowWidth
         });
       }
