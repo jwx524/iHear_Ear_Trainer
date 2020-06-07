@@ -214,6 +214,22 @@ Page({
             total: total
           })
           ctotal = Math.ceil(1.0 * res.total / 20)
+          if(this.data.total==0){
+            var that = this;
+            const thisMonthDays = this.getThisMonthDays(year, month);
+            wx.hideLoading()
+            wx.showToast({
+              title: '加载成功',
+            })
+            this.setData({
+              cur_year: year,
+              cur_month: month,
+              monthDaySize: monthDaySize,
+              date: date,
+              calendarSignData: calendarSignData,
+              // calendarSignDay: calendarSignDay
+            })
+          }
           for (let j = 0; j < ctotal; j++) {
             db.collection('calendarSignData').where({
               _openid: app.globalData.openid
