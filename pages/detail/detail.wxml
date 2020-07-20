@@ -1,5 +1,5 @@
 <cu-custom bgColor="bg-dati-blue" isBack="{{true}}">
-	<view slot="content">iHear视听练耳助手</view>
+	<view slot="content">iHear视唱练耳助手</view>
 </cu-custom>
 <image class='background' src="{{id==2?'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2Bbackground/dati-bg2.png?sign=f9ec559d8db51ea61872b0e625b93a60&t=1589519794':'https://6a77-jwx-q7azx-1301736219.tcb.qcloud.la/%2Bbackground/dati-bg.png?sign=b096ba5dbffc397b34b2b925357311fc&t=1589515412'}}" bindload="imgLoad" mode="widthFix"></image>
 
